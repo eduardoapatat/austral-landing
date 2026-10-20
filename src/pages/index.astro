@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/layout/Footer.astro';
 import Nav from '../components/layout/Nav.astro';
+import CategoryIndex from '../components/sections/CategoryIndex.astro';
 import EditorialGrid from '../components/sections/EditorialGrid.astro';
 import HeroPhoto from '../components/sections/HeroPhoto.astro';
 import Statement from '../components/sections/Statement.astro';
@@ -15,6 +16,8 @@ import Layout from '../layouts/Layout.astro';
 	<main>
 		<HeroPhoto photo="https://picsum.photos/id/1015/1600/1000" />
 		<SectionIndex number="01" name="Colección" class="mx-(--gutter) mt-6" />
+
+		<CategoryIndex />
 
 		<section id="tienda" class="flex flex-col gap-section px-(--gutter) pt-section" aria-label="Tienda">
 			{blocks.map((items) => <EditorialGrid items={items} />)}
