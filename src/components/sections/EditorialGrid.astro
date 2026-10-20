@@ -1,0 +1,30 @@
+---
+import type { Placement } from '../../data/products';
+import ProductCard from '../ui/ProductCard.astro';
+
+interface Props {
+	items: Placement[];
+}
+
+const { items } = Astro.props;
+
+const colStart = { 1: 'lg:col-start-1', 2: 'lg:col-start-2', 3: 'lg:col-start-3', 4: 'lg:col-start-4' };
+const mobileColStart = { 1: 'col-start-1', 2: 'col-start-2' };
+---
+
+<div class="grid grid-cols-2 items-start gap-x-(--gutter) gap-y-12 lg:grid-cols-4" data-reveal-group>
+	{
+		items.map(({ product, col, span = 1, offset, mobileCol }) => (
+			<ProductCard
+				product={product}
+				wide={span === 2}
+				class:list={[
+					colStart[col],
+					span === 2 ? 'col-span-2' : 'col-span-1',
+					mobileCol && mobileColStart[mobileCol],
+					offset && 'lg:mt-24',
+				]}
+			/>
+		))
+	}
+</div>

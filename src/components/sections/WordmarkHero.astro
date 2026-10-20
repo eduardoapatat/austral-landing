@@ -1,0 +1,21 @@
+---
+interface Props {
+	word?: string;
+}
+
+const { word = 'ASTRO' } = Astro.props;
+---
+
+<section class="px-(--gutter) pt-28 md:pt-24">
+	<!-- El tamaño usa cqw: se calcula sobre el ancho real del contenedor, sin contar la barra de scroll. -->
+	<div class="@container">
+		<h1 class="flex items-end justify-between text-wordmark whitespace-nowrap text-ink">
+			{word}
+			<span
+				class="mb-[0.02em] inline-flex size-[0.11em] items-center justify-center rounded-full border-[0.012em] border-current text-[0.07em] font-bold tracking-normal"
+				aria-hidden="true"
+			>R</span>
+		</h1>
+	</div>
+	<div class="mt-6 h-[2px] bg-ink"></div>
+</section>

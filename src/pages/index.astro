@@ -1,83 +1,29 @@
 ---
 import Footer from '../components/layout/Footer.astro';
 import Nav from '../components/layout/Nav.astro';
-import Button from '../components/ui/Button.astro';
-import FeatureCard from '../components/ui/FeatureCard.astro';
-import FilterChip from '../components/ui/FilterChip.astro';
-import PinCard from '../components/ui/PinCard.astro';
+import EditorialGrid from '../components/sections/EditorialGrid.astro';
+import InfoStrip from '../components/sections/InfoStrip.astro';
+import Statement from '../components/sections/Statement.astro';
+import WordmarkHero from '../components/sections/WordmarkHero.astro';
+import { blocks } from '../data/products';
 import Layout from '../layouts/Layout.astro';
-
-const filters = ['Todo', 'Cocina', 'Interiores', 'Viajes', 'Moda', 'Naturaleza', 'Arquitectura', 'Café'];
-
-// Ratios verticales del sistema: 1:1, 2:3, 3:4 y 4:5.
-const ratios = [
-	[600, 900],
-	[600, 600],
-	[600, 800],
-	[600, 750],
-];
-const photoIds = [10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 22, 24, 25, 26, 27, 28, 29, 30, 42, 48];
-const labels: Record<number, string> = { 1: 'Verde bosque', 6: 'Calma costera', 11: 'Ruta de montaña', 17: 'Luz de tarde' };
-
-const pins = photoIds.map((id, i) => {
-	const [width, height] = ratios[i % ratios.length];
-	return {
-		src: `https://picsum.photos/id/${id}/${width}/${height}`,
-		alt: `Foto de inspiración ${i + 1}`,
-		width,
-		height,
-		label: labels[i],
-	};
-});
-
-const pic = (id: number, label?: string) => ({
-	src: `https://picsum.photos/id/${id}/640/800`,
-	alt: label ?? 'Foto de inspiración',
-	width: 640,
-	height: 800,
-	label,
-});
 ---
 
-<Layout title="astro-app · Crea la vida que te gusta">
+<Layout title="ASTRO · Tienda editorial de prueba">
 	<Nav />
 
 	<main>
-		<section class="bg-surface-soft">
-			<div class="mx-auto flex max-w-[1280px] flex-col items-center px-6 py-section text-center max-[480px]:py-8">
-				<h1
-					class="max-w-4xl text-display-xl text-ink max-lg:text-[56px] max-md:text-[44px] max-[480px]:text-[36px]"
-				>
-					Crea la vida que te gusta con astro-app
-				</h1>
-				<p class="mt-4 max-w-xl text-body-md text-body">
-					Guarda ideas de cocina, viajes, casa y estilo. Encuentra lo que te inspira y conviértelo en tu
-					próximo proyecto.
-				</p>
-				<Button variant="secondary" href="#ideas" class="mt-8">Explorar ideas</Button>
-			</div>
+		<WordmarkHero />
+		<InfoStrip />
+
+		<section class="flex flex-col gap-section px-(--gutter)" aria-label="Productos">
+			{blocks.map((items) => <EditorialGrid items={items} />)}
 		</section>
 
-		<section id="ideas" class="mx-auto max-w-[1280px] px-6 py-section max-md:py-12 max-[480px]:py-8">
-			<h2 class="sr-only">Ideas destacadas</h2>
-			<div class="-mx-6 mb-6 flex gap-2 overflow-x-auto px-6 pb-1">
-				{filters.map((filter, i) => <FilterChip active={i === 0}>{filter}</FilterChip>)}
-			</div>
-			<div class="columns-1 gap-2 max-[480px]:gap-1.5 min-[481px]:columns-2 md:columns-3 lg:columns-4 2xl:columns-5">
-				{pins.map((pin) => <PinCard {...pin} class="mb-2 break-inside-avoid max-[480px]:mb-1.5" />)}
-			</div>
-		</section>
-
-		<section class="mx-auto flex max-w-[1280px] flex-col gap-section px-6 pb-section max-md:gap-12">
-			<FeatureCard title="Busca una idea" image={pic(64, 'Cena fácil')}>
-				<p>¿Qué quieres probar ahora? Piensa en algo que te apetezca, como una cena sencilla, y descubre lo que encuentras.</p>
-				<Button slot="action" href="#ideas">Empezar a buscar</Button>
-			</FeatureCard>
-			<FeatureCard title="Guarda lo que te gusta" image={pic(65, 'Rincón tranquilo')} soft reverse>
-				<p>Reúne tus ideas favoritas en tableros para volver a ellas cuando quieras.</p>
-				<Button slot="action" variant="secondary" href="#">Crear un tablero</Button>
-			</FeatureCard>
-		</section>
+		<Statement lines={['Hecho para usarse.', 'O para mirarse.']}>
+			Una tienda de prueba construida con el sistema ASTRO: una sola tinta, una rejilla de cuatro columnas y
+			mucho espacio en blanco.
+		</Statement>
 	</main>
 
 	<Footer />

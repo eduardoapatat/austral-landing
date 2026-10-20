@@ -1,0 +1,19 @@
+---
+import UnderlineLink from '../ui/UnderlineLink.astro';
+---
+
+<section class="grid grid-cols-2 gap-x-(--gutter) gap-y-8 px-(--gutter) pt-8 pb-16 lg:grid-cols-4 lg:pb-12">
+	<p class="text-label uppercase">ASTRO</p>
+	<div class="lg:row-span-2">
+		<p class="text-label uppercase">Por qué</p>
+		<p class="mt-6 max-w-sm text-info-strong">
+			Un sistema de prueba para una landing editorial: una sola tinta, una rejilla de cuatro columnas y nada que
+			distraiga de las imágenes.
+		</p>
+	</div>
+	<div class="flex flex-col gap-8">
+		<UnderlineLink href="#" class="self-start text-label uppercase">Ver el sistema</UnderlineLink>
+		<UnderlineLink href="#" class="self-start text-label uppercase">Envíos y cambios</UnderlineLink>
+	</div>
+	<p class="text-label uppercase lg:text-right">© 2026</p>
+</section>

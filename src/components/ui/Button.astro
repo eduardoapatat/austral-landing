@@ -1,34 +1,30 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import UnderlineLink from './UnderlineLink.astro';
 
-type Props = HTMLAttributes<'button'> & {
-	variant?: 'primary' | 'secondary' | 'tertiary';
-	href?: string;
+type Props = HTMLAttributes<'a'> & {
+	variant?: 'primary' | 'text';
+	href: string;
 };
 
-const { variant = 'primary', href, disabled, class: className, ...rest } = Astro.props;
-
-const variants = {
-	primary: 'bg-primary text-on-primary active:bg-primary-pressed',
-	secondary: 'bg-secondary-bg text-on-secondary active:bg-secondary-pressed',
-	tertiary: 'bg-transparent text-ink',
-};
-
-const classes = [
-	'focus-ring inline-flex h-10 items-center justify-center gap-1 rounded-md px-3.5 text-button-md whitespace-nowrap',
-	disabled ? 'cursor-not-allowed bg-surface-card text-ash' : variants[variant],
-	className,
-];
+const { variant = 'primary', href, class: className, ...rest } = Astro.props;
 ---
 
 {
-	href && !disabled ? (
-		<a href={href} class:list={classes}>
+	variant === 'primary' ? (
+		<a
+			href={href}
+			class:list={[
+				'inline-flex h-12 items-center justify-center bg-primary-ink px-6 text-button-md text-on-primary uppercase',
+				className,
+			]}
+			{...rest}
+		>
 			<slot />
 		</a>
 	) : (
-		<button type="button" disabled={disabled} class:list={classes} {...rest}>
+		<UnderlineLink href={href} class:list={['text-button-md uppercase', className]} {...rest}>
 			<slot />
-		</button>
+		</UnderlineLink>
 	)
 }

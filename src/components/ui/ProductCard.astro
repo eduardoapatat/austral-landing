@@ -1,0 +1,43 @@
+---
+import { photoUrl, type Product } from '../../data/products';
+import ProductTag from './ProductTag.astro';
+
+interface Props {
+	product: Product;
+	wide?: boolean;
+	href?: string;
+	class?: string;
+}
+
+const { product, wide = false, href = '#', class: className } = Astro.props;
+const { title, price, category, ratio, photo, altPhoto } = product;
+
+const aspect = {
+	'2/3': 'aspect-[2/3]',
+	'3/4': 'aspect-[3/4]',
+	'1/1': 'aspect-square',
+	'4/5': 'aspect-[4/5]',
+}[ratio];
+
+const scale = wide ? 1.25 : 1;
+const main = photoUrl(photo, ratio, scale);
+const alt = photoUrl(altPhoto, ratio, scale);
+---
+
+<a href={href} class:list={['group block', className]} data-cursor="view">
+	<div class:list={['relative overflow-hidden bg-surface-media', aspect]}>
+		<img {...main} alt="" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover" />
+		<img
+			{...alt}
+			alt=""
+			loading="lazy"
+			decoding="async"
+			class="absolute inset-0 size-full scale-120 object-cover brightness-400 contrast-150 transition-[clip-path,scale,filter] duration-500 ease-in-out-extreme [clip-path:inset(0_100%_0_0)] group-hover:scale-100 group-hover:brightness-100 group-hover:contrast-100 group-hover:[clip-path:inset(0)] group-focus-visible:scale-100 group-focus-visible:brightness-100 group-focus-visible:contrast-100 group-focus-visible:[clip-path:inset(0)] motion-reduce:transition-none"
+		/>
+	</div>
+	<div class="mt-3 flex items-start justify-between gap-4 text-product-title">
+		<h3>{title}</h3>
+		<span>{price}</span>
+	</div>
+	<ProductTag class="mt-1">{category}</ProductTag>
+</a>
