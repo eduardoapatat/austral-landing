@@ -1,407 +1,317 @@
 ---
 version: alpha
-name: astro-app
+name: ASTRO
 description: |
-  A photography-first discovery system organized around the astro-app Green CTA, the masonry pin grid, and a soft warm-cream chrome that gets out of the imagery's way. The home page is a content-discovery tool wearing the chrome of a magazine publisher: 70px display headlines, friendly Inter typography, fully-rounded pill buttons (16px) on a cream-tinted neutral palette, and a sticky red "Sign up" CTA that anchors every viewport. Pin imagery is the system's load-bearing visual element — square, portrait, and landscape pins tile in a column-based masonry grid where each tile is a fully-rounded 16px-radius card, separated by tight 8px gutters. The chrome is otherwise quiet: warm grays, true whites, and a single saturated green — no decorative gradients, no atmospheric backgrounds, no shadows beyond a soft modal scrim.
+  An editorial Swiss-poster system built on one ink color over a warm cream ground. A full-bleed 900-weight wordmark spans the entire viewport, a 2px ink rule cuts beneath it, and everything that follows sits on a strict 4-column grid with deliberate empty cells. There are no radii, no shadows and no secondary palette: product photography is the only element allowed to carry its own color. Motion is slow and confident on entry (2s expo-out), fast and graphic on interaction (500ms clip-path wipes), and the whole page can swap ink themes (red, light, dark) with a three-dot switch.
 
 colors:
-  primary: "#00843d"
-  on-primary: "#ffffff"
-  primary-pressed: "#006b2f"
-  ink: "#000000"
-  ink-soft: "#211922"
-  body: "#33332e"
-  charcoal: "#262622"
-  mute: "#62625b"
-  ash: "#91918c"
-  stone: "#c8c8c1"
-  hairline: "#dadad3"
-  hairline-soft: "#e5e5e0"
-  on-secondary: "#000000"
-  secondary-bg: "#e5e5e0"
-  secondary-pressed: "#c8c8c1"
-  canvas: "#ffffff"
-  surface-soft: "#fbfbf9"
-  surface-card: "#f6f6f3"
-  surface-elevated: "#ffffff"
-  on-dark: "#ffffff"
-  on-dark-mute: "rgba(255,255,255,0.7)"
-  surface-dark: "#262622"
-  focus-outer: "#435ee5"
-  focus-inner: "#ffffff"
-  accent-pressed-blue: "#617bff"
-  accent-purple: "#7e238b"
-  accent-purple-deep: "#6845ab"
-  success-deep: "#103c25"
-  success-pale: "#c7f0da"
-  error: "#9e0a0a"
-  error-deep: "#cc001f"
+  primary: "#ff0001"
+  primary-ink: "#c00000"
+  on-primary: "#ede4dd"
+  canvas: "#ede4dd"
+  surface-media: "#d2cac3"
+  ink-light: "#000000"
+  surface-dark: "#000000"
+  on-dark: "#ede4dd"
+  rule: "#ff0001"
+  rule-soft: "rgba(255,0,1,0.5)"
 
 typography:
-  display-xl:
-    fontFamily: Inter
-    fontSize: 70px
-    fontWeight: 600
-    lineHeight: 1.1
-    letterSpacing: -1.2px
-  display-lg:
-    fontFamily: Inter
-    fontSize: 44px
-    fontWeight: 700
-    lineHeight: 1.15
-    letterSpacing: -0.8px
-  heading-xl:
-    fontFamily: Inter
-    fontSize: 28px
-    fontWeight: 700
-    lineHeight: 1.2
-    letterSpacing: -1.2px
-  heading-lg:
-    fontFamily: Inter
-    fontSize: 22px
-    fontWeight: 600
-    lineHeight: 1.25
+  wordmark:
+    fontFamily: Inter Tight
+    fontSize: 184px
+    fontWeight: 900
+    lineHeight: 1
+    letterSpacing: -9.2px
+  display:
+    fontFamily: Inter Tight
+    fontSize: 86px
+    fontWeight: 900
+    lineHeight: 1
+    letterSpacing: -4.3px
+  headline:
+    fontFamily: Inter Tight
+    fontSize: 60px
+    fontWeight: 400
+    lineHeight: 1
+    letterSpacing: -1.5px
+  lead:
+    fontFamily: Inter Tight
+    fontSize: 24px
+    fontWeight: 400
+    lineHeight: 1.333
+    letterSpacing: -0.6px
+  nav-link:
+    fontFamily: Inter Tight
+    fontSize: 24px
+    fontWeight: 400
+    lineHeight: 1.333
     letterSpacing: 0
-  heading-md:
-    fontFamily: Inter
+  product-title:
+    fontFamily: Inter Tight
     fontSize: 18px
-    fontWeight: 600
-    lineHeight: 1.3
+    fontWeight: 400
+    lineHeight: 1.111
     letterSpacing: 0
   body-md:
-    fontFamily: Inter
+    fontFamily: Inter Tight
     fontSize: 16px
     fontWeight: 400
-    lineHeight: 1.4
-    letterSpacing: 0
-  body-strong:
-    fontFamily: Inter
-    fontSize: 16px
-    fontWeight: 600
-    lineHeight: 1.4
-    letterSpacing: 0
-  body-sm:
-    fontFamily: Inter
-    fontSize: 14px
-    fontWeight: 400
-    lineHeight: 1.4
-    letterSpacing: 0
-  body-sm-strong:
-    fontFamily: Inter
-    fontSize: 14px
-    fontWeight: 700
-    lineHeight: 1.4
-    letterSpacing: 0
-  caption-md:
-    fontFamily: Inter
-    fontSize: 12px
-    fontWeight: 500
     lineHeight: 1.5
     letterSpacing: 0
-  caption-sm:
-    fontFamily: Inter
-    fontSize: 12px
-    fontWeight: 400
-    lineHeight: 1.4
-    letterSpacing: 0
-  link-md:
-    fontFamily: Inter
-    fontSize: 16px
-    fontWeight: 600
-    lineHeight: 1.4
-    letterSpacing: 0
-  button-md:
-    fontFamily: Inter
+  info-strong:
+    fontFamily: Inter Tight
     fontSize: 14px
     fontWeight: 700
-    lineHeight: 1
+    lineHeight: 1.429
     letterSpacing: 0
-  button-sm:
-    fontFamily: Inter
+  button-md:
+    fontFamily: Inter Tight
+    fontSize: 14px
+    fontWeight: 700
+    lineHeight: 1.143
+    letterSpacing: -0.35px
+  label:
+    fontFamily: Inter Tight
     fontSize: 12px
     fontWeight: 700
-    lineHeight: 1
+    lineHeight: 1.333
+    letterSpacing: 0
+  tag:
+    fontFamily: Inter Tight
+    fontSize: 11px
+    fontWeight: 400
+    lineHeight: 1.5
     letterSpacing: 0
 
 rounded:
   none: 0px
-  sm: 8px
-  md: 16px
-  lg: 32px
   full: 9999px
 
 spacing:
   xxs: 4px
-  xs: 6px
-  sm: 8px
-  md: 12px
-  lg: 16px
-  xl: 24px
-  xxl: 32px
-  section: 64px
+  xs: 8px
+  sm: 12px
+  md: 16px
+  lg: 24px
+  xl: 32px
+  xxl: 64px
+  section: 128px
 
 components:
-  button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.md}"
-    padding: 6px 14px
-    height: 40px
-  button-primary-pressed:
-    backgroundColor: "{colors.primary-pressed}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.md}"
-  button-secondary:
-    backgroundColor: "{colors.secondary-bg}"
-    textColor: "{colors.on-secondary}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.md}"
-    padding: 6px 14px
-    height: 40px
-  button-secondary-pressed:
-    backgroundColor: "{colors.secondary-pressed}"
-    textColor: "{colors.on-secondary}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.md}"
-  button-tertiary:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.md}"
-  button-icon-circular:
-    backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.full}"
-    size: 40px
-  button-pill-on-image:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.full}"
-    padding: 8px 14px
-  button-disabled:
-    backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.ash}"
-    rounded: "{rounded.md}"
-  search-bar:
-    backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.full}"
-    padding: 11px 15px
-    height: 48px
-  search-bar-focused:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.full}"
-  text-input:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.md}"
-    padding: 11px 15px
-    height: 44px
-  text-input-focused:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.md}"
-  pin-card:
-    backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.md}"
-    padding: 0px
-  pin-card-large:
-    backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.lg}"
-    padding: 0px
-  pin-overlay-pill:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.button-sm}"
-    rounded: "{rounded.full}"
-    padding: 6px 12px
-  filter-chip:
-    backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.ink}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.full}"
-    padding: 8px 16px
-  filter-chip-active:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.on-dark}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.full}"
-  category-tile:
-    backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-strong}"
-    rounded: "{rounded.md}"
-    padding: 16px
-  feature-card:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.heading-xl}"
-    rounded: "{rounded.md}"
-    padding: 32px
-  feature-card-soft:
-    backgroundColor: "{colors.surface-card}"
-    textColor: "{colors.ink}"
-    typography: "{typography.heading-xl}"
-    rounded: "{rounded.md}"
-    padding: 32px
-  modal-card:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.lg}"
-    padding: 32px
-  hero-cta-strip:
-    backgroundColor: "{colors.surface-dark}"
-    textColor: "{colors.on-dark}"
-    typography: "{typography.heading-xl}"
-    rounded: "{rounded.none}"
-    padding: 48px 32px
   primary-nav:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-strong}"
-    rounded: "{rounded.none}"
-    height: 64px
-  footer-section:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.mute}"
-    typography: "{typography.body-sm}"
+    backgroundColor: "transparent"
+    textColor: "{colors.primary}"
+    typography: "{typography.nav-link}"
     rounded: "{rounded.none}"
     padding: 32px 24px
-  link-inline:
-    textColor: "{colors.ink-soft}"
-    typography: "{typography.link-md}"
+    height: 96px
+  theme-dot:
+    backgroundColor: "{colors.primary}"
+    rounded: "{rounded.full}"
+    size: 18px
+  wordmark-hero:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary}"
+    typography: "{typography.wordmark}"
+    rounded: "{rounded.none}"
+    padding: 0px 24px
+  rule:
+    backgroundColor: "{colors.rule}"
+    rounded: "{rounded.none}"
+    height: 2px
+  rule-soft:
+    backgroundColor: "{colors.rule-soft}"
+    rounded: "{rounded.none}"
+    height: 1px
+  info-strip:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary-ink}"
+    typography: "{typography.info-strong}"
+    rounded: "{rounded.none}"
+    padding: 32px 24px
+  info-label:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary-ink}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+  product-card:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary-ink}"
+    typography: "{typography.product-title}"
+    rounded: "{rounded.none}"
+    padding: 0px
+  product-card-wide:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary-ink}"
+    typography: "{typography.product-title}"
+    rounded: "{rounded.none}"
+    padding: 0px
+  media-box:
+    backgroundColor: "{colors.surface-media}"
+    rounded: "{rounded.none}"
+    padding: 0px
+  product-tag:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary-ink}"
+    typography: "{typography.tag}"
+    rounded: "{rounded.none}"
+  button-primary:
+    backgroundColor: "{colors.primary-ink}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.button-md}"
+    rounded: "{rounded.none}"
+    padding: 12px 24px
+    height: 48px
+  button-text:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary-ink}"
+    typography: "{typography.button-md}"
+    rounded: "{rounded.none}"
+  cursor-view-more:
+    backgroundColor: "{colors.primary-ink}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.tag}"
+    rounded: "{rounded.full}"
+    size: 100px
+  statement-block:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary}"
+    typography: "{typography.display}"
+    rounded: "{rounded.none}"
+    padding: 24px
+  footer-section:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary-ink}"
+    typography: "{typography.info-strong}"
+    rounded: "{rounded.none}"
+    padding: 32px 24px
+  theme-dark:
+    backgroundColor: "{colors.surface-dark}"
+    textColor: "{colors.on-dark}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.none}"
+  theme-light:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink-light}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.none}"
 ---
 
 ## Overview
 
-astro-app's marketing system is built around a single instructional principle: get out of the photograph's way. The chrome is a quiet warm-cream neutral palette (`{colors.surface-soft}`, `{colors.surface-card}`, `{colors.canvas}`) carrying typography in Inter, an open-source geometric sans, with astro-app Green (`{colors.primary}` — `#00843d`) reserved exclusively for the "Sign up" CTA, the active-tab indicator, and the sticky top-nav anchor. Every other surface is allowed to fade behind the imagery — pin tiles, category tiles, content thumbnails, profile shots — that constitutes the actual product.
+ASTRO is an editorial landing system built like a Swiss poster: one ink, one ground, one grid. The ground is a warm cream (`{colors.canvas}` — `#ede4dd`) and every piece of chrome — wordmark, navigation, rules, prices, labels, cursor — is printed in a single ink, ASTRO Red (`{colors.primary}` — `#ff0001`). Product and editorial photography is the only element allowed to bring its own color; the page around it stays strictly monochrome.
 
-The design system has two distinct surface modes that alternate down the home page: the **hero/CTA chrome** (cream surfaces, large 70px Inter display headlines, alternating left/right photo-illustrated feature cards) and the **content masonry** (a column-based grid of 16px-radius pin cards on `{colors.surface-card}` with no internal padding — the pin is the card). The search results page is almost pure masonry: a tight column grid of pin imagery in mixed aspect ratios, with a small filter-chip strip at the top and the sticky green Sign-up CTA in the upper-right corner. The `/create` business surface inverts the grid back to a more traditional editorial layout but keeps every other rule of the system: Inter, cream chrome, green CTA, 16px-radius pills.
+The page opens with a **full-bleed wordmark**: a 900-weight, tightly tracked display word that spans the viewport edge to edge (gutter to gutter), followed by a 2px ink rule. Under the rule, a four-column **info strip** of small uppercase labels and short bold copy sets the grid that the rest of the page obeys. The content area is an **editorial grid** — not a masonry — where image cards occupy one or two of the four columns and deliberately leave cells empty, so the rhythm reads like a magazine spread rather than a catalog.
 
-The system's signature gesture is **shape geometry**: 16px radius (`{rounded.md}`) for nearly every surface — buttons, inputs, pin cards, feature cards — and 32px radius (`{rounded.lg}`) reserved for pin-card-large and modal cards. There are exactly three radius values in active use: 16px, 32px, and pill (9999px). The system never goes flat (sharp corners) and never goes radius-medium — those two values are the entire shape vocabulary.
+The system has three signature gestures:
+- **Scale contrast**: a ~184px wordmark and 86px statements sit directly above 11–14px labels with almost nothing in between.
+- **Zero geometry**: no border radius anywhere except true circles (theme dots, cursor, category dot), and no shadows at all.
+- **Graphic motion**: hover wipes a second image across the card with a `clip-path` while it de-scales and its brightness falls from 400% to 100%.
 
 **Key Characteristics:**
-- Single-accent CTA: astro-app Green (`{colors.primary}`) carries every primary action; everything else is monochrome
-- Inter open-source typography across every text role from `{typography.display-xl}` (70px) down to `{typography.caption-sm}` (12px) — no serif, no monospace anywhere
-- Two-radius shape system: `{rounded.md}` (16px) for most components, `{rounded.lg}` (32px) for large cards and modals, `{rounded.full}` for circular elements
-- Masonry pin grid as the load-bearing visual element — column-based layout where each pin's natural aspect ratio is preserved
-- Warm-cream neutral chrome (`{colors.surface-card}` — #f6f6f3) that softly recedes behind imagery without competing
-- Sticky top nav with the always-green Sign-up CTA anchored in the upper-right at every breakpoint
-- Modal overlay (login/signup) using a soft scrim over the page content rather than a navigation jump
+- Single-ink chrome: `{colors.primary}` for large type and rules, `{colors.primary-ink}` for small text — never a second accent
+- Inter Tight across every role, from the 900-weight `{typography.wordmark}` down to the 11px uppercase `{typography.tag}`
+- Two radius values only: `{rounded.none}` (everything) and `{rounded.full}` (true circles)
+- No shadows, no gradients, no cards with fills — structure comes from rules, grid and whitespace
+- 4-column grid with 24px gutters and intentional empty cells
+- Three ink themes (red, light, dark) switched from the navigation
+- Fixed navigation in `mix-blend-mode: difference` so it inverts over photography while scrolling
 
 ## Colors
 
-> **Source pages:** `/` (home), `/search/pins/?q=bold lip` (search results), `/create` (creator marketing), ``/create/how-to-create-boards`` (creator article). The chrome palette is identical across all four pages.
+> **Source:** sampled with Playwright from the reference's computed styles (`--color-cream: #ede4dd`, `--color-red: #ff0001`, media placeholder `#d2cac3`, dark theme `#000`). Text-safe red added for accessibility.
 
-### Brand & Accent
-- **astro-app Green** (`{colors.primary}` — `#00843d`): the brand's only highly-saturated color. Sign-up CTAs, sticky top-nav anchor, active state in tab strips, and the brand wordmark.
-- **astro-app Green Pressed** (`{colors.primary-pressed}` — `#006b2f`): pressed state for the primary button — a single notch deeper than brand green.
+### Brand & Ink
+- **ASTRO Red** (`{colors.primary}` — `#ff0001`): the brand ink. Wordmark, display statements, rules, nav links at 24px, theme dot and cursor dot. Only on text ≥ 24px or non-text graphics (contrast on cream is 3.19:1 — passes AA for large text only).
+- **ASTRO Red Ink** (`{colors.primary-ink}` — `#c00000`): the same red pulled darker for every text below 24px — labels, info copy, product titles, prices, tags, footer links, filled buttons. 5.17:1 on `{colors.canvas}`.
+- **On Primary** (`{colors.on-primary}` — `#ede4dd`): cream text on red-filled elements (button, "View more" cursor).
 
 ### Surface
-- **Canvas** (`{colors.canvas}` — `#ffffff`): true white. The base surface for the primary nav, modals, feature cards, and content body.
-- **Soft Surface** (`{colors.surface-soft}` — `#fbfbf9`): faintly cream-tinted off-white used for the page body wash on the home page hero.
-- **Surface Card** (`{colors.surface-card}` — `#f6f6f3`): warm-cream card and pin-tile background. Carries category tiles, search-bar default fill, button-secondary default, and pin-card backgrounds.
-- **Secondary BG** (`{colors.secondary-bg}` — `#e5e5e0`): the gray-cream used for `{component.button-secondary}` ("I already have an account") fill — a notch deeper than `{colors.surface-card}`.
-- **Secondary Pressed** (`{colors.secondary-pressed}` — `#c8c8c1`): pressed state for the secondary button.
-- **Surface Dark** (`{colors.surface-dark}` — `#262622`): warm near-black used in the rare dark CTA strip on `/create`.
-- **Hairline** (`{colors.hairline}` — `#dadad3`): 1px row dividers, footer column rules.
-- **Hairline Soft** (`{colors.hairline-soft}` — `#e5e5e0`): lighter inline divider; doubles as the secondary-button background.
+- **Canvas** (`{colors.canvas}` — `#ede4dd`): warm cream ground for every section in the red and light themes.
+- **Surface Media** (`{colors.surface-media}` — `#d2cac3`): a notch deeper than the canvas; fills image boxes while photography loads so the grid never collapses.
+- **Surface Dark** (`{colors.surface-dark}` — `#000000`): ground of the dark theme.
 
-### Text
-- **Ink** (`{colors.ink}` — `#000000`): primary headlines, button text, primary nav links.
-- **Ink Soft** (`{colors.ink-soft}` — `#211922`): inline-link color in body prose. The brand's only "color" beyond astro-app Green used in chrome — a near-black with a faint warm cast.
-- **Body** (`{colors.body}` — `#33332e`): default paragraph text on `{colors.canvas}`.
-- **Charcoal** (`{colors.charcoal}` — `#262622`): subtly softer body where pure ink is too heavy.
-- **Mute** (`{colors.mute}` — `#62625b`): metadata text, footer links, secondary captions.
-- **Ash** (`{colors.ash}` — `#91918c`): disabled button text, placeholder text in inputs.
-- **Stone** (`{colors.stone}` — `#c8c8c1`): least-emphasis utility text, disabled-state borders.
-- **On Dark** (`{colors.on-dark}` — `#ffffff`): primary text on `{colors.surface-dark}`.
+### Rules
+- **Rule** (`{colors.rule}` — `#ff0001`): 2px full-width rules under the wordmark and above the closing statement.
+- **Rule Soft** (`{colors.rule-soft}` — `rgba(255,0,1,0.5)`): 1px divider above the footer.
 
-### Semantic
-- **Error** (`{colors.error}` — `#9e0a0a`): validation messages, destructive confirmation copy.
-- **Error Deep** (`{colors.error-deep}` — `#cc001f`): deepened error background where the regular error tone needs more contrast. Note: with the brand now green, this red is reserved exclusively for semantic destructiveness and never appears in chrome.
-- **Success Deep** (`{colors.success-deep}` — `#103c25`): in-product success messaging.
-- **Success Pale** (`{colors.success-pale}` — `#c7f0da`): pale success-pill background.
-- **Focus Outer** (`{colors.focus-outer}` — `#435ee5`): the system's focus-ring blue — appears as a 2px outer outline around focused inputs and buttons.
-- **Focus Inner** (`{colors.focus-inner}` — `#ffffff`): white inner gap inside the focus-ring stack.
+### Themes
+The ink is a theme variable, not a fixed color. Every component reads `currentColor` / the theme ink so a theme switch recolors the whole page at once.
 
-### Editorial Accents (used sparingly inside content imagery and category badges)
-- **Accent Pressed Blue** (`{colors.accent-pressed-blue}` — `#617bff`): pressed state for blue informational badges and editorial pin chips.
-- **Accent Purple** (`{colors.accent-purple}` — `#7e238b`): editorial recommendation badge, in-product "astro-app Predicts" callout.
-- **Accent Purple Deep** (`{colors.accent-purple-deep}` — `#6845ab`): paired dark for purple lockups and "Performance+" iconography.
+| Theme | Ground | Large ink | Small-text ink |
+|---|---|---|---|
+| red (default) | `{colors.canvas}` | `{colors.primary}` | `{colors.primary-ink}` |
+| light | `{colors.canvas}` | `{colors.ink-light}` | `{colors.ink-light}` |
+| dark | `{colors.surface-dark}` | `{colors.on-dark}` | `{colors.on-dark}` |
+
+Theme change transitions `color` and `background-color` over 400ms `ease-in-out`.
 
 ## Typography
 
 ### Font Family
-**Inter** is the open-source geometric sans-serif (SIL Open Font License) used across every text role on every page. It carries weights 400 (regular), 500 (medium), 600 (semibold), and 700 (bold), and falls back through a long stack — `-apple-system` → `system-ui` → `Segoe UI` → `Roboto` → `Helvetica Neue` → `Arial` plus emoji fallbacks. The system's distinctive typographic trait is its tight letter-spacing at display sizes (-1.2px on `{typography.display-xl}` and `{typography.heading-xl}`), which gives 70px headlines a confident, friendly density rather than the airy spread of more conventional display geometric sans faces.
+The reference uses **Neue Haas Grotesk Text Pro**, a commercial face. ASTRO substitutes **Inter Tight** (SIL Open Font License): a tighter-spaced cut of Inter with the same neutral grotesk skeleton, available as a variable font from 100 to 900 so it covers both the 900-weight wordmark and the 400/700 text roles. Fallback stack: `"Helvetica Neue"` → `Helvetica` → `Arial` → `sans-serif`. Self-host it (Fontsource) with `font-display: swap`.
 
 ### Hierarchy
 
 | Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
-| `{typography.display-xl}` | 70px | 600 | 1.1 | -1.2px | Marketing hero headline ("Create the life you love on astro-app") |
-| `{typography.display-lg}` | 44px | 700 | 1.15 | -0.8px | "Where your content can thrive" creator hero |
-| `{typography.heading-xl}` | 28px | 700 | 1.2 | -1.2px | Section heading ("Bring your favorite ideas to life", "astro-app for your brand") |
-| `{typography.heading-lg}` | 22px | 600 | 1.25 | 0 | Sub-section heading, modal title ("Welcome to astro-app") |
-| `{typography.heading-md}` | 18px | 600 | 1.3 | 0 | Card title, in-grid pin label |
-| `{typography.body-md}` | 16px | 400 | 1.4 | 0 | Body copy, modal body, default paragraph |
-| `{typography.body-strong}` | 16px | 600 | 1.4 | 0 | Inline emphasis, primary nav link, form label |
-| `{typography.body-sm}` | 14px | 400 | 1.4 | 0 | Footer copy, in-grid pin metadata, helper text |
-| `{typography.body-sm-strong}` | 14px | 700 | 1.4 | 0 | Search-result count label, table-header text |
-| `{typography.caption-md}` | 12px | 500 | 1.5 | 0 | Caption text, link metadata |
-| `{typography.caption-sm}` | 12px | 400 | 1.4 | 0 | Smallest utility text, copyright |
-| `{typography.link-md}` | 16px | 600 | 1.4 | 0 | Inline anchor link in body prose |
-| `{typography.button-md}` | 14px | 700 | 1 | 0 | Standard primary/secondary button label |
-| `{typography.button-sm}` | 12px | 700 | 1 | 0 | Compact pill chip, in-card button |
+| `{typography.wordmark}` | 184px (12.75vw) | 900 | 1 | -0.05em | Full-bleed hero wordmark "ASTRO" |
+| `{typography.display}` | 86px (6vw) | 900 | 1 | -0.05em | Closing statement, ©-year block |
+| `{typography.headline}` | 60px | 400 | 1 | -1.5px | Rare large light headline |
+| `{typography.lead}` | 24px | 400 | 1.333 | -0.6px | Closing intro paragraph above the footer |
+| `{typography.nav-link}` | 24px | 400 | 1.333 | 0 | Primary nav links ("Shop", "Bag (0)") |
+| `{typography.product-title}` | 18px | 400 | 1.111 | 0 | Product name and price row |
+| `{typography.body-md}` | 16px | 400 | 1.5 | 0 | Default paragraph |
+| `{typography.info-strong}` | 14px | 700 | 1.429 | 0 | Info-strip copy, footer links |
+| `{typography.button-md}` | 14px | 700 | 1.143 | -0.35px | Button labels |
+| `{typography.label}` | 12px | 700 | 1.333 | 0 | Uppercase section labels ("WHY", "SHIPPING & RETURNS") |
+| `{typography.tag}` | 11px | 400 | 1.5 | 0 | Uppercase category tag under products, cursor label |
 
 ### Principles
-The system has an unusually steep size jump between display and body — `{typography.display-xl}` (70px) drops directly to `{typography.body-md}` (16px) on the home hero with no intermediate tier between. The negative tracking on the largest tiers (-1.2px / -0.8px) creates a tighter, more confident headline than a default geometric sans would deliver, and the body copy sits at a generous 1.4 line-height to keep multi-line descriptions breathing.
-
-### Note on Font Loading
-Inter is free and open-source (SIL OFL), so it can be self-hosted — load only weights 400 / 500 / 600 / 700, preferably as a variable font with `font-display: swap`. **Manrope** (also OFL) is an optional alternative for the display tier where slightly tighter letterspacing helps the 70px headline feel weighted. Apply -1.2px tracking at display sizes regardless of which face is used.
+- The wordmark and display tiers are **fluid** (`clamp()` on vw) so the wordmark always spans gutter to gutter; the px values above are the 1440px reference.
+- Negative tracking of -0.05em on the 900 tiers is part of the voice — never set the wordmark at default tracking.
+- `{typography.label}` and `{typography.tag}` are always uppercase; nothing else is.
+- Hierarchy comes from size and weight jumps, never from a second color.
 
 ## Layout
 
 ### Spacing System
-- **Base unit:** 8px (with finer 4/6/7px steps available for tight inline gaps in pill buttons and chips).
-- **Tokens (front matter):** `{spacing.xxs}` (4px) · `{spacing.xs}` (6px) · `{spacing.sm}` (8px) · `{spacing.md}` (12px) · `{spacing.lg}` (16px) · `{spacing.xl}` (24px) · `{spacing.xxl}` (32px) · `{spacing.section}` (64px).
-- **Universal section rhythm:** every page in the set uses `{spacing.section}` (64px) as the vertical gap between major content blocks. Pin grids use `{spacing.sm}` (8px) gutters between tiles — the tightest grid gutter in the system, designed so imagery effectively touches across columns.
-- **Modal padding:** `{component.modal-card}` uses 32px internal padding (`{spacing.xxl}`) on all sides.
+- **Base unit:** 8px, with 4px for hairline gaps (tag dot to label).
+- **Tokens:** `{spacing.xxs}` (4px) · `{spacing.xs}` (8px) · `{spacing.sm}` (12px) · `{spacing.md}` (16px) · `{spacing.lg}` (24px) · `{spacing.xl}` (32px) · `{spacing.xxl}` (64px) · `{spacing.section}` (128px).
+- **Gutters:** `{spacing.lg}` (24px) page margin and column gap on desktop; `{spacing.md}` (16px) on mobile.
+- **Rhythm:** grid blocks are separated by `{spacing.section}` (128px); text inside a block stacks at 8–12px.
 
 ### Grid & Container
-- **Max width:** ~1280px content area at desktop with 24px gutters (~48px at ultrawide).
-- **Pin masonry grid:** auto-fitting column-based layout — 5–6 columns at ultrawide, 4 columns at desktop, 3 at tablet, 2 at mobile-landscape, 1 at mobile. Each tile preserves its natural aspect ratio (square / 2:3 / 3:4 / 4:5 portrait — never landscape because pins are vertically-oriented). Gutters are `{spacing.sm}` (8px) horizontal and vertical.
-- **Home hero feature row:** asymmetric 2-column split where text and imagery alternate left/right down the page (text-left + image-right, then image-left + text-right, etc.).
-- **Footer:** 4-column link grid at desktop, collapsing to 2-up at tablet, 1-up at mobile.
+- **Full-bleed container:** content spans the full viewport minus the 24px gutters — there is no centered max-width. The wordmark and rules touch both gutters.
+- **4-column grid**, 24px gaps (columns ≈ 326px at 1440). Each grid block places cards on that grid:
+  - one-column cards (portrait 2:3 or 3:4, or small square-ish 1:1),
+  - two-column wide cards (≈ 676px, 4:5 or 1:1),
+  - and **empty cells** left on purpose so blocks feel composed, not filled.
+- Cards inside one block may be offset to different columns and sizes (e.g. small + small + gap + wide). Never fill every cell of every row.
+
+### Page Structure
+1. **Primary nav** — fixed, transparent, logo mark left; nav links + theme dots right.
+2. **Wordmark hero** — "ASTRO" at `{typography.wordmark}`, full bleed, with a small ® / sub-mark aligned to its baseline at the right.
+3. **Rule** — 2px `{colors.rule}`.
+4. **Info strip** — 4 columns: project label · "why" label + 2–3 lines of `{typography.info-strong}` · link label · year. Second row: one more label (e.g. shipping/contact).
+5. **Editorial grid** — 3–4 blocks of product/editorial cards on the 4-column grid, each block separated by 128px.
+6. **Closing** — 2px rule, then a two-line statement at `{typography.display}` left and a "©26"-style year mark right.
+7. **Lead paragraph** — `{typography.lead}`, max ~2 lines at desktop.
+8. **Footer** — 1px `{component.rule-soft}`, then columns: brand + rights · address · legal · social · site links · contact.
 
 ### Whitespace Philosophy
-Whitespace is generous on the marketing surfaces and tight on the discovery surfaces. The home page sits sections 64px apart with photo-illustrated feature cards using 32px internal padding, while the search results page collapses to an 8px-gutter masonry grid that tiles imagery edge-to-edge. The system reads as two tools sharing the same chrome: a magazine (hero / feature / CTA / footer) and a search engine (top nav / filter row / pin grid / load more).
+Whitespace is a compositional element, not padding. Empty grid cells, 128px block gaps and the space around the closing statement are what make the page read as a poster; never fill them with extra cards or decoration.
 
 ## Elevation & Depth
 
 | Level | Treatment | Use |
 |---|---|---|
-| 0 — Flat | No border, no shadow | Default for pin cards, feature cards, footer — the dominant treatment |
-| 1 — Hairline border | 1px solid `{colors.hairline}` | Inputs, footer column dividers, in-list rows |
-| 2 — Modal scrim + soft shadow | Modal sits on a dark scrim over the page content with a soft 16px ambient shadow | Login / signup modal, image preview modal |
-| 3 — Pin hover lift | (intentionally undocumented per system policy) | n/a |
+| 0 — Flat | No border, no shadow | Everything |
+| 1 — Rule | 2px `{colors.rule}` or 1px `{colors.rule-soft}` | Section separation |
+| 2 — Blend | `mix-blend-mode: difference` | Fixed nav and logo floating over photography |
 
-astro-app's system has effectively no shadow elevation in its content surfaces. Pin cards sit flat on the canvas; the only "elevation" appears on the modal layer where a 16px ambient shadow paired with a 50%-opacity scrim lifts the modal above the page content.
-
-### Decorative Depth
-Depth comes entirely from the imagery itself, not from CSS effects:
-- **Pin photography** carries cinematic depth through composition (food photography, fashion close-ups, interior shots) — the design lets each tile's image speak rather than adding chrome to it.
-- **Category tile thumbnails** in the home page's feature rows use astro-app's own pin imagery as composition assets, often with a small `{component.pin-overlay-pill}` ("Cherry red", "Preppy look", "Earthy space inspo") overlaid in the corner of the image.
-- **Modal scrim** — a 50%-opacity dark overlay over the entire page content when the login modal opens, with a 16px ambient shadow underneath the modal card lifting it to the visual top.
+There are no shadows in the system. Depth comes only from photography, from the difference-blended nav sliding over images, and from the hover image wipe.
 
 ## Shapes
 
@@ -409,140 +319,117 @@ Depth comes entirely from the imagery itself, not from CSS effects:
 
 | Token | Value | Use |
 |---|---|---|
-| `{rounded.none}` | 0px | Footer, primary nav, page sections — all flat structural surfaces |
-| `{rounded.sm}` | 8px | Rare medium-radius surface (e.g., editorial tooltip) |
-| `{rounded.md}` | 16px | Buttons, inputs, pin cards, feature cards, category tiles — the dominant component radius |
-| `{rounded.lg}` | 32px | Large pin cards, modal cards — used sparingly for "big" content surfaces |
-| `{rounded.full}` | 9999px | Search bar, filter chips, pin overlay pills, icon-circular buttons, avatars |
-
-The radius vocabulary is essentially three values: 16px for most things, 32px for big cards and modals, and pill for circular elements. There are no sharp-cornered buttons or sharp-cornered pin cards.
+| `{rounded.none}` | 0px | Images, cards, buttons, inputs, sections — everything |
+| `{rounded.full}` | 9999px | True circles only: theme dots, cursor, category dot, "View more" cursor |
 
 ### Photography Geometry
-- **Pin imagery:** mixed aspect ratios — square (1:1), portrait (3:4, 2:3, 4:5), and rare landscape — preserved at their natural ratio inside `{rounded.md}` (16px) corners on small tiles and `{rounded.lg}` (32px) on large feature pins.
-- **Category tile thumbnails:** square (1:1) with `{rounded.md}` corners.
-- **Avatar circles:** 32–48px at `{rounded.full}` for in-pin attribution and profile chips.
-- **Feature card imagery:** typically 4:5 portrait on home-page category cards, with the photo occupying ~60% of the card and the headline + CTA stacked beneath.
+- Ratios: portrait 2:3 (`aspect-large`), 3:4, square 1:1, and 4:5 for wide cards. Always `object-fit: cover`, square corners.
+- Photography sits on `{colors.surface-media}` while loading.
+- Each card ideally has **two images**: the primary shot and an alternate (on-body / context shot) revealed on hover.
 
 ## Components
-
-> **No hover states documented** per system policy. Each spec covers Default and Active/Pressed only.
-
-### Buttons
-
-**`button-primary`** — the universal astro-app CTA
-- Background `{colors.primary}` (astro-app Green), text `{colors.on-primary}`, type `{typography.button-md}`, padding `6px 14px`, height ~40px, rounded `{rounded.md}` (16px).
-- Used for "Sign up", "Join astro-app for free", "Get started" — every primary action across every surface in the system.
-- Pressed state lives in `button-primary-pressed` — background drops to `{colors.primary-pressed}` (`#006b2f`).
-
-**`button-secondary`** — gray-cream alternative
-- Background `{colors.secondary-bg}` (`#e5e5e0`), text `{colors.on-secondary}`, type `{typography.button-md}`, padding `6px 14px`, height ~40px, rounded `{rounded.md}`.
-- "I already have an account", "Continue", "Cancel" — second-tier actions paired with the green primary.
-- Pressed state lives in `button-secondary-pressed` — background drops to `{colors.secondary-pressed}`.
-
-**`button-tertiary`** — ghost link
-- Background transparent, text `{colors.ink}`, type `{typography.button-md}`, rounded `{rounded.md}`.
-- Used for low-emphasis actions inside dialogs ("Read the docs", "Learn more →" with a small chevron).
-
-**`button-icon-circular`** — circular icon button
-- Background `{colors.surface-card}`, icon `{colors.ink}`, rounded `{rounded.full}`, size 40px.
-- Carousel paddles, modal close button, and small floating action buttons in pin imagery.
-
-**`button-pill-on-image`** — small overlay pill on photography
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.button-md}`, rounded `{rounded.full}`, padding `8px 14px`.
-- The signature "Cherry red" / "Preppy look" / "Earthy space inspo" overlay pill that anchors the corner of category-tile pin imagery.
-
-**`button-disabled`**
-- Background `{colors.surface-card}`, text `{colors.ash}` — flat soft-cream.
-
-### Filter & Tab Chips
-
-**`filter-chip`** + **`filter-chip-active`**
-- Default: background `{colors.surface-card}`, text `{colors.ink}`, type `{typography.button-md}`, rounded `{rounded.full}`, padding `8px 16px`.
-- Active: background `{colors.ink}`, text `{colors.on-dark}` — the chip flips fully inverted on selection.
-- Used across the search results page filter strip ("Beauty makeup", "Lipstick", "Editorial makeup"...).
-
-### Inputs & Forms
-
-**`text-input`** + **`text-input-focused`**
-- Default: background `{colors.canvas}`, text `{colors.ink}`, 1px solid `{colors.ash}`, type `{typography.body-md}`, padding `11px 15px`, height ~44px, rounded `{rounded.md}`.
-- Focused: 2px `{colors.ink}` inner border + 4px `{colors.focus-outer}` outer outline — the signature double-ring focus signal.
-- Used across the login/signup modal for email, password, birthdate, country fields.
-
-**`search-bar`** + **`search-bar-focused`**
-- Default: background `{colors.surface-card}`, text `{colors.ink}`, type `{typography.body-md}`, padding `11px 15px`, height ~48px, rounded `{rounded.full}`.
-- Focused: same dimensions, background flips to `{colors.canvas}` with a 1px `{colors.ash}` border.
-- Anchored in the center of the primary nav with a magnifier glyph at the left edge and "Search for ideas, fashion..." placeholder.
-
-### Cards & Containers
-
-**`pin-card`** — the standard masonry pin tile
-- Container: background `{colors.surface-card}`, rounded `{rounded.md}` (16px), padding 0.
-- Layout: full-bleed image at the card's natural aspect ratio with no internal padding. Optional `{component.pin-overlay-pill}` anchored to one corner of the image, optional 32px circular avatar with profile name in `{typography.body-sm-strong}` overlaid at the bottom-left.
-
-**`pin-card-large`** — the home-page feature pin
-- Identical to `pin-card` but rounded `{rounded.lg}` (32px) — used for the large editorial pins that anchor home-page feature rows.
-
-**`pin-overlay-pill`** — anchored chip on pin imagery
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.button-sm}`, rounded `{rounded.full}`, padding `6px 12px`.
-- Floats over a pin's bottom-left or top-left corner with the search-term label that surfaces if the pin matches a search ("Cherry red", "Preppy look", "Earthy space inspo").
-
-**`category-tile`**
-- Background `{colors.surface-card}`, rounded `{rounded.md}`, padding 16px.
-- 3- or 4-up grid of small category thumbnails inside the home-page "Bring your favorite ideas to life" section. Each tile contains a category icon or composition photograph + a short label in `{typography.body-strong}`.
-
-**`feature-card`** + **`feature-card-soft`**
-- Standard: background `{colors.canvas}`, rounded `{rounded.md}`, padding 32px. Pairs a 4:5 portrait pin image (left or right) with a `{typography.heading-xl}` headline + body copy + `{component.button-primary}` green CTA.
-- Soft: background `{colors.surface-card}` for the alternating-row variant where the cream surface is needed to break up content.
-
-**`modal-card`** — login/signup overlay
-- Background `{colors.canvas}`, rounded `{rounded.lg}` (32px), padding 32px.
-- Layout: title in `{typography.heading-lg}` ("Welcome to astro-app"), subtitle in `{typography.body-md}`, stacked `{component.text-input}` fields (Email, Password, Birthdate, Country), primary `{component.button-primary}` "Continue", small "Already a member? Log in" link below.
-- Floats over a 50%-opacity scrim covering the entire page content with a 16px ambient shadow.
-
-**`hero-cta-strip`** — dark CTA strip on `/create`
-- Background `{colors.surface-dark}`, text `{colors.on-dark}`, type `{typography.heading-xl}`, padding `48px 32px`, rounded `{rounded.none}`.
-- Sits at the top of the creator marketing page with a single `{component.button-primary}` green CTA on the right.
 
 ### Navigation
 
 **`primary-nav`**
-- Background `{colors.canvas}`, text `{colors.ink}`, height ~64px, type `{typography.body-strong}`, rounded `{rounded.none}`, with a 1px `{colors.hairline}` bottom rule on inner pages (no rule on the home hero).
-- Layout (desktop home): astro-app green wordmark at left + "Explore" link, centered `{component.search-bar}`, right cluster ("About / Businesses / Create / Log in" + the always-green `{component.button-primary}` "Sign up" CTA).
-- Layout (search results): astro-app green logo mark at left, centered search bar with the active query, right cluster ("Log in" + green Sign-up button).
+- Fixed at top, transparent background, `mix-blend-mode: difference`, padding 32px 24px.
+- Left: brand mark (geometric glyph in ink). Right: `{typography.nav-link}` links ("Shop" with active underline, "Bag (0)"), then three `{component.theme-dot}` buttons.
+- Mobile: brand mark left, "Bag (0)" + "Menu" right; theme dots move into the menu.
 
-**Top Nav (Mobile)**
-- Hamburger menu icon at left, logo mark at center, search-glyph + Sign-up CTA at right. Search bar collapses into the magnifier icon and expands to full-width when tapped.
+**`theme-dot`**
+- 18px circles: black (dark theme), cream outline (light theme), red with inner dot (red theme). Active dot shows an inset ring. 200ms `cubic-bezier(0,0,.2,1)`; hover scales to 110%.
+
+### Hero
+
+**`wordmark-hero`**
+- "ASTRO" at `{typography.wordmark}`, fluid so it fills gutter to gutter; a small ® / sub-mark in a circle aligned bottom-right.
+- Followed immediately by `{component.rule}` with 24px space above.
+
+**`info-strip`**
+- 4-column grid: `{component.info-label}` titles (`{typography.label}`, uppercase) and short copy in `{typography.info-strong}`, ink `{colors.primary-ink}`.
+
+### Cards
+
+**`product-card`** / **`product-card-wide`**
+- Image box with no radius and no padding on `{colors.surface-media}` (the card itself sits on `{colors.canvas}`, so its text is always on cream); one column (card) or two columns (wide).
+- Below: one row with title left and price right in `{typography.product-title}`, then a `{component.product-tag}` — 8px ink dot + uppercase `{typography.tag}` category.
+- Hover: see Motion → card reveal.
+
+**`product-tag`**
+- Inline: 8px `{rounded.full}` dot in ink + 4px gap + uppercase `{typography.tag}`.
+
+### Buttons & Links
+
+**`button-primary`**
+- Background `{colors.primary-ink}`, text `{colors.on-primary}`, `{typography.button-md}`, padding 12px 24px, height 48px, `{rounded.none}`. Used sparingly — the system prefers text links.
+
+**`button-text`** / **`link-underline`**
+- Ink text with an `::after` underline at `scaleX(0)` that grows from the left to `scaleX(1)` on hover (transform-origin left). Active nav link keeps the underline visible.
+
+### Cursor
+
+**`cursor-dot`** + **`cursor-view-more`**
+- Custom cursor (pointer devices only): an 8px ink dot following the pointer. Over a product card it grows to a 100px `{rounded.full}` circle in `{colors.primary-ink}` with "VIEW MORE" in uppercase `{typography.tag}` cream. Size/opacity transitions 200ms `cubic-bezier(.4,0,.2,1)`.
+
+### Closing
+
+**`statement-block`**
+- 2px rule, then a two-line statement in `{typography.display}` (left, ~half width) and a year mark like "©26" at the same display size (right).
 
 ### Footer
 
 **`footer-section`**
-- Background `{colors.canvas}`, text `{colors.mute}` in `{typography.body-sm}`, padding `32px 24px`, rounded `{rounded.none}`, with a 1px `{colors.hairline}` top rule.
-- Layout: 4-column link grid (Get the app — iOS / Android · Quick Links — Explore / Shop / Users / Collections / Shopping · astro-app for · About — Privacy / Terms / Help Center) with column headers in `{typography.body-sm-strong}` and link lists in `{typography.body-sm}` `{colors.mute}`.
-- Bottom row: astro-app green wordmark + "© 2026 astro-app" in `{typography.caption-sm}` `{colors.mute}`.
+- `{component.rule-soft}` on top, columns of `{typography.info-strong}` links in `{colors.primary-ink}`: brand + "All rights reserved ©" · address · legal · social · site · contact. No column headers.
 
-### Inline
+## Motion
 
-**`link-inline`** — body-prose anchor link
-- `{colors.ink-soft}` text with no underline by default. astro-app's only "color" beyond brand green on chrome — a near-black warm tint used inline to differentiate links from body without color contrast.
+> Values measured from the reference's computed transitions and CSS custom properties.
+
+### Easing Tokens
+| Token | Curve | Use |
+|---|---|---|
+| `ease-standard` | `cubic-bezier(.4,0,.2,1)` | Cursor, image property changes |
+| `ease-decelerate` | `cubic-bezier(0,0,.2,1)` | Theme dots |
+| `ease-expo-out` | `cubic-bezier(.19,1,.22,1)` | Entrance reveals |
+| `ease-in-out-extreme` | `cubic-bezier(.87,0,.13,1)` | Card image wipe |
+
+### Entrance
+- Nav, theme dots and hero elements fade and translate in: `opacity 0 → 1`, `translateY(16px) → 0`, **2s `ease-expo-out` with 0.5s delay**. Once per page load, never on every scroll.
+- Grid cards may reveal on first intersection with the same curve at 1.2s, staggered 80ms per card in a block.
+
+### Interaction
+- **Card reveal (signature):** the alternate image sits on top with `clip-path: polygon(0 0, 0 0, 0 100%, 0 100%)`, `scale: 1.2`, `filter: brightness(4) contrast(1.5)`. On hover it animates to `clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)`, `scale: 1`, `filter: none` — **500ms `ease-in-out-extreme`**, wiping left to right.
+- **Link underline:** `scaleX(0 → 1)` from the left, 300ms `ease-standard`.
+- **Theme dots:** hover `scale(1.1)`, 200ms `ease-decelerate`.
+- **Theme switch:** color and background 400ms `ease-in-out`.
+
+### Scroll
+- Smooth scrolling (Lenis or native `scroll-behavior: smooth` as fallback).
+- Fixed nav in `mix-blend-mode: difference` so it inverts over images instead of needing a background.
+
+### Accessibility
+- Under `prefers-reduced-motion: reduce`: disable entrance translates (opacity only, 200ms), disable smooth scrolling and the custom cursor, and make the card reveal an instant crossfade.
+- Custom cursor only on `(hover: hover) and (pointer: fine)`; never hide the native cursor on touch.
 
 ## Do's and Don'ts
 
 ### Do
-- Reserve `{colors.primary}` (astro-app Green) for primary CTAs, the active-tab indicator, and the brand wordmark only. It is never decorative.
-- Use `{rounded.md}` (16px) on every interactive element and standard card; reserve `{rounded.lg}` (32px) for large pin cards and modals; reserve `{rounded.full}` for circular elements (search bar, chips, avatars).
-- Stage every pin image inside a `{component.pin-card}` with no internal padding — the photograph IS the card.
-- Stack content sections at `{spacing.section}` (64px) rhythm; tighten pin grids to `{spacing.sm}` (8px) gutters so imagery effectively touches.
-- Use `{component.pin-overlay-pill}` to anchor a search-term tag in the corner of a category-tile pin photograph — the system's signature decorative gesture.
-- Build hierarchy from font weight (400 → 600 → 700) and size, not from color tinting. Body stays `{colors.body}` regardless of section context.
-- Apply -1.2px letter-spacing on `{typography.display-xl}` and `{typography.heading-xl}`. The negative tracking is part of the brand voice.
+- Use one ink per theme. In the red theme: `{colors.primary}` for type ≥ 24px and graphics, `{colors.primary-ink}` for anything smaller.
+- Make the wordmark span gutter to gutter at every breakpoint.
+- Keep every corner square; reserve `{rounded.full}` for true circles.
+- Separate sections with 2px rules and 128px of space, not with background fills.
+- Leave empty cells in the editorial grid on purpose.
+- Give every product card an alternate image so the hover reveal has something to show.
+- Write all labels and category tags in uppercase `{typography.label}` / `{typography.tag}`.
 
 ### Don't
-- Don't use sharp-cornered buttons or cards. There are no `{rounded.none}` interactive elements in the system.
-- Don't introduce drop shadows on cards. The only shadow in the system is the 16px ambient under `{component.modal-card}`.
-- Don't pad `{component.pin-card}` internally. The image is full-bleed; metadata sits over the image as an overlay pill, not below it.
-- Don't replace `{colors.primary}` with another green. The brand green is precise — `#00843d`.
-- Don't use `{colors.ink-soft}` (the body-prose link tint) outside of inline body anchor links. It is not a chrome color.
-- Don't introduce a third radius value between 16px and 32px. The system jumps directly from md to lg with nothing in between.
+- Don't introduce a second accent color, gradients, or tinted card backgrounds.
+- Don't add shadows or border radius to images, cards or buttons.
+- Don't use `{colors.primary}` for text under 24px — it fails WCAG AA on cream.
+- Don't fill the grid like a masonry or catalog; composition beats density.
+- Don't animate continuously or on every scroll; motion happens on load and on interaction.
+- Don't let any element overflow horizontally on mobile (the reference has a horizontal scroll on 390px — avoid it).
+- Don't copy the reference's copy, photography or "++" mark; ASTRO uses its own content.
 
 ## Responsive Behavior
 
@@ -550,48 +437,33 @@ The radius vocabulary is essentially three values: 16px for most things, 32px fo
 
 | Name | Width | Key Changes |
 |---|---|---|
-| ultrawide | 1920px+ | Pin grid expands to 5–6 columns; content max-width holds at ~1280px |
-| desktop-large | 1440px | Default — 4-column pin grid, full primary nav |
-| desktop | 1280px | Same layout with narrower outer gutters |
-| desktop-small | 1024px | Pin grid collapses to 3 columns; sub-nav remains horizontal |
-| tablet | 768px | Pin grid collapses to 2 columns; primary nav becomes hamburger drawer; search bar becomes icon-only |
-| mobile | 480px | Single-column pin grid; hero `{typography.display-xl}` scales 70px → ~44px |
-| mobile-narrow | 320px | Hero further scales to ~36px; section padding tightens to 32px |
-
-### Touch Targets
-All interactive elements meet WCAG AA (≥ 44×44px). `{component.button-primary}` and `{component.button-secondary}` sit at ~40px height with 14px horizontal padding (effective ~40×80px tappable). `{component.search-bar}` sits at 48px. `{component.text-input}` sits at 44px. `{component.filter-chip}` is ~36–40px height with 16px padding — extends to 44px tappable via inline padding. `{component.button-icon-circular}` is exactly 40×40 with extended hit-target padding to 48×48 inside the parent.
+| desktop | 1440px | Reference: 4-column grid, 24px gutters, full nav with theme dots |
+| desktop-small | 1024px | Same grid, wide cards still span 2 columns |
+| tablet | 768px | Grid becomes 2 columns; info strip 2 × 2 |
+| mobile | 390px | 2-column grid (16px gutters); info strip stacks; nav shows "Bag" + "Menu" |
 
 ### Collapsing Strategy
-- **Primary nav:** desktop horizontal cluster → tablet hamburger drawer at 768px. The green Sign-up CTA stays visible at every breakpoint.
-- **Search bar:** desktop centered (~480px wide) → tablet compressed (~320px) → mobile collapses to a magnifier icon that expands to a full-width overlay on tap.
-- **Pin masonry grid:** 5/6-up → 4-up → 3-up → 2-up → 1-up at 1920, 1024, 768, and 480px. Gutters drop from 8px to 6px on mobile.
-- **Home feature row:** desktop alternating left/right 2-column → tablet vertical stack with text above image → mobile single-column with full-bleed image.
-- **Modal:** desktop centered ~480px-wide card → mobile full-width sheet with rounded `{rounded.lg}` top-only and bottom-anchogreen CTA.
-- **Section padding:** `{spacing.section}` (64px) desktop → 48px tablet → 32px mobile.
-- **Hero headline:** `{typography.display-xl}` (70px) at desktop, scaling 56px / 44px / 36px down the breakpoint stack.
-- **Footer:** 4-up link columns → 2-up at tablet → full accordion at mobile (each header becomes a tap-to-expand row).
+- **Wordmark:** fluid `clamp()` — always full width (≈ 92vw).
+- **Display statement:** 86px → ~44px on mobile, still 900 / -0.05em; the year mark drops below the statement.
+- **Editorial grid:** 4 → 2 columns; wide cards span both columns; empty-cell offsets are kept by indenting single cards to the second column.
+- **Info strip:** 4 columns → label/copy pairs in 2 columns.
+- **Footer:** columns → 3-column link grid, then address/legal in 2 columns.
+- **Custom cursor and hover reveal:** off on touch; the alternate image is simply not shown.
 
-### Image Behavior
-- Pin imagery preserves natural aspect ratio at every breakpoint; the column count changes, not the aspect.
-- Category tile thumbnails maintain 1:1 across all sizes.
-- Hero feature imagery uses art-direction crops on mobile (4:5 portrait → square) so the subject stays centered when the layout collapses to single-column.
-- All non-critical imagery is lazy-loaded as the user scrolls into the next grid row.
+### Touch Targets
+Nav links, theme dots (with padding) and buttons reach at least 44×44px of hit area.
 
 ## Iteration Guide
 
-1. Focus on ONE component at a time. Pull its YAML entry and verify every property resolves.
-2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-pressed}`, `{rounded.md}`) — do not paraphrase.
-3. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
-4. Add new variants as separate component entries (`-pressed`, `-disabled`, `-focused`) — do not bury them inside prose.
-5. Default body to `{typography.body-md}`; reach for `{typography.body-strong}` for emphasis; reserve `{typography.display-xl}` strictly for top-of-page hero headlines.
-6. Keep `{colors.primary}` scarce — at most one astro-app-green CTA per fold (counting nav, hero, and feature-card CTAs together).
-7. When introducing a new component, ask whether it can be expressed with the existing pin-card + 16px-radius + cream-surface vocabulary before adding new tokens. The system's strength is that it almost never needs new ones.
+1. Focus on ONE component at a time and make sure every property resolves to a token.
+2. Reference tokens directly (`{colors.primary-ink}`, `{typography.label}`, `{rounded.none}`) — don't paraphrase values.
+3. Run `npx @google/design.md lint DESIGN.md` after edits.
+4. Add new variants as separate component entries (`-hover`, `-active`, `-dark`).
+5. Before adding a token, check whether the ink/cream/rule vocabulary already covers it — the system's strength is having almost nothing.
 
 ## Known Gaps
 
-- **Mobile screenshots not captured** — responsive behavior synthesizes astro-app's known mobile pattern (hamburger drawer, single-column grid, hero downscale) from desktop evidence and the documented breakpoint stack.
-- **Hover states not documented** by system policy.
-- **Pin-detail close-up (single pin overlay)** is not in the captured set — the in-product Pin detail view (with comments, related pins, save board picker) likely introduces components not documented here.
-- **Authenticated chrome** (logged-in home feed, board pages, profile pages) not in the captured pages — the captured surfaces are the logged-out marketing and search experience.
-- **astro-app mobile app screens** not in the system documented here — this is the web-only chrome.
-- **Form validation states** (success / error inline messages) not documented; only the focused-state field is captured.
+- **Semantic states** (error, success, form validation) are not present in the reference; define them inside the single-ink rule (e.g. icons + copy) before adding colors.
+- **Forms and inputs** are not shown in the reference.
+- **Menu / bag drawers** were not captured.
+- **Lint contrast warnings** on `{colors.primary}` are expected for the wordmark and display tiers (large text, AA-large compliant at 3.19:1).
