@@ -38,8 +38,9 @@ const { title = 'AUSTRAL', description = 'AUSTRAL: ropa de abrigo del sur de Chi
 	import Lenis from 'lenis';
 	import 'lenis/dist/lenis.css';
 
+	// Se expone para que otras partes (el filtro de la tienda) puedan desplazar con el mismo suavizado.
 	if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-		new Lenis({ autoRaf: true });
+		window.lenis = new Lenis({ autoRaf: true });
 	}
 
 	const observer = new IntersectionObserver(

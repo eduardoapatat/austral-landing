@@ -1,7 +1,7 @@
 ---
 import { Picture } from 'astro:assets';
 import { photos } from '../../data/photos';
-import { SIZES, type Product } from '../../data/products';
+import { categorySlug, SIZES, type Product } from '../../data/products';
 import ProductTag from './ProductTag.astro';
 
 interface Props {
@@ -27,7 +27,7 @@ const sizes = wide ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 1024px) 25
 const available = SIZES.filter((size) => !soldOut.includes(size));
 ---
 
-<a href={href} class:list={['group block', className]} data-reveal>
+<a href={href} class:list={['group block', className]} data-category={categorySlug(category)} data-reveal>
 	<div class:list={['relative overflow-hidden bg-surface-media', aspect]}>
 		<Picture
 			src={main.src}

@@ -1,24 +1,33 @@
 ---
-import { categories } from '../../data/products';
+import { CATEGORIES, categorySlug, products } from '../../data/products';
 import SectionIndex from '../ui/SectionIndex.astro';
+
+const count = (category: string) => products.filter((product) => product.category === category).length;
 ---
 
 <section class="px-(--gutter) pt-section" aria-labelledby="categorias-title">
 	<h2 id="categorias-title" class="mb-12 text-center text-label font-stretch-110% uppercase">Categorías</h2>
-	<!-- Al pasar por una fila, las demás se atenúan. -->
+	<!-- Cada categoría filtra la tienda (ver Shop.astro). Al pasar por una fila, las demás se atenúan. -->
 	<ul class="group/list flex flex-col items-center text-display font-stretch-expanded max-md:text-[10vw]" data-reveal-group>
 		{
-			categories.map(({ name, href }) => (
+			CATEGORIES.map((category) => (
 				<li data-reveal>
 					<a
-						href={href}
-						class="block text-center transition-opacity duration-300 ease-standard group-hover/list:opacity-35 hover:opacity-100 focus-visible:opacity-100"
+						href={`?cat=${categorySlug(category)}#tienda`}
+						class="flex items-start gap-[0.15em] text-center transition-opacity duration-300 ease-standard group-hover/list:opacity-35 hover:opacity-100 focus-visible:opacity-100"
+						data-filter={categorySlug(category)}
 					>
-						{name}
+						{category}
+						<sup class="mt-[0.35em] text-label font-stretch-110%">{count(category)}</sup>
 					</a>
 				</li>
 			))
 		}
+		<li data-reveal class="mt-8">
+			<a href="#tienda" class="text-button-md font-stretch-110% uppercase underline underline-offset-4" data-filter="">
+				Ver todo ({products.length})
+			</a>
+		</li>
 	</ul>
-	<SectionIndex number="02" name="Categorías" class="mt-section" />
+	<SectionIndex number="03" name="Categorías" class="mt-section" />
 </section>

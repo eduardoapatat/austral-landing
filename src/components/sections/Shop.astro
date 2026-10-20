@@ -1,0 +1,84 @@
+---
+import { blocks, categorySlug, products } from '../../data/products';
+import ProductCard from '../ui/ProductCard.astro';
+import SectionIndex from '../ui/SectionIndex.astro';
+import EditorialGrid from './EditorialGrid.astro';
+---
+
+<!--
+	Dos vistas: la rejilla editorial (con huecos) cuando se ve todo, y una rejilla simple
+	cuando hay una categoría elegida, para que las piezas filtradas no queden sueltas entre huecos.
+-->
+<section id="tienda" class="scroll-mt-24 px-(--gutter) pt-section" aria-labelledby="tienda-title" data-shop>
+	<div class="mb-12 flex flex-wrap items-baseline justify-between gap-4 border-b border-ink/30 pb-3">
+		<h2 id="tienda-title" class="text-headline">Colección otoño–invierno</h2>
+		<p class="flex items-baseline gap-4 text-label font-stretch-110% uppercase">
+			<span aria-live="polite" data-shop-status>Mostrando todo · {products.length} piezas</span>
+			<a href="#tienda" class="underline underline-offset-4" data-filter="" data-shop-reset hidden>Ver todo</a>
+		</p>
+	</div>
+
+	<div class="flex flex-col gap-section" data-view="editorial">
+		{blocks.map((items) => <EditorialGrid items={items} />)}
+	</div>
+
+	<div class="grid grid-cols-2 items-start gap-x-(--gutter) gap-y-12 lg:grid-cols-4" data-view="flat" data-reveal-group hidden>
+		{products.map((product) => <ProductCard product={product} />)}
+	</div>
+
+	<SectionIndex number="04" name="Tienda" class="mt-section" />
+</section>
+
+<script>
+	const shop = document.querySelector<HTMLElement>('[data-shop]');
+	const editorial = shop?.querySelector<HTMLElement>('[data-view="editorial"]');
+	const flat = shop?.querySelector<HTMLElement>('[data-view="flat"]');
+	const status = shop?.querySelector<HTMLElement>('[data-shop-status]');
+	const reset = shop?.querySelector<HTMLElement>('[data-shop-reset]');
+	const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	const labelFor = (slug: string) =>
+		document.querySelector<HTMLElement>(`a[data-filter="${slug}"]`)?.firstChild?.textContent?.trim() ?? slug;
+
+	const apply = (slug: string) => {
+		if (!shop || !editorial || !flat || !status || !reset) return;
+		const cards = [...flat.querySelectorAll<HTMLElement>('[data-category]')];
+		let shown = 0;
+		cards.forEach((card) => {
+			const match = !slug || card.dataset.category === slug;
+			card.hidden = !match;
+			if (match) shown++;
+		});
+		editorial.hidden = Boolean(slug);
+		flat.hidden = !slug;
+		reset.hidden = !slug;
+		status.textContent = slug
+			? `Mostrando: ${labelFor(slug)} · ${shown} ${shown === 1 ? 'pieza' : 'piezas'}`
+			: `Mostrando todo · ${cards.length} piezas`;
+		document.querySelectorAll<HTMLElement>('a[data-filter]').forEach((link) => {
+			link.toggleAttribute('aria-current', link.dataset.filter === slug && slug !== '');
+		});
+	};
+
+	document.querySelectorAll<HTMLAnchorElement>('a[data-filter]').forEach((link) =>
+		link.addEventListener('click', (event) => {
+			event.preventDefault();
+			const slug = link.dataset.filter ?? '';
+			apply(slug);
+			history.replaceState(null, '', slug ? `?cat=${slug}#tienda` : `${location.pathname}#tienda`);
+			// El filtro cambia el alto de la página: se mide de nuevo en el siguiente frame antes de desplazar.
+			// El hueco para el header fijo lo da scroll-mt-24, que Lenis también respeta.
+			requestAnimationFrame(() => {
+				if (!shop) return;
+				if (window.lenis) {
+					window.lenis.resize();
+					window.lenis.scrollTo(shop);
+				} else {
+					shop.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+				}
+			});
+		}),
+	);
+
+	apply(new URLSearchParams(location.search).get('cat') ?? '');
+</script>

@@ -3,13 +3,12 @@ import Footer from '../components/layout/Footer.astro';
 import Nav from '../components/layout/Nav.astro';
 import CategoryIndex from '../components/sections/CategoryIndex.astro';
 import ContactCta from '../components/sections/ContactCta.astro';
-import EditorialGrid from '../components/sections/EditorialGrid.astro';
 import FeaturedPiece from '../components/sections/FeaturedPiece.astro';
 import HeroPhoto from '../components/sections/HeroPhoto.astro';
 import Process from '../components/sections/Process.astro';
+import Shop from '../components/sections/Shop.astro';
 import SectionIndex from '../components/ui/SectionIndex.astro';
 import { photos } from '../data/photos';
-import { blocks } from '../data/products';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -22,10 +21,7 @@ import Layout from '../layouts/Layout.astro';
 
 		<CategoryIndex />
 
-		<section id="tienda" class="flex flex-col gap-section px-(--gutter) pt-section" aria-label="Tienda">
-			{blocks.map((items) => <EditorialGrid items={items} />)}
-			<SectionIndex number="03" name="Tienda" />
-		</section>
+		<Shop />
 
 		<FeaturedPiece />
 
