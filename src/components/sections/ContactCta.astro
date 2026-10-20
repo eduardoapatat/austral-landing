@@ -1,0 +1,17 @@
+---
+import SectionIndex from '../ui/SectionIndex.astro';
+import UnderlineLink from '../ui/UnderlineLink.astro';
+
+interface Props {
+	email: string;
+}
+
+const { email } = Astro.props;
+---
+
+<section class="px-(--gutter) pt-section" aria-labelledby="contacto-title">
+	<h2 id="contacto-title" class="text-display font-stretch-expanded">¿Hacemos algo<br />juntos?</h2>
+	<p class="mt-8 max-w-[36ch] text-lead">Pedidos especiales, colaboraciones o preguntas sobre una prenda: escríbenos.</p>
+	<UnderlineLink href={`mailto:${email}`} class="mt-12 text-headline wrap-break-word max-md:text-[7vw]">{email}</UnderlineLink>
+	<SectionIndex number="06" name="Contacto" class="mt-section" />
+</section>

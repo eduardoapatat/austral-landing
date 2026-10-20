@@ -2,10 +2,11 @@
 import Footer from '../components/layout/Footer.astro';
 import Nav from '../components/layout/Nav.astro';
 import CategoryIndex from '../components/sections/CategoryIndex.astro';
+import ContactCta from '../components/sections/ContactCta.astro';
 import EditorialGrid from '../components/sections/EditorialGrid.astro';
 import FeaturedPiece from '../components/sections/FeaturedPiece.astro';
 import HeroPhoto from '../components/sections/HeroPhoto.astro';
-import Statement from '../components/sections/Statement.astro';
+import Process from '../components/sections/Process.astro';
 import SectionIndex from '../components/ui/SectionIndex.astro';
 import { blocks } from '../data/products';
 import Layout from '../layouts/Layout.astro';
@@ -27,10 +28,8 @@ import Layout from '../layouts/Layout.astro';
 
 		<FeaturedPiece />
 
-		<Statement lines={['Hecho para usarse.', 'O para mirarse.']}>
-			Una tienda de prueba construida con el sistema ASTRO: una sola tinta, una rejilla de cuatro columnas y
-			mucho espacio en blanco.
-		</Statement>
+		<Process />
+		<ContactCta email="hola@astro-ejemplo.pe" />
 	</main>
 
 	<Footer />
