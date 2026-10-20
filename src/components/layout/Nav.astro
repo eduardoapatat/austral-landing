@@ -8,9 +8,12 @@ interface Props {
 
 const { overHero = false } = Astro.props;
 
-const links = [
-	{ href: '#', label: 'Tienda', active: true },
-	{ href: '#', label: 'Bolsa', bag: true },
+/** Secciones de la página; el nav marca la que está a la vista (ver script). */
+const sections = [
+	{ href: '#tienda', label: 'Tienda' },
+	{ href: '#rutas', label: 'Rutas' },
+	{ href: '#proceso', label: 'Proceso' },
+	{ href: '#contacto', label: 'Contacto' },
 ];
 ---
 
@@ -27,40 +30,35 @@ const links = [
 				<rect x="30" width="8" height="24"></rect>
 			</svg>
 		</a>
-		<ul class="flex items-center gap-6 text-product-title md:gap-16 md:text-nav-link">
+		<ul class="flex items-center gap-6 text-product-title md:gap-10 md:text-nav-link lg:gap-16">
 			{
-				links.map((link, i) => (
-					<li class:list={[i === 0 && 'max-md:hidden']}>
-						<UnderlineLink href={link.href} active={link.active}>
+				sections.slice(0, 3).map((link) => (
+					<li class="max-md:hidden">
+						<UnderlineLink href={link.href} data-spy={link.href.slice(1)}>
 							{link.label}
-							{link.bag && (
-								<>
-									{' '}(<span data-bag-count>0</span>)
-								</>
-							)}
 						</UnderlineLink>
 					</li>
 				))
 			}
-			<li class="lg:hidden">
+			<li>
+				<span aria-label="Bolsa">
+					Bolsa{' '}(<span data-bag-count>0</span>)
+				</span>
+			</li>
+			<li class="md:hidden">
 				<button type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>Menú</button>
 			</li>
 		</ul>
 	</nav>
 </header>
 
-<div id="site-menu" class="fixed inset-0 z-30 hidden flex-col bg-ground px-(--gutter) pt-28 lg:hidden" data-menu>
-	<ul class="flex flex-col gap-2 text-display text-ink">
+<div id="site-menu" class="fixed inset-0 z-30 hidden flex-col bg-ground px-(--gutter) pt-28 md:hidden" data-menu>
+	<ul class="flex flex-col gap-2 text-display font-stretch-expanded text-ink max-md:text-[10vw]">
 		{
-			links.map((link) => (
+			sections.map((link) => (
 				<li>
-					<a href={link.href}>
+					<a href={link.href} data-menu-link>
 						{link.label}
-						{link.bag && (
-							<>
-								{' '}(<span data-bag-count>0</span>)
-							</>
-						)}
 					</a>
 				</li>
 			))
@@ -103,6 +101,27 @@ const links = [
 	};
 
 	toggle?.addEventListener('click', () => setOpen(menu?.classList.contains('hidden') ?? false));
+	document.querySelectorAll('[data-menu-link]').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+
+	// Marca en el nav la sección que ocupa el centro de la pantalla.
+	const spies = [...document.querySelectorAll<HTMLElement>('[data-spy]')];
+	const spyObserver = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) continue;
+				spies.forEach((link) =>
+					link.dataset.spy === entry.target.id
+						? link.setAttribute('aria-current', 'location')
+						: link.removeAttribute('aria-current'),
+				);
+			}
+		},
+		{ rootMargin: '-45% 0px -50% 0px' },
+	);
+	spies.forEach((link) => {
+		const section = link.dataset.spy && document.getElementById(link.dataset.spy);
+		if (section) spyObserver.observe(section);
+	});
 
 	// Bolsa: contador simple guardado en el navegador (no hay checkout todavía).
 	const BAG_KEY = 'austral-bag';

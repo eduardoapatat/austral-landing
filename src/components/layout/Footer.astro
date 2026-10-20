@@ -2,10 +2,23 @@
 import { photos } from '../../data/photos';
 import UnderlineLink from '../ui/UnderlineLink.astro';
 
+// Las redes aún no tienen cuenta: quedan con href="#" hasta tener las URLs reales.
 const columns = [
-	['Instagram', 'LinkedIn', 'Behance'],
-	['Trabajo', 'Servicios', 'Nosotros'],
-	['Hablemos'],
+	[
+		{ label: 'Tienda', href: '#tienda' },
+		{ label: 'Rutas', href: '#rutas' },
+		{ label: 'Proceso', href: '#proceso' },
+	],
+	[
+		{ label: 'Manifiesto', href: '#manifiesto' },
+		{ label: 'Contacto', href: '#contacto' },
+		{ label: 'hola@austral-ejemplo.cl', href: 'mailto:hola@austral-ejemplo.cl' },
+	],
+	[
+		{ label: 'Instagram', href: '#' },
+		{ label: 'TikTok', href: '#' },
+		{ label: 'Privacidad', href: '#' },
+	],
 ];
 
 // Un crédito por fotógrafo, aunque tenga varias fotos en la página.
@@ -14,21 +27,20 @@ const photographers = [...new Map(Object.values(photos).map((photo) => [photo.us
 
 <footer class="px-(--gutter) pt-8 pb-16">
 	<div class="h-px bg-ink opacity-50"></div>
-	<div class="mt-8 grid grid-cols-3 gap-x-(--gutter) gap-y-12 text-spec-label lg:grid-cols-8">
-		<div class="col-span-3 lg:col-span-2">
+	<div class="mt-8 grid grid-cols-2 gap-x-(--gutter) gap-y-10 text-spec-label lg:grid-cols-8">
+		<div class="col-span-2">
 			<p class="text-lead leading-none font-bold tracking-tight text-ink">AUSTRAL</p>
 			<p class="mt-1">Todos los derechos reservados © 2026</p>
 		</div>
-		<address class="col-span-2 not-italic lg:col-span-2">
+		<address class="col-span-2 not-italic">
 			Av. Ejemplo 123<br />Puerto Varas<br />Chile
 		</address>
-		<UnderlineLink href="#" class="self-start justify-self-start lg:col-span-1">Privacidad</UnderlineLink>
 		{
-			columns.map((links) => (
-				<ul class="flex flex-col gap-3 max-lg:row-start-2 lg:col-span-1">
+			columns.map((links, i) => (
+				<ul class:list={['flex flex-col gap-3', i === 1 ? 'col-span-2 max-lg:order-last' : 'lg:col-span-1']}>
 					{links.map((link) => (
 						<li>
-							<UnderlineLink href="#">{link}</UnderlineLink>
+							<UnderlineLink href={link.href}>{link.label}</UnderlineLink>
 						</li>
 					))}
 				</ul>
@@ -38,7 +50,7 @@ const photographers = [...new Map(Object.values(photos).map((photo) => [photo.us
 	<div class="mt-16 flex flex-col gap-3 text-spec-label font-normal">
 		<p>Inspirado en OUTFIT® de ++hellohello y en la plantilla Graft de Stacy More.</p>
 		<p class="max-w-5xl">
-			Fotografías de
+			Fotografías de{' '}
 			{
 				photographers.map(([user, author], i) => (
 					<>
