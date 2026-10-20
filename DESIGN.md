@@ -273,7 +273,7 @@ The page answers, in order: *what is it → why does it exist → what can I buy
 7. **Routes** (`#rutas`) — "Probado en terreno": three places (Torres del Paine, Costa de Chiloé, Bosque de Cochamó) with photo, region, garment used and weather. Index "06 — Rutas".
 8. **Process** (`#proceso`) — "De la lana al abrigo": wool photo, four numbered steps; the Confección step carries a workshop photo. Index "07 — Proceso".
 9. **Contact CTA** (`#contacto`) — "¿Vas al sur?" and a large underlined e-mail link. Index "08 — Contacto".
-10. **Footer** — brand + rights, address (Puerto Varas), section links, e-mail, social placeholders, design references and photo credits.
+10. **Footer** — brand + rights, address (Puerto Varas), section links, e-mail and social placeholders. Design references and photo credits live in `README.md` and `src/data/photos.ts`, not on the page.
 
 ## Elevation & Depth
 
@@ -299,7 +299,7 @@ There are no circles in the system. Markers (category tag, swatches, process num
 
 ### Photography Sourcing
 - Free-license Unsplash photos stored in `src/assets/photos/` and served with `astro:assets` `<Picture>` (AVIF + WebP, responsive `widths`/`sizes`); only the hero is `eager` + `fetchpriority="high"`.
-- Every photo has a Spanish `alt` and a credit in `src/data/photos.ts`; the footer lists every photographer with a link to their Unsplash profile.
+- Every photo has a Spanish `alt` and a credit (author + Unsplash user) in `src/data/photos.ts`; the full credits list is in `README.md`.
 - No visible third-party logos on garments; southern Chilean landscapes (Torres del Paine, Chiloé, Cochamó) are preferred for photo moments.
 
 ## Components

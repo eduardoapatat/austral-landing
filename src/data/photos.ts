@@ -1,6 +1,9 @@
 import type { ImageMetadata } from 'astro';
 
-/** Fotografías de Unsplash (licencia libre), descargadas en src/assets/photos. */
+/**
+ * Fotografías de Unsplash (licencia libre), descargadas en src/assets/photos.
+ * Se guarda autor y usuario de cada una como referencia; la lista de créditos está en README.md.
+ */
 const files = import.meta.glob<{ default: ImageMetadata }>('../assets/photos/*.jpg', { eager: true });
 
 export interface Photo {
