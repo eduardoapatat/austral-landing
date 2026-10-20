@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'input'> & {
+	label: string;
+	id: string;
+};
+
+const { label, id, class: className, ...rest } = Astro.props;
+---
+
+<label for={id} class:list={['flex flex-col gap-1.5', className]}>
+	<span class="text-body-strong text-ink">{label}</span>
+	<input
+		id={id}
+		class="h-11 rounded-md border border-ash bg-canvas px-[15px] text-body-md text-ink outline-none placeholder:text-ash focus-visible:border-transparent focus-ring"
+		{...rest}
+	/>
+</label>

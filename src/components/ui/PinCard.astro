@@ -1,0 +1,36 @@
+---
+import PinOverlayPill from './PinOverlayPill.astro';
+
+interface Props {
+	src: string;
+	alt: string;
+	width: number;
+	height: number;
+	href?: string;
+	label?: string;
+	large?: boolean;
+	class?: string;
+}
+
+const { src, alt, width, height, href = '#', label, large = false, class: className } = Astro.props;
+---
+
+<a
+	href={href}
+	class:list={[
+		'focus-ring relative block overflow-hidden bg-surface-card',
+		large ? 'rounded-lg' : 'rounded-md',
+		className,
+	]}
+>
+	<img
+		src={src}
+		alt={alt}
+		width={width}
+		height={height}
+		loading="lazy"
+		decoding="async"
+		class="block h-auto w-full"
+	/>
+	{label && <PinOverlayPill class="absolute bottom-3 left-3">{label}</PinOverlayPill>}
+</a>

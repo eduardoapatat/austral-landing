@@ -1,0 +1,20 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'button'> & {
+	'aria-label': string;
+};
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<button
+	type="button"
+	class:list={[
+		'focus-ring inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-surface-card text-ink active:bg-secondary-bg',
+		className,
+	]}
+	{...rest}
+>
+	<slot />
+</button>

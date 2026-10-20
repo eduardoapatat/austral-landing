@@ -1,0 +1,35 @@
+---
+const columns = [
+	{ title: 'Descarga la app', links: ['iOS', 'Android'] },
+	{ title: 'Enlaces rápidos', links: ['Explorar', 'Tienda', 'Usuarios', 'Colecciones'] },
+	{ title: 'astro-app para', links: ['Empresas', 'Creadores', 'Desarrolladores'] },
+	{ title: 'Acerca de', links: ['Privacidad', 'Términos', 'Centro de ayuda'] },
+];
+---
+
+<footer class="border-t border-hairline bg-canvas">
+	<div class="mx-auto max-w-[1280px] px-6 py-8">
+		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+			{
+				columns.map((column) => (
+					<section>
+						<h2 class="text-body-sm-strong text-ink">{column.title}</h2>
+						<ul class="mt-3 flex flex-col gap-2">
+							{column.links.map((link) => (
+								<li>
+									<a href="#" class="focus-ring rounded-sm text-body-sm text-mute">
+										{link}
+									</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				))
+			}
+		</div>
+		<div class="mt-8 flex items-center gap-2">
+			<span class="text-body-sm-strong text-primary">astro-app</span>
+			<span class="text-caption-sm text-mute">© 2026 astro-app</span>
+		</div>
+	</div>
+</footer>

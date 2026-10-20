@@ -1,0 +1,28 @@
+---
+import PinCard from './PinCard.astro';
+
+interface Props {
+	title: string;
+	image: { src: string; alt: string; width: number; height: number; label?: string };
+	soft?: boolean;
+	reverse?: boolean;
+}
+
+const { title, image, soft = false, reverse = false } = Astro.props;
+---
+
+<article
+	class:list={[
+		'grid items-center gap-8 rounded-md p-8 md:grid-cols-2',
+		soft ? 'bg-surface-card' : 'bg-canvas',
+	]}
+>
+	<div class:list={['flex flex-col items-start gap-4', reverse && 'md:order-last']}>
+		<h2 class="text-heading-xl text-ink">{title}</h2>
+		<div class="text-body-md text-body">
+			<slot />
+		</div>
+		<slot name="action" />
+	</div>
+	<PinCard {...image} large class="w-full max-w-md justify-self-center" />
+</article>
