@@ -310,7 +310,7 @@ Fixed, 24px padding, square-plus-bar logo mark (own), links in `{typography.nav-
 - **Solid:** as soon as the first non-hero section reaches the header (IntersectionObserver on the hero, offset by the header height) it switches to `{colors.canvas}` with `{colors.ink}` text and a 1px bottom rule at 15% ink (300ms `ease-standard`). It also turns solid while the mobile menu is open. Pages without a hero use the solid state from the start.
 
 ### `hero-photo`
-Full-bleed photo, 100svh, scrim at the bottom 45%. Statement in `{typography.lead}` (max 28ch) + "Ver colección →" link, top right below the nav. Wordmark in `{typography.wordmark}` / `{colors.on-photo}`, fitted gutter to gutter at the bottom.
+Full-bleed photo, 100svh, scrim at the bottom 45%. Statement in `{typography.lead}` (max 32ch) + "Ver colección →" link, top right below the nav, set in `{colors.ink}` on a solid `{colors.canvas}` panel (20px padding) so its contrast never depends on the photograph. Wordmark in `{typography.wordmark}` / `{colors.on-photo}`, fitted gutter to gutter at the bottom.
 
 ### `section-index`
 2px rule on top, then a row: number ("03") left, name ("Tienda") right, both `{typography.label}` uppercase. Closes every section.
@@ -372,7 +372,7 @@ Display statement on two lines, then the e-mail address as a large `{component.l
 ### Don't
 - Don't add a second accent, gradients (other than the photo scrim) or shadows.
 - Don't round anything or use circles.
-- Don't place on-photo type without the scrim.
+- Don't place on-photo type without the scrim; small text over photos (statements, links) goes on a solid canvas panel instead.
 - Don't use a custom cursor or decorative continuous animation.
 - Don't add a theme switcher or a second palette.
 - Don't put images inside the category index.
