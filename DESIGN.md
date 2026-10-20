@@ -1,19 +1,17 @@
 ---
 version: alpha
-name: ASTRO
+name: AUSTRAL
 description: |
-  An editorial apparel system printed in a single cobalt ink on a bone ground. A full-bleed photograph opens the page with an expanded, 800-weight wordmark set across its lower edge; below it, the page alternates between typographic moments (a giant category index with inline thumbnails, display headlines) and a strict 4-column product grid with deliberate empty cells. Every section closes with a numbered index line ("01 — Colección"). There are no radii, no shadows and no second accent: photography is the only element that carries its own color. Interaction is quiet and useful — product cards cross-fade to an alternate shot while a size strip slides up from the bottom.
+  AUSTRAL is an invented outerwear brand from southern Chile — short runs of wool, flannel and waxed cotton — presented as an editorial system printed in a single black ink on a bone ground. A full-bleed photograph opens the page with an expanded, 800-weight wordmark set across its lower edge; below it, the page alternates between typographic moments (a giant typographic category index, display headlines) and a strict 4-column product grid with deliberate empty cells. Every section closes with a numbered index line ("01 — Colección"). There are no radii, no shadows and no second accent: photography is the only element that carries its own color. Interaction is quiet and useful — product cards cross-fade to an alternate shot while a size strip slides up from the bottom.
 
 colors:
-  primary: "#2440e0"
-  on-primary: "#f1ede4"
+  primary: "#141414"
+  ink: "#141414"
+  on-ink: "#f1ede4"
   canvas: "#f1ede4"
   surface-media: "#e2ddd2"
-  ink-mono: "#141414"
-  surface-night: "#10173a"
-  on-night: "#f1ede4"
   on-photo: "#f1ede4"
-  rule: "#2440e0"
+  rule: "#141414"
 
 typography:
   wordmark:
@@ -92,21 +90,28 @@ spacing:
 
 components:
   primary-nav:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.on-photo}"
+    typography: "{typography.nav-link}"
+    rounded: "{rounded.none}"
+    padding: 24px
+    height: 72px
+  primary-nav-solid:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
+    textColor: "{colors.ink}"
     typography: "{typography.nav-link}"
     rounded: "{rounded.none}"
     padding: 24px
     height: 72px
   hero-photo:
-    backgroundColor: "{colors.ink-mono}"
+    backgroundColor: "{colors.ink}"
     textColor: "{colors.on-photo}"
     typography: "{typography.wordmark}"
     rounded: "{rounded.none}"
     padding: 24px
   section-index:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
+    textColor: "{colors.ink}"
     typography: "{typography.label}"
     rounded: "{rounded.none}"
     padding: 24px 0px
@@ -116,16 +121,12 @@ components:
     height: 2px
   category-index:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
+    textColor: "{colors.ink}"
     typography: "{typography.display}"
     rounded: "{rounded.none}"
-  category-thumb:
-    backgroundColor: "{colors.surface-media}"
-    rounded: "{rounded.none}"
-    height: 0.8em
   product-card:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
+    textColor: "{colors.ink}"
     typography: "{typography.product-title}"
     rounded: "{rounded.none}"
     padding: 0px
@@ -135,115 +136,93 @@ components:
     padding: 0px
   size-strip:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
+    textColor: "{colors.ink}"
     typography: "{typography.label}"
     rounded: "{rounded.none}"
     padding: 12px 16px
   featured-band:
-    backgroundColor: "{colors.ink-mono}"
+    backgroundColor: "{colors.ink}"
     textColor: "{colors.on-photo}"
     typography: "{typography.display}"
     rounded: "{rounded.none}"
     padding: 24px
   spec-row:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
+    textColor: "{colors.ink}"
     typography: "{typography.spec-label}"
     rounded: "{rounded.none}"
     padding: 16px 0px
   swatch:
-    backgroundColor: "{colors.primary}"
+    backgroundColor: "{colors.ink}"
     rounded: "{rounded.none}"
     size: 20px
   process-step:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
+    textColor: "{colors.ink}"
     typography: "{typography.headline}"
     rounded: "{rounded.none}"
     padding: 32px 0px
   button-primary:
     backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
+    textColor: "{colors.on-ink}"
     typography: "{typography.button-md}"
     rounded: "{rounded.none}"
     padding: 12px 24px
     height: 48px
   link-underline:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
+    textColor: "{colors.ink}"
     typography: "{typography.body-md}"
     rounded: "{rounded.none}"
   contact-cta:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
+    textColor: "{colors.ink}"
     typography: "{typography.display}"
     rounded: "{rounded.none}"
     padding: 128px 24px
-  theme-toggle:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
-    typography: "{typography.label}"
-    rounded: "{rounded.none}"
   footer-section:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
+    textColor: "{colors.ink}"
     typography: "{typography.spec-label}"
     rounded: "{rounded.none}"
     padding: 32px 24px
-  theme-mono:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink-mono}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.none}"
-  theme-night:
-    backgroundColor: "{colors.surface-night}"
-    textColor: "{colors.on-night}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.none}"
 ---
 
 ## Overview
 
-ASTRO is an editorial landing system for an apparel brand, printed like a two-color risograph that only owns one color. The ground is warm bone (`{colors.canvas}` — `#f1ede4`) and every element of chrome — wordmark, navigation, headlines, prices, rules, section indexes — is set in a single cobalt ink (`{colors.primary}` — `#2440e0`). Photography is the only thing allowed to bring its own color.
+AUSTRAL is an invented outerwear brand from the south of Chile: parkas, fleeces, flannels and knitwear made in short runs, named after the places they are built for (Aysén, Chiloé, Cochamó, Tortel). Its landing is printed like a one-color catalogue: the ground is warm bone (`{colors.canvas}` — `#f1ede4`) and every element of chrome — wordmark, navigation, headlines, prices, rules, section indexes — is set in a single black ink (`{colors.ink}` — `#141414`). Photography of southern landscapes and garments is the only thing allowed to bring color.
 
 The page has a clear rhythm of three surface modes:
 - **Photo moments** — the full-bleed hero and the featured-piece band, where the expanded wordmark or a display title sits directly on the photograph in `{colors.on-photo}`.
-- **Type moments** — the category index (giant expanded words with small rectangular thumbnails set inline between them), the process headline and the contact call-to-action.
+- **Type moments** — the category index (giant expanded words, one per line, no imagery), the process headline and the contact call-to-action.
 - **Grid moments** — the 4-column product grid with deliberate empty cells, the spec table and the numbered process steps.
 
 Every section ends with a **section index** — a 2px-ruled line with the section number on the left and its name on the right ("03 — Tienda") — so the page reads like a printed catalogue with numbered chapters.
 
 **Key Characteristics:**
-- One ink: `{colors.primary}` passes AA (6.23:1) at every size, so there is no secondary text tone
+- One palette, one ink: `{colors.ink}` on `{colors.canvas}` (16.3:1); there are no themes and no secondary text tone
 - Archivo variable with its width axis: expanded 800 for wordmark and display, normal width for text
 - One radius value: `{rounded.none}` — everything is square, including swatches and tag markers
 - No shadows, no gradients except the legibility scrim on photographs
 - Numbered section indexes as the structural signature
 - Product cards that cross-fade and reveal a size strip on hover
-- Three ink themes — Cobalto, Tinta, Noche — switched from a text toggle
+- A fixed header that is transparent over the hero and turns solid bone once the first content section reaches it
 
 ## Colors
 
-### Brand & Ink
-- **Cobalt** (`{colors.primary}` — `#2440e0`): the only ink. Text at every size, rules, swatches' frame, buttons, links. 6.23:1 on `{colors.canvas}`.
-- **On Primary** (`{colors.on-primary}` — `#f1ede4`): bone text on cobalt-filled buttons.
+### Ink
+- **Ink** (`{colors.ink}` — `#141414`): the only ink. Text at every size, rules, swatch frames, buttons, links. 16.3:1 on `{colors.canvas}`.
+- **On Ink** (`{colors.on-ink}` — `#f1ede4`): bone text on ink-filled buttons.
+- **Primary** (`{colors.primary}` — `#141414`): the same ink, named for tooling; it fills `{component.button-primary}`.
 - **On Photo** (`{colors.on-photo}` — `#f1ede4`): bone type placed on photography, always over the bottom scrim.
 
 ### Surface
 - **Canvas** (`{colors.canvas}` — `#f1ede4`): warm bone ground for every section.
 - **Surface Media** (`{colors.surface-media}` — `#e2ddd2`): placeholder fill for image boxes while photography loads.
-- **Rule** (`{colors.rule}` — `#2440e0`): 2px section rules and 1px spec-table dividers (1px at 30% opacity).
+- **Rule** (`{colors.rule}` — `#141414`): 2px section rules and 1px spec-table dividers (1px at 30% opacity).
 
-### Themes
-The ink is a theme variable. Components read the theme ink, so a switch recolors the page at once (400ms `ease-in-out`).
-
-| Theme | Ground | Ink |
-|---|---|---|
-| Cobalto (default) | `{colors.canvas}` | `{colors.primary}` |
-| Tinta | `{colors.canvas}` | `{colors.ink-mono}` |
-| Noche | `{colors.surface-night}` | `{colors.on-night}` |
-
-The fixed navigation uses `mix-blend-mode: difference`; its color is the value that, differenced against the ground, produces the theme ink (`rgb(205 173 4)` for Cobalto, bone for Tinta and Noche).
+### Single palette
+AUSTRAL ships one palette only — ink on bone. There is no theme switcher and no dark mode; product colors (Musgo, Hueso, Carbón…) appear only as swatches inside the spec table.
 
 ## Typography
 
@@ -254,7 +233,7 @@ The fixed navigation uses `mix-blend-mode: difference`; its color is the value t
 
 | Token | Size | Weight | Width | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|---|
-| `{typography.wordmark}` | fluid (≈ 300px at 1440) | 800 | 125% | 0.85 | -0.02em | "ASTRO" across the hero photo |
+| `{typography.wordmark}` | fluid (≈ 300px at 1440) | 800 | 125% | 0.85 | -0.02em | "AUSTRAL" across the hero photo |
 | `{typography.display}` | clamp(44px, 7vw, 120px) | 800 | 125% | 0.95 | -0.02em | Category index, featured title, contact CTA |
 | `{typography.headline}` | 40px | 600 | 100% | 1.1 | -0.01em | Section headline, process step titles |
 | `{typography.lead}` | 22px | 400 | 100% | 1.36 | 0 | Hero statement, featured description |
@@ -283,14 +262,14 @@ The fixed navigation uses `mix-blend-mode: difference`; its color is the value t
 - Two-column splits (featured piece, process) use a 1:1 split at desktop.
 
 ### Page Structure
-1. **Primary nav** — fixed, difference-blended: logo mark left; "Tienda", "Bolsa (0)", "Menú" (mobile) right.
+1. **Primary nav** — fixed: transparent with bone text over the hero, solid bone with ink text and a hairline once the first content section reaches it; logo mark left; "Tienda", "Bolsa (0)", "Menú" (mobile) right.
 2. **Hero photo** — 100svh photograph with bottom scrim; short statement + "Ver colección →" top right (below the nav); wordmark across the bottom edge. Index "01 — Colección".
-3. **Category index** — centered display words for apparel categories, with small rectangular thumbnails inline between some words. Index "02 — Categorías".
+3. **Category index** — centered display words for the categories (Parkas, Polares, Franelas, Gorros, Mochilas, Edición Chiloé), typography only. Index "02 — Categorías".
 4. **Product grid** — 2–3 blocks of product cards. Index "03 — Tienda".
 5. **Featured piece** — photo band with "Destacado" + piece name in display; below, description + spec table (left) and stacked images (right); primary button. Index "04 — Destacado".
-6. **Process** — headline "Del boceto a la prenda", large image left, four numbered steps right separated by rules. Index "05 — Proceso".
+6. **Process** — headline "De la lana al abrigo", large image left, four numbered steps right separated by rules. Index "05 — Proceso".
 7. **Contact CTA** — display statement and a large underlined e-mail link. Index "06 — Contacto".
-8. **Footer** — 1px rule, brand + rights, address, legal, social, site links, theme toggle, credits line.
+8. **Footer** — 1px rule, brand + rights, address (Puerto Varas), legal, social, site links, credits line.
 
 ## Elevation & Depth
 
@@ -298,27 +277,28 @@ The fixed navigation uses `mix-blend-mode: difference`; its color is the value t
 |---|---|---|
 | 0 — Flat | No border, no shadow | Everything |
 | 1 — Rule | 2px `{colors.rule}`; 1px at 30% in tables | Section indexes, spec rows, process steps |
-| 2 — Scrim | Bottom gradient from transparent to 45% `{colors.ink-mono}` | Only under type placed on photographs (the lint models these surfaces as `{colors.ink-mono}`) |
-| 3 — Blend | `mix-blend-mode: difference` | Fixed navigation |
+| 2 — Scrim | Bottom gradient from transparent to 45% `{colors.ink}` | Only under type placed on photographs (the lint models these surfaces as `{colors.ink}`) |
+| 3 — Solid header | `{colors.canvas}` fill + 1px rule at 15% ink | Fixed navigation once it leaves the hero |
 
 ## Shapes
 
 | Token | Value | Use |
 |---|---|---|
-| `{rounded.none}` | 0px | Everything: images, thumbnails, buttons, swatches, tag markers |
+| `{rounded.none}` | 0px | Everything: images, buttons, swatches, tag markers |
 
 There are no circles in the system. Markers (category tag, swatches, process numbers) are squares.
 
 ### Photography Geometry
 - Product cards: 2:3, 3:4, 1:1, 4:5, always `object-fit: cover`.
-- Category thumbnails: 3:2 or 1:1 at a height of ~0.8em of the display line.
 - Hero and featured band: landscape, cropped to fill.
 - Each product has an alternate image for the hover cross-fade.
 
 ## Components
 
-### `primary-nav`
-Fixed, transparent, `mix-blend-difference`, 24px padding. Square-plus-bar logo mark (own). Links in `{typography.nav-link}` with the animated underline; active link keeps it.
+### `primary-nav` + `primary-nav-solid`
+Fixed, 24px padding, square-plus-bar logo mark (own), links in `{typography.nav-link}` with the animated underline (the active link keeps it).
+- **Over the hero:** transparent background, `{colors.on-photo}` text — the hero's top scrim keeps it legible.
+- **Solid:** as soon as the first non-hero section reaches the header (IntersectionObserver on the hero, offset by the header height) it switches to `{colors.canvas}` with `{colors.ink}` text and a 1px bottom rule at 15% ink (300ms `ease-standard`). It also turns solid while the mobile menu is open. Pages without a hero use the solid state from the start.
 
 ### `hero-photo`
 Full-bleed photo, 100svh, scrim at the bottom 45%. Statement in `{typography.lead}` (max 28ch) + "Ver colección →" link, top right below the nav. Wordmark in `{typography.wordmark}` / `{colors.on-photo}`, fitted gutter to gutter at the bottom.
@@ -327,7 +307,7 @@ Full-bleed photo, 100svh, scrim at the bottom 45%. Statement in `{typography.lea
 2px rule on top, then a row: number ("03") left, name ("Tienda") right, both `{typography.label}` uppercase. Closes every section.
 
 ### `category-index`
-Centered lines of `{typography.display}` words, each a link. Some lines carry a `{component.category-thumb}` before or after the word. Hover a line: the other lines fade to 35% opacity, the hovered line's thumbnail scales to 1.08 (300ms `ease-standard`).
+Centered lines of `{typography.display}` words, each a link, typography only — no thumbnails. Hover a line: the other lines fade to 35% opacity (300ms `ease-standard`).
 
 ### `product-card`
 Square-cornered image box on `{colors.surface-media}`; row with title and price in `{typography.product-title}`; category with an 8px square marker in `{typography.label}`.
@@ -340,16 +320,13 @@ Landscape photo band (~60vh) with "Destacado" label and the piece name in `{typo
 Number in a 48px square outlined in ink, title in `{typography.headline}`, one-paragraph description; rules between steps.
 
 ### `button-primary`
-`{colors.primary}` background, `{colors.on-primary}` text, `{typography.button-md}` uppercase, 48px height, 12px 24px padding, square.
+`{colors.ink}` background, `{colors.on-ink}` text, `{typography.button-md}` uppercase, 48px height, 12px 24px padding, square.
 
 ### `link-underline`
 Ink text with an `::after` 2px underline at `scaleX(0)` that grows from the left on hover/focus (300ms `ease-standard`).
 
 ### `contact-cta`
 Display statement on two lines, then the e-mail address as a large `{component.link-underline}` in `{typography.headline}`.
-
-### `theme-toggle`
-Text buttons "Cobalto · Tinta · Noche" in `{typography.label}`; the active one is underlined and `aria-pressed`.
 
 ## Motion
 
@@ -367,7 +344,7 @@ Text buttons "Cobalto · Tinta · Noche" in `{typography.label}`; the active one
 ## Do's and Don'ts
 
 ### Do
-- Use the theme ink for everything; photography is the only other color.
+- Use the single ink for everything; photography is the only other color.
 - Keep every corner square; markers are squares.
 - Close every section with its numbered section index.
 - Use the width axis (expanded) for wordmark and display; normal width for text.
@@ -379,6 +356,8 @@ Text buttons "Cobalto · Tinta · Noche" in `{typography.label}`; the active one
 - Don't round anything or use circles.
 - Don't place on-photo type without the scrim.
 - Don't use a custom cursor or decorative continuous animation.
+- Don't add a theme switcher or a second palette.
+- Don't put images inside the category index.
 - Don't let anything overflow horizontally on mobile.
 
 ## Responsive Behavior
@@ -388,7 +367,7 @@ Text buttons "Cobalto · Tinta · Noche" in `{typography.label}`; the active one
 | desktop | 1440px | 4-column grid, 24px gutters |
 | desktop-small | 1024px | Same grid; featured and process keep two columns |
 | tablet | 768px | 2-column grid; featured and process stack (image first) |
-| mobile | 390px | 2-column grid, 16px gutters; nav shows "Bolsa" + "Menú"; category thumbnails hidden on every other line |
+| mobile | 390px | 2-column grid, 16px gutters; nav shows "Bolsa" + "Menú" |
 
 - Wordmark and display are fluid; the wordmark always fits gutter to gutter.
 - The size strip is shown on focus as well as hover; on touch it's never required to see sizes (they're listed in the featured spec table).
@@ -396,7 +375,7 @@ Text buttons "Cobalto · Tinta · Noche" in `{typography.label}`; the active one
 ## Iteration Guide
 
 1. One component at a time; every property must resolve to a token.
-2. Reference tokens directly (`{colors.primary}`, `{typography.label}`, `{rounded.none}`).
+2. Reference tokens directly (`{colors.ink}`, `{typography.label}`, `{rounded.none}`).
 3. Run `npx @google/design.md lint DESIGN.md` after edits.
 4. New variants become separate component entries.
 5. Before adding a token, check whether ink / bone / rule already covers it.
@@ -408,4 +387,4 @@ Text buttons "Cobalto · Tinta · Noche" in `{typography.label}`; the active one
 
 ## References
 
-ASTRO is an original system. Its editorial order and single-ink idea were inspired by **OUTFIT® by ++hellohello** (outfit.hellohello.is), and the category index, featured spec table and process sections were adapted from the free Framer template **Graft** by Stacy More (graft.framer.website). No copy, photography or marks from either were reused.
+AUSTRAL is an invented brand and an original system. Its editorial order and single-ink idea were inspired by **OUTFIT® by ++hellohello** (outfit.hellohello.is), and the category index, featured spec table and process sections were adapted from the free Framer template **Graft** by Stacy More (graft.framer.website). No copy, photography or marks from either were reused.
