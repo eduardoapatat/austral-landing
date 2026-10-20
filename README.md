@@ -1,5 +1,7 @@
 # AUSTRAL
 
+**Sitio publicado:** [austral-landing-six.vercel.app](https://austral-landing-six.vercel.app)
+
 Prototipo de landing para una tienda e-commerce de **ropa de abrigo del sur de Chile**: parkas, chaquetas, polares, camisas de franela y prendas de punto pensadas para la lluvia, el viento y el frío de Chiloé, Aysén y Magallanes.
 
 AUSTRAL es una **marca inventada**. El proyecto sirve para probar la idea de negocio (una tienda pequeña, de tiradas cortas, que vende prendas con nombre de lugares del sur) y para definir su identidad visual antes de construir la tienda completa.
