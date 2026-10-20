@@ -1,50 +1,23 @@
 ---
 import { categories } from '../../data/products';
 import SectionIndex from '../ui/SectionIndex.astro';
-
-const thumbSize = { wide: 'w-[1.2em]', square: 'w-[0.8em]' };
-const thumbPx = { wide: [480, 320], square: [320, 320] };
 ---
 
 <section class="px-(--gutter) pt-section" aria-labelledby="categorias-title">
 	<h2 id="categorias-title" class="mb-12 text-center text-label font-stretch-110% uppercase">Categorías</h2>
-	<!-- Al pasar por una fila, las demás se atenúan y su miniatura crece. -->
+	<!-- Al pasar por una fila, las demás se atenúan. -->
 	<ul class="group/list flex flex-col items-center text-display font-stretch-expanded max-md:text-[10vw]" data-reveal-group>
 		{
-			categories.map(({ name, href, thumb }) => {
-				const image = thumb && (
-					<span
-						class:list={[
-							'inline-block h-[0.8em] shrink-0 overflow-hidden bg-surface-media',
-							thumbSize[thumb.shape],
-							thumb.mobile === false && 'max-md:hidden',
-						]}
-						aria-hidden="true"
+			categories.map(({ name, href }) => (
+				<li data-reveal>
+					<a
+						href={href}
+						class="block text-center transition-opacity duration-300 ease-standard group-hover/list:opacity-35 hover:opacity-100 focus-visible:opacity-100"
 					>
-						<img
-							src={`https://picsum.photos/id/${thumb.photo}/${thumbPx[thumb.shape][0]}/${thumbPx[thumb.shape][1]}`}
-							width={thumbPx[thumb.shape][0]}
-							height={thumbPx[thumb.shape][1]}
-							alt=""
-							loading="lazy"
-							decoding="async"
-							class="size-full object-cover transition-transform duration-300 ease-standard group-hover/item:scale-108 motion-reduce:transition-none"
-						/>
-					</span>
-				);
-				return (
-					<li data-reveal>
-						<a
-							href={href}
-							class="group/item flex flex-wrap items-center justify-center gap-x-[0.2em] text-center transition-opacity duration-300 ease-standard group-hover/list:opacity-35 hover:opacity-100 focus-visible:opacity-100"
-						>
-							{thumb?.side === 'before' && image}
-							<span>{name}</span>
-							{thumb?.side === 'after' && image}
-						</a>
-					</li>
-				);
-			})
+						{name}
+					</a>
+				</li>
+			))
 		}
 	</ul>
 	<SectionIndex number="02" name="Categorías" class="mt-section" />

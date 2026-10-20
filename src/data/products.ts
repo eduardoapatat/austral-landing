@@ -80,17 +80,15 @@ export const blocks: Placement[][] = [
 export interface Category {
 	name: string;
 	href: string;
-	/** Miniatura intercalada antes o después de la palabra; mobile: false la oculta en móvil. */
-	thumb?: { photo: number; shape: 'wide' | 'square'; side: 'before' | 'after'; mobile?: boolean };
 }
 
 export const categories: Category[] = [
-	{ name: 'Camisetas', href: '#tienda', thumb: { photo: 54, shape: 'wide', side: 'after' } },
-	{ name: 'Sudaderas', href: '#tienda', thumb: { photo: 55, shape: 'square', side: 'before', mobile: false } },
+	{ name: 'Camisetas', href: '#tienda' },
+	{ name: 'Sudaderas', href: '#tienda' },
 	{ name: 'Gorras', href: '#tienda' },
-	{ name: 'Bolsos', href: '#tienda', thumb: { photo: 56, shape: 'wide', side: 'after', mobile: false } },
+	{ name: 'Bolsos', href: '#tienda' },
 	{ name: 'Abrigos', href: '#tienda' },
-	{ name: 'Edición limitada', href: '#tienda', thumb: { photo: 57, shape: 'square', side: 'before', mobile: false } },
+	{ name: 'Edición limitada', href: '#tienda' },
 ];
 
 export const featured = {
