@@ -10,7 +10,7 @@ const { overHero = false } = Astro.props;
 
 const links = [
 	{ href: '#', label: 'Tienda', active: true },
-	{ href: '#', label: 'Bolsa (0)' },
+	{ href: '#', label: 'Bolsa', bag: true },
 ];
 ---
 
@@ -33,6 +33,11 @@ const links = [
 					<li class:list={[i === 0 && 'max-md:hidden']}>
 						<UnderlineLink href={link.href} active={link.active}>
 							{link.label}
+							{link.bag && (
+								<>
+									{' '}(<span data-bag-count>0</span>)
+								</>
+							)}
 						</UnderlineLink>
 					</li>
 				))
@@ -49,12 +54,22 @@ const links = [
 		{
 			links.map((link) => (
 				<li>
-					<a href={link.href}>{link.label}</a>
+					<a href={link.href}>
+						{link.label}
+						{link.bag && (
+							<>
+								{' '}(<span data-bag-count>0</span>)
+							</>
+						)}
+					</a>
 				</li>
 			))
 		}
 	</ul>
 </div>
+
+<!-- Anuncio para lectores de pantalla cuando se añade algo a la bolsa. -->
+<p class="sr-only" aria-live="polite" data-bag-status></p>
 
 <script>
 	const header = document.querySelector<HTMLElement>('[data-header]');
@@ -88,6 +103,36 @@ const links = [
 	};
 
 	toggle?.addEventListener('click', () => setOpen(menu?.classList.contains('hidden') ?? false));
+
+	// Bolsa: contador simple guardado en el navegador (no hay checkout todavía).
+	const BAG_KEY = 'austral-bag';
+	const readBag = () => {
+		try {
+			return Number(localStorage.getItem(BAG_KEY)) || 0;
+		} catch {
+			return 0;
+		}
+	};
+	let bag = readBag();
+	const renderBag = () => document.querySelectorAll('[data-bag-count]').forEach((el) => (el.textContent = String(bag)));
+	renderBag();
+
+	document.addEventListener('click', (event) => {
+		const button = event.target instanceof Element ? event.target.closest<HTMLButtonElement>('[data-add-to-bag]') : null;
+		if (!button) return;
+		bag += 1;
+		try {
+			localStorage.setItem(BAG_KEY, String(bag));
+		} catch {
+			// Sin almacenamiento (modo privado): el contador solo dura esta visita.
+		}
+		renderBag();
+		const status = document.querySelector('[data-bag-status]');
+		if (status) status.textContent = `${button.dataset.addToBag} añadida a la bolsa. Tienes ${bag} ${bag === 1 ? 'pieza' : 'piezas'}.`;
+		const label = button.textContent;
+		button.textContent = 'Añadida ✓';
+		setTimeout(() => (button.textContent = label), 1800);
+	});
 	document.addEventListener('keydown', (event) => {
 		if (event.key === 'Escape') setOpen(false);
 	});

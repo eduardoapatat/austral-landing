@@ -4,27 +4,26 @@ import UnderlineLink from './UnderlineLink.astro';
 
 type Props = HTMLAttributes<'a'> & {
 	variant?: 'primary' | 'text';
-	href: string;
+	/** Sin href se renderiza un <button> (acciones como añadir a la bolsa). */
+	href?: string;
 };
 
 const { variant = 'primary', href, class: className, ...rest } = Astro.props;
+const primary = 'inline-flex h-12 items-center justify-center bg-ink px-6 text-button-md font-stretch-110% text-on-ink uppercase';
 ---
 
 {
-	variant === 'primary' ? (
-		<a
-			href={href}
-			class:list={[
-				'inline-flex h-12 items-center justify-center bg-ink px-6 text-button-md font-stretch-110% text-on-ink uppercase',
-				className,
-			]}
-			{...rest}
-		>
-			<slot />
-		</a>
-	) : (
+	variant === 'text' && href ? (
 		<UnderlineLink href={href} class:list={['text-button-md uppercase', className]} {...rest}>
 			<slot />
 		</UnderlineLink>
+	) : href ? (
+		<a href={href} class:list={[primary, className]} {...rest}>
+			<slot />
+		</a>
+	) : (
+		<button type="button" class:list={[primary, className]} {...(rest as HTMLAttributes<'button'>)}>
+			<slot />
+		</button>
 	)
 }
