@@ -1,0 +1,16 @@
+---
+interface Props {
+	number: string;
+	name: string;
+	class?: string;
+}
+
+const { number, name, class: className } = Astro.props;
+---
+
+<div class:list={['border-t-2 border-ink pt-3', className]}>
+	<p class="flex justify-between text-label font-stretch-110% uppercase">
+		<span>{number}</span>
+		<span>{name}</span>
+	</p>
+</div>

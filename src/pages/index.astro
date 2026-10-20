@@ -2,9 +2,9 @@
 import Footer from '../components/layout/Footer.astro';
 import Nav from '../components/layout/Nav.astro';
 import EditorialGrid from '../components/sections/EditorialGrid.astro';
-import InfoStrip from '../components/sections/InfoStrip.astro';
+import HeroPhoto from '../components/sections/HeroPhoto.astro';
 import Statement from '../components/sections/Statement.astro';
-import WordmarkHero from '../components/sections/WordmarkHero.astro';
+import SectionIndex from '../components/ui/SectionIndex.astro';
 import { blocks } from '../data/products';
 import Layout from '../layouts/Layout.astro';
 ---
@@ -13,11 +13,12 @@ import Layout from '../layouts/Layout.astro';
 	<Nav />
 
 	<main>
-		<WordmarkHero />
-		<InfoStrip />
+		<HeroPhoto photo="https://picsum.photos/id/1015/1600/1000" />
+		<SectionIndex number="01" name="Colección" class="mx-(--gutter) mt-6" />
 
-		<section class="flex flex-col gap-section px-(--gutter)" aria-label="Productos">
+		<section id="tienda" class="flex flex-col gap-section px-(--gutter) pt-section" aria-label="Tienda">
 			{blocks.map((items) => <EditorialGrid items={items} />)}
+			<SectionIndex number="03" name="Tienda" />
 		</section>
 
 		<Statement lines={['Hecho para usarse.', 'O para mirarse.']}>

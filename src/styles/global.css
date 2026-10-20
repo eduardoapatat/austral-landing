@@ -18,7 +18,7 @@
   /* wordmark y display van además con font-stretch-expanded (125%). */
   --text-*: initial;
   /* El wordmark se calibra para ocupar todo el ancho de su contenedor. */
-  --text-wordmark: calc(100cqw * 0.3);
+  --text-wordmark: calc(100cqw * 0.221);
   --text-wordmark--line-height: 0.85;
   --text-wordmark--letter-spacing: -0.02em;
   --text-wordmark--font-weight: 800;
@@ -135,6 +135,21 @@
 
   @media (prefers-reduced-motion: reduce) {
     animation: fade-in 200ms ease-out both;
+  }
+}
+
+/* La foto del hero se asienta al cargar. */
+@keyframes settle {
+  from {
+    scale: 1.06;
+  }
+}
+
+@utility hero-photo {
+  animation: settle 2.4s var(--ease-expo-out) both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
   }
 }
 

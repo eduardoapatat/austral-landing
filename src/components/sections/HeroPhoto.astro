@@ -1,0 +1,38 @@
+---
+import UnderlineLink from '../ui/UnderlineLink.astro';
+
+interface Props {
+	photo: string;
+	word?: string;
+}
+
+const { photo, word = 'ASTRO' } = Astro.props;
+---
+
+<section class="relative isolate flex min-h-svh flex-col justify-between overflow-hidden text-on-photo">
+	<img
+		src={photo}
+		alt=""
+		width="1600"
+		height="1000"
+		fetchpriority="high"
+		class="hero-photo absolute inset-0 -z-10 size-full object-cover"
+	/>
+	<!-- Velos: solo para que se lea el texto sobre la foto. -->
+	<div class="absolute inset-x-0 top-0 -z-10 h-2/5 bg-linear-to-b from-ink-mono/40 to-transparent"></div>
+	<div class="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-linear-to-t from-ink-mono/45 to-transparent"></div>
+
+	<div class="enter flex justify-end px-(--gutter) pt-28 md:pt-32">
+		<div class="max-w-[28ch]">
+			<p class="text-lead">Prendas de tirada corta, pensadas para durar y hechas sin prisa.</p>
+			<UnderlineLink href="#tienda" class="mt-4 text-button-md font-stretch-110% uppercase">Ver colección →</UnderlineLink>
+		</div>
+	</div>
+
+	<!-- El tamaño usa cqw: se calcula sobre el ancho real del contenedor, sin contar la barra de scroll. -->
+	<div class="enter px-(--gutter) pb-6">
+		<div class="@container">
+			<h1 class="text-wordmark font-stretch-expanded whitespace-nowrap">{word}</h1>
+		</div>
+	</div>
+</section>
