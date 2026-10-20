@@ -1,4 +1,5 @@
 ---
+import Cursor from '../components/ui/Cursor.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -20,8 +21,44 @@ const { title = 'ASTRO', description = 'Landing editorial de prueba construida c
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<!-- Aplica el tema guardado antes de pintar para evitar el parpadeo. -->
+		<script is:inline>
+			document.documentElement.classList.add('js');
+			try {
+				const theme = localStorage.getItem('astro-theme');
+				if (theme === 'red' || theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+			} catch {}
+		</script>
 	</head>
 	<body>
 		<slot />
+		<Cursor />
 	</body>
 </html>
+
+<script>
+	import Lenis from 'lenis';
+	import 'lenis/dist/lenis.css';
+
+	if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		new Lenis({ autoRaf: true });
+	}
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) continue;
+				entry.target.classList.add('is-visible');
+				observer.unobserve(entry.target);
+			}
+		},
+		{ rootMargin: '0px 0px -10% 0px' },
+	);
+
+	document.querySelectorAll<HTMLElement>('[data-reveal-group]').forEach((group) => {
+		group.querySelectorAll<HTMLElement>('[data-reveal]').forEach((item, i) => {
+			item.style.setProperty('--reveal-delay', `${i * 80}ms`);
+			observer.observe(item);
+		});
+	});
+</script>

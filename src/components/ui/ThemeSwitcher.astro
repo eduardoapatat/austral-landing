@@ -1,0 +1,59 @@
+---
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const themes = [
+	{ id: 'dark', label: 'Tema oscuro', swatch: 'bg-surface-dark' },
+	{ id: 'light', label: 'Tema claro', swatch: 'bg-canvas' },
+	{ id: 'red', label: 'Tema rojo', swatch: 'bg-primary' },
+];
+---
+
+<div class:list={['flex items-center gap-1', className]} role="group" aria-label="Tema de color">
+	{
+		themes.map((theme) => (
+			<button
+				type="button"
+				class="group grid size-7 place-items-center"
+				aria-label={theme.label}
+				aria-pressed="false"
+				data-theme-option={theme.id}
+			>
+				<span
+					class:list={[
+						'size-[18px] rounded-full shadow-[inset_0_0_0_1px_var(--ink)] transition-transform duration-200 ease-decelerate group-hover:scale-110 group-aria-pressed:shadow-[inset_0_0_0_1px_var(--ink),inset_0_0_0_4px_var(--ground)]',
+						theme.swatch,
+					]}
+				/>
+			</button>
+		))
+	}
+</div>
+
+<script>
+	const KEY = 'astro-theme';
+	const buttons = document.querySelectorAll<HTMLButtonElement>('[data-theme-option]');
+
+	const sync = () => {
+		const current = document.documentElement.dataset.theme;
+		buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.themeOption === current)));
+	};
+
+	buttons.forEach((button) =>
+		button.addEventListener('click', () => {
+			const theme = button.dataset.themeOption ?? 'red';
+			document.documentElement.dataset.theme = theme;
+			try {
+				localStorage.setItem(KEY, theme);
+			} catch {
+				// Sin almacenamiento (modo privado): el tema solo dura esta visita.
+			}
+			sync();
+		}),
+	);
+
+	sync();
+</script>

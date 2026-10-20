@@ -1,4 +1,5 @@
 ---
+import ThemeSwitcher from '../ui/ThemeSwitcher.astro';
 import UnderlineLink from '../ui/UnderlineLink.astro';
 
 const links = [
@@ -9,10 +10,10 @@ const links = [
 
 <!-- La barra se mezcla con difference para invertirse sobre las fotos; el panel del menú va fuera para no mezclarse. -->
 <header
-	class="pointer-events-none fixed inset-x-0 top-0 z-40 mix-blend-difference"
+	class="enter pointer-events-none fixed inset-x-0 top-0 z-40 mix-blend-difference"
 	style="color: var(--nav-ink)"
 >
-	<nav class="flex items-center justify-between px-(--gutter) py-6 md:py-8 lg:pr-28" aria-label="Principal">
+	<nav class="flex items-center justify-between px-(--gutter) py-6 md:py-8 lg:pr-36" aria-label="Principal">
 		<a href="/" class="pointer-events-auto" aria-label="ASTRO, inicio">
 			<svg class="h-6 w-12" viewBox="0 0 48 24" fill="currentColor" aria-hidden="true">
 				<rect width="24" height="24"></rect>
@@ -36,6 +37,9 @@ const links = [
 	</nav>
 </header>
 
+<!-- Los puntos de tema van fuera de la barra: con difference cambiarían de color. -->
+<ThemeSwitcher class="enter fixed top-7 right-(--gutter) z-40 max-lg:hidden" />
+
 <div id="site-menu" class="fixed inset-0 z-30 hidden flex-col bg-ground px-(--gutter) pt-28 lg:hidden" data-menu>
 	<ul class="flex flex-col gap-2 text-display text-ink">
 		{
@@ -46,7 +50,7 @@ const links = [
 			))
 		}
 	</ul>
-	<slot />
+	<ThemeSwitcher class="mt-12 -ml-1.5" />
 </div>
 
 <script>

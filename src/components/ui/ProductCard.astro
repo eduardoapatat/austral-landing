@@ -24,7 +24,7 @@ const main = photoUrl(photo, ratio, scale);
 const alt = photoUrl(altPhoto, ratio, scale);
 ---
 
-<a href={href} class:list={['group block', className]} data-cursor="view">
+<a href={href} class:list={['group block', className]} data-cursor="view" data-reveal>
 	<div class:list={['relative overflow-hidden bg-surface-media', aspect]}>
 		<img {...main} alt="" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover" />
 		<img
