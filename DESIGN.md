@@ -2,91 +2,83 @@
 version: alpha
 name: ASTRO
 description: |
-  An editorial Swiss-poster system built on one ink color over a warm cream ground. A full-bleed 900-weight wordmark spans the entire viewport, a 2px ink rule cuts beneath it, and everything that follows sits on a strict 4-column grid with deliberate empty cells. There are no radii, no shadows and no secondary palette: product photography is the only element allowed to carry its own color. Motion is slow and confident on entry (2s expo-out), fast and graphic on interaction (500ms clip-path wipes), and the whole page can swap ink themes (red, light, dark) with a three-dot switch.
+  An editorial apparel system printed in a single cobalt ink on a bone ground. A full-bleed photograph opens the page with an expanded, 800-weight wordmark set across its lower edge; below it, the page alternates between typographic moments (a giant category index with inline thumbnails, display headlines) and a strict 4-column product grid with deliberate empty cells. Every section closes with a numbered index line ("01 — Colección"). There are no radii, no shadows and no second accent: photography is the only element that carries its own color. Interaction is quiet and useful — product cards cross-fade to an alternate shot while a size strip slides up from the bottom.
 
 colors:
-  primary: "#ff0001"
-  primary-ink: "#c00000"
-  on-primary: "#ede4dd"
-  canvas: "#ede4dd"
-  surface-media: "#d2cac3"
-  ink-light: "#000000"
-  surface-dark: "#000000"
-  on-dark: "#ede4dd"
-  rule: "#ff0001"
-  rule-soft: "rgba(255,0,1,0.5)"
+  primary: "#2440e0"
+  on-primary: "#f1ede4"
+  canvas: "#f1ede4"
+  surface-media: "#e2ddd2"
+  ink-mono: "#141414"
+  surface-night: "#10173a"
+  on-night: "#f1ede4"
+  on-photo: "#f1ede4"
+  rule: "#2440e0"
 
 typography:
   wordmark:
-    fontFamily: Inter Tight
-    fontSize: 184px
-    fontWeight: 900
-    lineHeight: 1
-    letterSpacing: -9.2px
+    fontFamily: Archivo
+    fontSize: 300px
+    fontWeight: 800
+    lineHeight: 0.85
+    letterSpacing: -0.02em
   display:
-    fontFamily: Inter Tight
-    fontSize: 86px
-    fontWeight: 900
-    lineHeight: 1
-    letterSpacing: -4.3px
+    fontFamily: Archivo
+    fontSize: 100px
+    fontWeight: 800
+    lineHeight: 0.95
+    letterSpacing: -0.02em
   headline:
-    fontFamily: Inter Tight
-    fontSize: 60px
-    fontWeight: 400
-    lineHeight: 1
-    letterSpacing: -1.5px
+    fontFamily: Archivo
+    fontSize: 40px
+    fontWeight: 600
+    lineHeight: 1.1
+    letterSpacing: -0.01em
   lead:
-    fontFamily: Inter Tight
-    fontSize: 24px
+    fontFamily: Archivo
+    fontSize: 22px
     fontWeight: 400
-    lineHeight: 1.333
-    letterSpacing: -0.6px
+    lineHeight: 1.36
+    letterSpacing: 0
   nav-link:
-    fontFamily: Inter Tight
-    fontSize: 24px
-    fontWeight: 400
-    lineHeight: 1.333
+    fontFamily: Archivo
+    fontSize: 18px
+    fontWeight: 500
+    lineHeight: 1.33
     letterSpacing: 0
   product-title:
-    fontFamily: Inter Tight
-    fontSize: 18px
-    fontWeight: 400
-    lineHeight: 1.111
+    fontFamily: Archivo
+    fontSize: 16px
+    fontWeight: 500
+    lineHeight: 1.25
     letterSpacing: 0
   body-md:
-    fontFamily: Inter Tight
+    fontFamily: Archivo
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
-  info-strong:
-    fontFamily: Inter Tight
+  spec-label:
+    fontFamily: Archivo
     fontSize: 14px
-    fontWeight: 700
-    lineHeight: 1.429
+    fontWeight: 600
+    lineHeight: 1.43
     letterSpacing: 0
   button-md:
-    fontFamily: Inter Tight
+    fontFamily: Archivo
     fontSize: 14px
-    fontWeight: 700
-    lineHeight: 1.143
-    letterSpacing: -0.35px
+    fontWeight: 600
+    lineHeight: 1.14
+    letterSpacing: 0.02em
   label:
-    fontFamily: Inter Tight
+    fontFamily: Archivo
     fontSize: 12px
-    fontWeight: 700
-    lineHeight: 1.333
-    letterSpacing: 0
-  tag:
-    fontFamily: Inter Tight
-    fontSize: 11px
-    fontWeight: 400
-    lineHeight: 1.5
-    letterSpacing: 0
+    fontWeight: 600
+    lineHeight: 1.33
+    letterSpacing: 0.04em
 
 rounded:
   none: 0px
-  full: 9999px
 
 spacing:
   xxs: 4px
@@ -100,50 +92,40 @@ spacing:
 
 components:
   primary-nav:
-    backgroundColor: "transparent"
+    backgroundColor: "{colors.canvas}"
     textColor: "{colors.primary}"
     typography: "{typography.nav-link}"
     rounded: "{rounded.none}"
-    padding: 32px 24px
-    height: 96px
-  theme-dot:
-    backgroundColor: "{colors.primary}"
-    rounded: "{rounded.full}"
-    size: 18px
-  wordmark-hero:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
+    padding: 24px
+    height: 72px
+  hero-photo:
+    backgroundColor: "{colors.ink-mono}"
+    textColor: "{colors.on-photo}"
     typography: "{typography.wordmark}"
     rounded: "{rounded.none}"
-    padding: 0px 24px
+    padding: 24px
+  section-index:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: 24px 0px
   rule:
     backgroundColor: "{colors.rule}"
     rounded: "{rounded.none}"
     height: 2px
-  rule-soft:
-    backgroundColor: "{colors.rule-soft}"
-    rounded: "{rounded.none}"
-    height: 1px
-  info-strip:
+  category-index:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary-ink}"
-    typography: "{typography.info-strong}"
+    textColor: "{colors.primary}"
+    typography: "{typography.display}"
     rounded: "{rounded.none}"
-    padding: 32px 24px
-  info-label:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary-ink}"
-    typography: "{typography.label}"
+  category-thumb:
+    backgroundColor: "{colors.surface-media}"
     rounded: "{rounded.none}"
+    height: 0.8em
   product-card:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary-ink}"
-    typography: "{typography.product-title}"
-    rounded: "{rounded.none}"
-    padding: 0px
-  product-card-wide:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary-ink}"
+    textColor: "{colors.primary}"
     typography: "{typography.product-title}"
     rounded: "{rounded.none}"
     padding: 0px
@@ -151,319 +133,279 @@ components:
     backgroundColor: "{colors.surface-media}"
     rounded: "{rounded.none}"
     padding: 0px
-  product-tag:
+  size-strip:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary-ink}"
-    typography: "{typography.tag}"
+    textColor: "{colors.primary}"
+    typography: "{typography.label}"
     rounded: "{rounded.none}"
+    padding: 12px 16px
+  featured-band:
+    backgroundColor: "{colors.ink-mono}"
+    textColor: "{colors.on-photo}"
+    typography: "{typography.display}"
+    rounded: "{rounded.none}"
+    padding: 24px
+  spec-row:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary}"
+    typography: "{typography.spec-label}"
+    rounded: "{rounded.none}"
+    padding: 16px 0px
+  swatch:
+    backgroundColor: "{colors.primary}"
+    rounded: "{rounded.none}"
+    size: 20px
+  process-step:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary}"
+    typography: "{typography.headline}"
+    rounded: "{rounded.none}"
+    padding: 32px 0px
   button-primary:
-    backgroundColor: "{colors.primary-ink}"
+    backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
     typography: "{typography.button-md}"
     rounded: "{rounded.none}"
     padding: 12px 24px
     height: 48px
-  button-text:
+  link-underline:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary-ink}"
-    typography: "{typography.button-md}"
+    textColor: "{colors.primary}"
+    typography: "{typography.body-md}"
     rounded: "{rounded.none}"
-  cursor-view-more:
-    backgroundColor: "{colors.primary-ink}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.tag}"
-    rounded: "{rounded.full}"
-    size: 100px
-  statement-block:
+  contact-cta:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.primary}"
     typography: "{typography.display}"
     rounded: "{rounded.none}"
-    padding: 24px
+    padding: 128px 24px
+  theme-toggle:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.primary}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
   footer-section:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary-ink}"
-    typography: "{typography.info-strong}"
+    textColor: "{colors.primary}"
+    typography: "{typography.spec-label}"
     rounded: "{rounded.none}"
     padding: 32px 24px
-  theme-dark:
-    backgroundColor: "{colors.surface-dark}"
-    textColor: "{colors.on-dark}"
+  theme-mono:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink-mono}"
     typography: "{typography.body-md}"
     rounded: "{rounded.none}"
-  theme-light:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink-light}"
+  theme-night:
+    backgroundColor: "{colors.surface-night}"
+    textColor: "{colors.on-night}"
     typography: "{typography.body-md}"
     rounded: "{rounded.none}"
 ---
 
 ## Overview
 
-ASTRO is an editorial landing system built like a Swiss poster: one ink, one ground, one grid. The ground is a warm cream (`{colors.canvas}` — `#ede4dd`) and every piece of chrome — wordmark, navigation, rules, prices, labels, cursor — is printed in a single ink, ASTRO Red (`{colors.primary}` — `#ff0001`). Product and editorial photography is the only element allowed to bring its own color; the page around it stays strictly monochrome.
+ASTRO is an editorial landing system for an apparel brand, printed like a two-color risograph that only owns one color. The ground is warm bone (`{colors.canvas}` — `#f1ede4`) and every element of chrome — wordmark, navigation, headlines, prices, rules, section indexes — is set in a single cobalt ink (`{colors.primary}` — `#2440e0`). Photography is the only thing allowed to bring its own color.
 
-The page opens with a **full-bleed wordmark**: a 900-weight, tightly tracked display word that spans the viewport edge to edge (gutter to gutter), followed by a 2px ink rule. Under the rule, a four-column **info strip** of small uppercase labels and short bold copy sets the grid that the rest of the page obeys. The content area is an **editorial grid** — not a masonry — where image cards occupy one or two of the four columns and deliberately leave cells empty, so the rhythm reads like a magazine spread rather than a catalog.
+The page has a clear rhythm of three surface modes:
+- **Photo moments** — the full-bleed hero and the featured-piece band, where the expanded wordmark or a display title sits directly on the photograph in `{colors.on-photo}`.
+- **Type moments** — the category index (giant expanded words with small rectangular thumbnails set inline between them), the process headline and the contact call-to-action.
+- **Grid moments** — the 4-column product grid with deliberate empty cells, the spec table and the numbered process steps.
 
-The system has three signature gestures:
-- **Scale contrast**: a ~184px wordmark and 86px statements sit directly above 11–14px labels with almost nothing in between.
-- **Zero geometry**: no border radius anywhere except true circles (theme dots, cursor, category dot), and no shadows at all.
-- **Graphic motion**: hover wipes a second image across the card with a `clip-path` while it de-scales and its brightness falls from 400% to 100%.
+Every section ends with a **section index** — a 2px-ruled line with the section number on the left and its name on the right ("03 — Tienda") — so the page reads like a printed catalogue with numbered chapters.
 
 **Key Characteristics:**
-- Single-ink chrome: `{colors.primary}` for large type and rules, `{colors.primary-ink}` for small text — never a second accent
-- Inter Tight across every role, from the 900-weight `{typography.wordmark}` down to the 11px uppercase `{typography.tag}`
-- Two radius values only: `{rounded.none}` (everything) and `{rounded.full}` (true circles)
-- No shadows, no gradients, no cards with fills — structure comes from rules, grid and whitespace
-- 4-column grid with 24px gutters and intentional empty cells
-- Three ink themes (red, light, dark) switched from the navigation
-- Fixed navigation in `mix-blend-mode: difference` so it inverts over photography while scrolling
+- One ink: `{colors.primary}` passes AA (6.23:1) at every size, so there is no secondary text tone
+- Archivo variable with its width axis: expanded 800 for wordmark and display, normal width for text
+- One radius value: `{rounded.none}` — everything is square, including swatches and tag markers
+- No shadows, no gradients except the legibility scrim on photographs
+- Numbered section indexes as the structural signature
+- Product cards that cross-fade and reveal a size strip on hover
+- Three ink themes — Cobalto, Tinta, Noche — switched from a text toggle
 
 ## Colors
 
-> **Source:** sampled with Playwright from the reference's computed styles (`--color-cream: #ede4dd`, `--color-red: #ff0001`, media placeholder `#d2cac3`, dark theme `#000`). Text-safe red added for accessibility.
-
 ### Brand & Ink
-- **ASTRO Red** (`{colors.primary}` — `#ff0001`): the brand ink. Wordmark, display statements, rules, nav links at 24px, theme dot and cursor dot. Only on text ≥ 24px or non-text graphics (contrast on cream is 3.19:1 — passes AA for large text only).
-- **ASTRO Red Ink** (`{colors.primary-ink}` — `#c00000`): the same red pulled darker for every text below 24px — labels, info copy, product titles, prices, tags, footer links, filled buttons. 5.17:1 on `{colors.canvas}`.
-- **On Primary** (`{colors.on-primary}` — `#ede4dd`): cream text on red-filled elements (button, "View more" cursor).
+- **Cobalt** (`{colors.primary}` — `#2440e0`): the only ink. Text at every size, rules, swatches' frame, buttons, links. 6.23:1 on `{colors.canvas}`.
+- **On Primary** (`{colors.on-primary}` — `#f1ede4`): bone text on cobalt-filled buttons.
+- **On Photo** (`{colors.on-photo}` — `#f1ede4`): bone type placed on photography, always over the bottom scrim.
 
 ### Surface
-- **Canvas** (`{colors.canvas}` — `#ede4dd`): warm cream ground for every section in the red and light themes.
-- **Surface Media** (`{colors.surface-media}` — `#d2cac3`): a notch deeper than the canvas; fills image boxes while photography loads so the grid never collapses.
-- **Surface Dark** (`{colors.surface-dark}` — `#000000`): ground of the dark theme.
-
-### Rules
-- **Rule** (`{colors.rule}` — `#ff0001`): 2px full-width rules under the wordmark and above the closing statement.
-- **Rule Soft** (`{colors.rule-soft}` — `rgba(255,0,1,0.5)`): 1px divider above the footer.
+- **Canvas** (`{colors.canvas}` — `#f1ede4`): warm bone ground for every section.
+- **Surface Media** (`{colors.surface-media}` — `#e2ddd2`): placeholder fill for image boxes while photography loads.
+- **Rule** (`{colors.rule}` — `#2440e0`): 2px section rules and 1px spec-table dividers (1px at 30% opacity).
 
 ### Themes
-The ink is a theme variable, not a fixed color. Every component reads `currentColor` / the theme ink so a theme switch recolors the whole page at once.
+The ink is a theme variable. Components read the theme ink, so a switch recolors the page at once (400ms `ease-in-out`).
 
-| Theme | Ground | Large ink | Small-text ink |
-|---|---|---|---|
-| red (default) | `{colors.canvas}` | `{colors.primary}` | `{colors.primary-ink}` |
-| light | `{colors.canvas}` | `{colors.ink-light}` | `{colors.ink-light}` |
-| dark | `{colors.surface-dark}` | `{colors.on-dark}` | `{colors.on-dark}` |
+| Theme | Ground | Ink |
+|---|---|---|
+| Cobalto (default) | `{colors.canvas}` | `{colors.primary}` |
+| Tinta | `{colors.canvas}` | `{colors.ink-mono}` |
+| Noche | `{colors.surface-night}` | `{colors.on-night}` |
 
-Theme change transitions `color` and `background-color` over 400ms `ease-in-out`.
+The fixed navigation uses `mix-blend-mode: difference`; its color is the value that, differenced against the ground, produces the theme ink (`rgb(205 173 4)` for Cobalto, bone for Tinta and Noche).
 
 ## Typography
 
 ### Font Family
-The reference uses **Neue Haas Grotesk Text Pro**, a commercial face. ASTRO substitutes **Inter Tight** (SIL Open Font License): a tighter-spaced cut of Inter with the same neutral grotesk skeleton, available as a variable font from 100 to 900 so it covers both the 900-weight wordmark and the 400/700 text roles. Fallback stack: `"Helvetica Neue"` → `Helvetica` → `Arial` → `sans-serif`. Self-host it (Fontsource) with `font-display: swap`.
+**Archivo** (SIL Open Font License), loaded as a variable font with both axes: `wght` 100–900 and `wdth` 62–125. The width axis is the voice of the system — the wordmark and display tiers are set at `font-stretch: 125%` (expanded), while every text role stays at 100%. Fallback stack: `"Helvetica Neue"` → `Arial` → `sans-serif`. Self-host via Fontsource with `font-display: swap`.
 
 ### Hierarchy
 
-| Token | Size | Weight | Line Height | Letter Spacing | Use |
-|---|---|---|---|---|---|
-| `{typography.wordmark}` | 184px (12.75vw) | 900 | 1 | -0.05em | Full-bleed hero wordmark "ASTRO" |
-| `{typography.display}` | 86px (6vw) | 900 | 1 | -0.05em | Closing statement, ©-year block |
-| `{typography.headline}` | 60px | 400 | 1 | -1.5px | Rare large light headline |
-| `{typography.lead}` | 24px | 400 | 1.333 | -0.6px | Closing intro paragraph above the footer |
-| `{typography.nav-link}` | 24px | 400 | 1.333 | 0 | Primary nav links ("Shop", "Bag (0)") |
-| `{typography.product-title}` | 18px | 400 | 1.111 | 0 | Product name and price row |
-| `{typography.body-md}` | 16px | 400 | 1.5 | 0 | Default paragraph |
-| `{typography.info-strong}` | 14px | 700 | 1.429 | 0 | Info-strip copy, footer links |
-| `{typography.button-md}` | 14px | 700 | 1.143 | -0.35px | Button labels |
-| `{typography.label}` | 12px | 700 | 1.333 | 0 | Uppercase section labels ("WHY", "SHIPPING & RETURNS") |
-| `{typography.tag}` | 11px | 400 | 1.5 | 0 | Uppercase category tag under products, cursor label |
+| Token | Size | Weight | Width | Line Height | Letter Spacing | Use |
+|---|---|---|---|---|---|---|
+| `{typography.wordmark}` | fluid (≈ 300px at 1440) | 800 | 125% | 0.85 | -0.02em | "ASTRO" across the hero photo |
+| `{typography.display}` | clamp(44px, 7vw, 120px) | 800 | 125% | 0.95 | -0.02em | Category index, featured title, contact CTA |
+| `{typography.headline}` | 40px | 600 | 100% | 1.1 | -0.01em | Section headline, process step titles |
+| `{typography.lead}` | 22px | 400 | 100% | 1.36 | 0 | Hero statement, featured description |
+| `{typography.nav-link}` | 18px | 500 | 100% | 1.33 | 0 | Navigation |
+| `{typography.product-title}` | 16px | 500 | 100% | 1.25 | 0 | Product name and price |
+| `{typography.body-md}` | 16px | 400 | 100% | 1.5 | 0 | Paragraphs |
+| `{typography.spec-label}` | 14px | 600 | 100% | 1.43 | 0 | Spec-table labels, footer links |
+| `{typography.button-md}` | 14px | 600 | 110% | 1.14 | 0.02em | Buttons (uppercase) |
+| `{typography.label}` | 12px | 600 | 110% | 1.33 | 0.04em | Section indexes, size strip, categories (uppercase) |
 
 ### Principles
-- The wordmark and display tiers are **fluid** (`clamp()` on vw) so the wordmark always spans gutter to gutter; the px values above are the 1440px reference.
-- Negative tracking of -0.05em on the 900 tiers is part of the voice — never set the wordmark at default tracking.
-- `{typography.label}` and `{typography.tag}` are always uppercase; nothing else is.
-- Hierarchy comes from size and weight jumps, never from a second color.
+- Width, not tracking, creates the display voice: expanded 800 at -0.02em. Never apply extreme negative tracking.
+- `{typography.label}` and `{typography.button-md}` are always uppercase and slightly widened (110%).
+- Hierarchy comes from size, weight and width — never from a second color.
 
 ## Layout
 
 ### Spacing System
-- **Base unit:** 8px, with 4px for hairline gaps (tag dot to label).
-- **Tokens:** `{spacing.xxs}` (4px) · `{spacing.xs}` (8px) · `{spacing.sm}` (12px) · `{spacing.md}` (16px) · `{spacing.lg}` (24px) · `{spacing.xl}` (32px) · `{spacing.xxl}` (64px) · `{spacing.section}` (128px).
-- **Gutters:** `{spacing.lg}` (24px) page margin and column gap on desktop; `{spacing.md}` (16px) on mobile.
-- **Rhythm:** grid blocks are separated by `{spacing.section}` (128px); text inside a block stacks at 8–12px.
+- **Base unit:** 8px. Tokens: `{spacing.xxs}` 4 · `{spacing.xs}` 8 · `{spacing.sm}` 12 · `{spacing.md}` 16 · `{spacing.lg}` 24 · `{spacing.xl}` 32 · `{spacing.xxl}` 64 · `{spacing.section}` 128.
+- **Gutters:** 24px desktop, 16px mobile — page margin and column gap.
+- **Rhythm:** sections are separated by `{spacing.section}`; each closes with its section index.
 
 ### Grid & Container
-- **Full-bleed container:** content spans the full viewport minus the 24px gutters — there is no centered max-width. The wordmark and rules touch both gutters.
-- **4-column grid**, 24px gaps (columns ≈ 326px at 1440). Each grid block places cards on that grid:
-  - one-column cards (portrait 2:3 or 3:4, or small square-ish 1:1),
-  - two-column wide cards (≈ 676px, 4:5 or 1:1),
-  - and **empty cells** left on purpose so blocks feel composed, not filled.
-- Cards inside one block may be offset to different columns and sizes (e.g. small + small + gap + wide). Never fill every cell of every row.
+- Full-bleed container (viewport minus gutters), no centered max-width.
+- 4-column grid with 24px gaps; product cards span 1 or 2 columns and leave empty cells on purpose.
+- Two-column splits (featured piece, process) use a 1:1 split at desktop.
 
 ### Page Structure
-1. **Primary nav** — fixed, transparent, logo mark left; nav links + theme dots right.
-2. **Wordmark hero** — "ASTRO" at `{typography.wordmark}`, full bleed, with a small ® / sub-mark aligned to its baseline at the right.
-3. **Rule** — 2px `{colors.rule}`.
-4. **Info strip** — 4 columns: project label · "why" label + 2–3 lines of `{typography.info-strong}` · link label · year. Second row: one more label (e.g. shipping/contact).
-5. **Editorial grid** — 3–4 blocks of product/editorial cards on the 4-column grid, each block separated by 128px.
-6. **Closing** — 2px rule, then a two-line statement at `{typography.display}` left and a "©26"-style year mark right.
-7. **Lead paragraph** — `{typography.lead}`, max ~2 lines at desktop.
-8. **Footer** — 1px `{component.rule-soft}`, then columns: brand + rights · address · legal · social · site links · contact.
-
-### Whitespace Philosophy
-Whitespace is a compositional element, not padding. Empty grid cells, 128px block gaps and the space around the closing statement are what make the page read as a poster; never fill them with extra cards or decoration.
+1. **Primary nav** — fixed, difference-blended: logo mark left; "Tienda", "Bolsa (0)", "Menú" (mobile) right.
+2. **Hero photo** — 100svh photograph with bottom scrim; short statement + "Ver colección →" top right (below the nav); wordmark across the bottom edge. Index "01 — Colección".
+3. **Category index** — centered display words for apparel categories, with small rectangular thumbnails inline between some words. Index "02 — Categorías".
+4. **Product grid** — 2–3 blocks of product cards. Index "03 — Tienda".
+5. **Featured piece** — photo band with "Destacado" + piece name in display; below, description + spec table (left) and stacked images (right); primary button. Index "04 — Destacado".
+6. **Process** — headline "Del boceto a la prenda", large image left, four numbered steps right separated by rules. Index "05 — Proceso".
+7. **Contact CTA** — display statement and a large underlined e-mail link. Index "06 — Contacto".
+8. **Footer** — 1px rule, brand + rights, address, legal, social, site links, theme toggle, credits line.
 
 ## Elevation & Depth
 
 | Level | Treatment | Use |
 |---|---|---|
 | 0 — Flat | No border, no shadow | Everything |
-| 1 — Rule | 2px `{colors.rule}` or 1px `{colors.rule-soft}` | Section separation |
-| 2 — Blend | `mix-blend-mode: difference` | Fixed nav and logo floating over photography |
-
-There are no shadows in the system. Depth comes only from photography, from the difference-blended nav sliding over images, and from the hover image wipe.
+| 1 — Rule | 2px `{colors.rule}`; 1px at 30% in tables | Section indexes, spec rows, process steps |
+| 2 — Scrim | Bottom gradient from transparent to 45% `{colors.ink-mono}` | Only under type placed on photographs (the lint models these surfaces as `{colors.ink-mono}`) |
+| 3 — Blend | `mix-blend-mode: difference` | Fixed navigation |
 
 ## Shapes
 
-### Border Radius Scale
-
 | Token | Value | Use |
 |---|---|---|
-| `{rounded.none}` | 0px | Images, cards, buttons, inputs, sections — everything |
-| `{rounded.full}` | 9999px | True circles only: theme dots, cursor, category dot, "View more" cursor |
+| `{rounded.none}` | 0px | Everything: images, thumbnails, buttons, swatches, tag markers |
+
+There are no circles in the system. Markers (category tag, swatches, process numbers) are squares.
 
 ### Photography Geometry
-- Ratios: portrait 2:3 (`aspect-large`), 3:4, square 1:1, and 4:5 for wide cards. Always `object-fit: cover`, square corners.
-- Photography sits on `{colors.surface-media}` while loading.
-- Each card ideally has **two images**: the primary shot and an alternate (on-body / context shot) revealed on hover.
+- Product cards: 2:3, 3:4, 1:1, 4:5, always `object-fit: cover`.
+- Category thumbnails: 3:2 or 1:1 at a height of ~0.8em of the display line.
+- Hero and featured band: landscape, cropped to fill.
+- Each product has an alternate image for the hover cross-fade.
 
 ## Components
 
-### Navigation
+### `primary-nav`
+Fixed, transparent, `mix-blend-difference`, 24px padding. Square-plus-bar logo mark (own). Links in `{typography.nav-link}` with the animated underline; active link keeps it.
 
-**`primary-nav`**
-- Fixed at top, transparent background, `mix-blend-mode: difference`, padding 32px 24px.
-- Left: brand mark (geometric glyph in ink). Right: `{typography.nav-link}` links ("Shop" with active underline, "Bag (0)"), then three `{component.theme-dot}` buttons.
-- Mobile: brand mark left, "Bag (0)" + "Menu" right; theme dots move into the menu.
+### `hero-photo`
+Full-bleed photo, 100svh, scrim at the bottom 45%. Statement in `{typography.lead}` (max 28ch) + "Ver colección →" link, top right below the nav. Wordmark in `{typography.wordmark}` / `{colors.on-photo}`, fitted gutter to gutter at the bottom.
 
-**`theme-dot`**
-- 18px circles: black (dark theme), cream outline (light theme), red with inner dot (red theme). Active dot shows an inset ring. 200ms `cubic-bezier(0,0,.2,1)`; hover scales to 110%.
+### `section-index`
+2px rule on top, then a row: number ("03") left, name ("Tienda") right, both `{typography.label}` uppercase. Closes every section.
 
-### Hero
+### `category-index`
+Centered lines of `{typography.display}` words, each a link. Some lines carry a `{component.category-thumb}` before or after the word. Hover a line: the other lines fade to 35% opacity, the hovered line's thumbnail scales to 1.08 (300ms `ease-standard`).
 
-**`wordmark-hero`**
-- "ASTRO" at `{typography.wordmark}`, fluid so it fills gutter to gutter; a small ® / sub-mark in a circle aligned bottom-right.
-- Followed immediately by `{component.rule}` with 24px space above.
+### `product-card`
+Square-cornered image box on `{colors.surface-media}`; row with title and price in `{typography.product-title}`; category with an 8px square marker in `{typography.label}`.
+Hover / focus: the alternate image fades in (400ms `ease-standard`) and the `{component.size-strip}` (`XS S M L XL`, available sizes in ink, unavailable struck through at 40%) slides up from the bottom edge of the image (400ms `ease-expo-out`).
 
-**`info-strip`**
-- 4-column grid: `{component.info-label}` titles (`{typography.label}`, uppercase) and short copy in `{typography.info-strong}`, ink `{colors.primary-ink}`.
+### `featured-band` + `spec-row`
+Landscape photo band (~60vh) with "Destacado" label and the piece name in `{typography.display}` / `{colors.on-photo}` over the scrim. Below, two columns: `{typography.lead}` description, spec table of `{component.spec-row}` items (label left in `{typography.spec-label}`, value right in `{typography.body-md}`, 1px rule between rows), color row with 20px square `{component.swatch}` items; `{component.button-primary}` "Añadir a la bolsa". Right column: two stacked images.
 
-### Cards
+### `process-step`
+Number in a 48px square outlined in ink, title in `{typography.headline}`, one-paragraph description; rules between steps.
 
-**`product-card`** / **`product-card-wide`**
-- Image box with no radius and no padding on `{colors.surface-media}` (the card itself sits on `{colors.canvas}`, so its text is always on cream); one column (card) or two columns (wide).
-- Below: one row with title left and price right in `{typography.product-title}`, then a `{component.product-tag}` — 8px ink dot + uppercase `{typography.tag}` category.
-- Hover: see Motion → card reveal.
+### `button-primary`
+`{colors.primary}` background, `{colors.on-primary}` text, `{typography.button-md}` uppercase, 48px height, 12px 24px padding, square.
 
-**`product-tag`**
-- Inline: 8px `{rounded.full}` dot in ink + 4px gap + uppercase `{typography.tag}`.
+### `link-underline`
+Ink text with an `::after` 2px underline at `scaleX(0)` that grows from the left on hover/focus (300ms `ease-standard`).
 
-### Buttons & Links
+### `contact-cta`
+Display statement on two lines, then the e-mail address as a large `{component.link-underline}` in `{typography.headline}`.
 
-**`button-primary`**
-- Background `{colors.primary-ink}`, text `{colors.on-primary}`, `{typography.button-md}`, padding 12px 24px, height 48px, `{rounded.none}`. Used sparingly — the system prefers text links.
-
-**`button-text`** / **`link-underline`**
-- Ink text with an `::after` underline at `scaleX(0)` that grows from the left to `scaleX(1)` on hover (transform-origin left). Active nav link keeps the underline visible.
-
-### Cursor
-
-**`cursor-dot`** + **`cursor-view-more`**
-- Custom cursor (pointer devices only): an 8px ink dot following the pointer. Over a product card it grows to a 100px `{rounded.full}` circle in `{colors.primary-ink}` with "VIEW MORE" in uppercase `{typography.tag}` cream. Size/opacity transitions 200ms `cubic-bezier(.4,0,.2,1)`.
-
-### Closing
-
-**`statement-block`**
-- 2px rule, then a two-line statement in `{typography.display}` (left, ~half width) and a year mark like "©26" at the same display size (right).
-
-### Footer
-
-**`footer-section`**
-- `{component.rule-soft}` on top, columns of `{typography.info-strong}` links in `{colors.primary-ink}`: brand + "All rights reserved ©" · address · legal · social · site · contact. No column headers.
+### `theme-toggle`
+Text buttons "Cobalto · Tinta · Noche" in `{typography.label}`; the active one is underlined and `aria-pressed`.
 
 ## Motion
 
-> Values measured from the reference's computed transitions and CSS custom properties.
-
-### Easing Tokens
 | Token | Curve | Use |
 |---|---|---|
-| `ease-standard` | `cubic-bezier(.4,0,.2,1)` | Cursor, image property changes |
-| `ease-decelerate` | `cubic-bezier(0,0,.2,1)` | Theme dots |
-| `ease-expo-out` | `cubic-bezier(.19,1,.22,1)` | Entrance reveals |
-| `ease-in-out-extreme` | `cubic-bezier(.87,0,.13,1)` | Card image wipe |
+| `ease-standard` | `cubic-bezier(.4,0,.2,1)` | Cross-fades, underline, index hover |
+| `ease-expo-out` | `cubic-bezier(.19,1,.22,1)` | Entrance, size strip |
 
-### Entrance
-- Nav, theme dots and hero elements fade and translate in: `opacity 0 → 1`, `translateY(16px) → 0`, **2s `ease-expo-out` with 0.5s delay**. Once per page load, never on every scroll.
-- Grid cards may reveal on first intersection with the same curve at 1.2s, staggered 80ms per card in a block.
-
-### Interaction
-- **Card reveal (signature):** the alternate image sits on top with `clip-path: polygon(0 0, 0 0, 0 100%, 0 100%)`, `scale: 1.2`, `filter: brightness(4) contrast(1.5)`. On hover it animates to `clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)`, `scale: 1`, `filter: none` — **500ms `ease-in-out-extreme`**, wiping left to right.
-- **Link underline:** `scaleX(0 → 1)` from the left, 300ms `ease-standard`.
-- **Theme dots:** hover `scale(1.1)`, 200ms `ease-decelerate`.
-- **Theme switch:** color and background 400ms `ease-in-out`.
-
-### Scroll
-- Smooth scrolling (Lenis or native `scroll-behavior: smooth` as fallback).
-- Fixed nav in `mix-blend-mode: difference` so it inverts over images instead of needing a background.
-
-### Accessibility
-- Under `prefers-reduced-motion: reduce`: disable entrance translates (opacity only, 200ms), disable smooth scrolling and the custom cursor, and make the card reveal an instant crossfade.
-- Custom cursor only on `(hover: hover) and (pointer: fine)`; never hide the native cursor on touch.
+- **Entrance:** hero statement, wordmark and nav fade + rise 16px, 1.6s `ease-expo-out`, 0.3s delay, once.
+- **Reveal on scroll:** cards, category lines and process steps rise 24px and fade in, 1.2s `ease-expo-out`, staggered 80ms within a group, once.
+- **Hero:** the photograph scales from 1.06 to 1 over 2.4s on load.
+- **Smooth scroll:** Lenis; native scroll under reduced motion.
+- **Reduced motion:** no translates or scales (opacity only, 200ms), size strip and cross-fade change instantly.
 
 ## Do's and Don'ts
 
 ### Do
-- Use one ink per theme. In the red theme: `{colors.primary}` for type ≥ 24px and graphics, `{colors.primary-ink}` for anything smaller.
-- Make the wordmark span gutter to gutter at every breakpoint.
-- Keep every corner square; reserve `{rounded.full}` for true circles.
-- Separate sections with 2px rules and 128px of space, not with background fills.
-- Leave empty cells in the editorial grid on purpose.
-- Give every product card an alternate image so the hover reveal has something to show.
-- Write all labels and category tags in uppercase `{typography.label}` / `{typography.tag}`.
+- Use the theme ink for everything; photography is the only other color.
+- Keep every corner square; markers are squares.
+- Close every section with its numbered section index.
+- Use the width axis (expanded) for wordmark and display; normal width for text.
+- Leave empty cells in the product grid.
+- Give every product an alternate image and real size availability.
 
 ### Don't
-- Don't introduce a second accent color, gradients, or tinted card backgrounds.
-- Don't add shadows or border radius to images, cards or buttons.
-- Don't use `{colors.primary}` for text under 24px — it fails WCAG AA on cream.
-- Don't fill the grid like a masonry or catalog; composition beats density.
-- Don't animate continuously or on every scroll; motion happens on load and on interaction.
-- Don't let any element overflow horizontally on mobile (the reference has a horizontal scroll on 390px — avoid it).
-- Don't copy the reference's copy, photography or "++" mark; ASTRO uses its own content.
+- Don't add a second accent, gradients (other than the photo scrim) or shadows.
+- Don't round anything or use circles.
+- Don't place on-photo type without the scrim.
+- Don't use a custom cursor or decorative continuous animation.
+- Don't let anything overflow horizontally on mobile.
 
 ## Responsive Behavior
 
-### Breakpoints
-
 | Name | Width | Key Changes |
 |---|---|---|
-| desktop | 1440px | Reference: 4-column grid, 24px gutters, full nav with theme dots |
-| desktop-small | 1024px | Same grid, wide cards still span 2 columns |
-| tablet | 768px | Grid becomes 2 columns; info strip 2 × 2 |
-| mobile | 390px | 2-column grid (16px gutters); info strip stacks; nav shows "Bag" + "Menu" |
+| desktop | 1440px | 4-column grid, 24px gutters |
+| desktop-small | 1024px | Same grid; featured and process keep two columns |
+| tablet | 768px | 2-column grid; featured and process stack (image first) |
+| mobile | 390px | 2-column grid, 16px gutters; nav shows "Bolsa" + "Menú"; category thumbnails hidden on every other line |
 
-### Collapsing Strategy
-- **Wordmark:** fluid `clamp()` — always full width (≈ 92vw).
-- **Display statement:** 86px → ~44px on mobile, still 900 / -0.05em; the year mark drops below the statement.
-- **Editorial grid:** 4 → 2 columns; wide cards span both columns; empty-cell offsets are kept by indenting single cards to the second column.
-- **Info strip:** 4 columns → label/copy pairs in 2 columns.
-- **Footer:** columns → 3-column link grid, then address/legal in 2 columns.
-- **Custom cursor and hover reveal:** off on touch; the alternate image is simply not shown.
-
-### Touch Targets
-Nav links, theme dots (with padding) and buttons reach at least 44×44px of hit area.
+- Wordmark and display are fluid; the wordmark always fits gutter to gutter.
+- The size strip is shown on focus as well as hover; on touch it's never required to see sizes (they're listed in the featured spec table).
 
 ## Iteration Guide
 
-1. Focus on ONE component at a time and make sure every property resolves to a token.
-2. Reference tokens directly (`{colors.primary-ink}`, `{typography.label}`, `{rounded.none}`) — don't paraphrase values.
+1. One component at a time; every property must resolve to a token.
+2. Reference tokens directly (`{colors.primary}`, `{typography.label}`, `{rounded.none}`).
 3. Run `npx @google/design.md lint DESIGN.md` after edits.
-4. Add new variants as separate component entries (`-hover`, `-active`, `-dark`).
-5. Before adding a token, check whether the ink/cream/rule vocabulary already covers it — the system's strength is having almost nothing.
+4. New variants become separate component entries.
+5. Before adding a token, check whether ink / bone / rule already covers it.
 
 ## Known Gaps
 
-- **Semantic states** (error, success, form validation) are not present in the reference; define them inside the single-ink rule (e.g. icons + copy) before adding colors.
-- **Forms and inputs** are not shown in the reference.
-- **Menu / bag drawers** were not captured.
-- **Lint contrast warnings** on `{colors.primary}` are expected for the wordmark and display tiers (large text, AA-large compliant at 3.19:1).
+- Semantic states (error, success, form validation) are not defined yet; express them within the single ink (icon + copy) first.
+- Product detail page, bag and menu drawer are not designed.
+
+## References
+
+ASTRO is an original system. Its editorial order and single-ink idea were inspired by **OUTFIT® by ++hellohello** (outfit.hellohello.is), and the category index, featured spec table and process sections were adapted from the free Framer template **Graft** by Stacy More (graft.framer.website). No copy, photography or marks from either were reused.
