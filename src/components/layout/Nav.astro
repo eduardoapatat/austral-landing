@@ -1,21 +1,33 @@
 ---
 import UnderlineLink from '../ui/UnderlineLink.astro';
 
+interface Props {
+	/** La página empieza con un hero a sangre: el header es transparente hasta salir de él. */
+	overHero?: boolean;
+}
+
+const { overHero = false } = Astro.props;
+
 const links = [
 	{ href: '#', label: 'Tienda', active: true },
 	{ href: '#', label: 'Bolsa (0)' },
 ];
 ---
 
-<header class="enter pointer-events-none fixed inset-x-0 top-0 z-40 text-ink">
+<!-- Transparente sobre el hero; con data-solid pasa al fondo de la página (ver script). -->
+<header
+	class="enter fixed inset-x-0 top-0 z-40 border-b border-transparent text-on-photo transition-[background-color,color,border-color] duration-300 ease-standard data-solid:border-ink/15 data-solid:bg-ground data-solid:text-ink"
+	data-solid={overHero ? undefined : ''}
+	data-header
+>
 	<nav class="flex items-center justify-between px-(--gutter) py-6 md:py-8" aria-label="Principal">
-		<a href="/" class="pointer-events-auto" aria-label="ASTRO, inicio">
+		<a href="/" aria-label="ASTRO, inicio">
 			<svg class="h-6 w-[38px]" viewBox="0 0 38 24" fill="currentColor" aria-hidden="true">
 				<rect width="24" height="24"></rect>
 				<rect x="30" width="8" height="24"></rect>
 			</svg>
 		</a>
-		<ul class="pointer-events-auto flex items-center gap-6 text-product-title md:gap-16 md:text-nav-link">
+		<ul class="flex items-center gap-6 text-product-title md:gap-16 md:text-nav-link">
 			{
 				links.map((link, i) => (
 					<li class:list={[i === 0 && 'max-md:hidden']}>
@@ -45,14 +57,34 @@ const links = [
 </div>
 
 <script>
+	const header = document.querySelector<HTMLElement>('[data-header]');
+	const hero = document.querySelector<HTMLElement>('[data-hero]');
 	const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
 	const menu = document.querySelector<HTMLElement>('[data-menu]');
 
+	let pastHero = !hero;
+	let menuOpen = false;
+
+	const syncHeader = () => header?.toggleAttribute('data-solid', pastHero || menuOpen);
+
+	// El hero deja de "estar bajo el header" cuando su borde inferior sube por encima de la base del header.
+	if (hero && header) {
+		new IntersectionObserver(
+			([entry]) => {
+				pastHero = !entry.isIntersecting;
+				syncHeader();
+			},
+			{ rootMargin: `-${header.offsetHeight}px 0px 0px 0px` },
+		).observe(hero);
+	}
+
 	const setOpen = (open: boolean) => {
+		menuOpen = open;
 		menu?.classList.toggle('hidden', !open);
 		menu?.classList.toggle('flex', open);
 		toggle?.setAttribute('aria-expanded', String(open));
 		if (toggle) toggle.textContent = open ? 'Cerrar' : 'Menú';
+		syncHeader();
 	};
 
 	toggle?.addEventListener('click', () => setOpen(menu?.classList.contains('hidden') ?? false));
