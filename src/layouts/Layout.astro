@@ -1,4 +1,6 @@
 ---
+import { getImage } from 'astro:assets';
+import { photos } from '../data/photos';
 import '../styles/global.css';
 
 interface Props {
@@ -6,20 +8,39 @@ interface Props {
 	description?: string;
 }
 
-const { title = 'AUSTRAL', description = 'AUSTRAL: ropa de abrigo del sur de Chile en tiradas cortas (marca inventada de prueba).' } =
-	Astro.props;
+const {
+	title = 'AUSTRAL',
+	description = 'Ropa de abrigo hecha para el sur de Chile: parkas, polares, franelas y punto en tiradas cortas.',
+} = Astro.props;
+
+// Imagen para compartir (1200×630) generada a partir de la foto del hero.
+const ogImage = await getImage({ src: photos['hero-torres'].src, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
+const ogUrl = new URL(ogImage.src, Astro.site ?? Astro.url).href;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-CL">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta name="theme-color" content="#f1ede4" />
+		<link rel="canonical" href={canonical} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_CL" />
+		<meta property="og:site_name" content="AUSTRAL" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={photos['hero-torres'].alt} />
+		<meta name="twitter:card" content="summary_large_image" />
 		<!--
 			Diseño: sistema AUSTRAL (ver DESIGN.md). Referencias: OUTFIT® by ++hellohello (outfit.hellohello.is)
 			y la plantilla Graft de Stacy More (graft.framer.website). No se reutilizan textos, fotos ni marcas.
@@ -30,6 +51,12 @@ const { title = 'AUSTRAL', description = 'AUSTRAL: ropa de abrigo del sur de Chi
 		</script>
 	</head>
 	<body>
+		<a
+			href="#contenido"
+			class="sr-only z-50 bg-ink px-4 py-3 text-button-md text-on-ink uppercase focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
+		>
+			Saltar al contenido
+		</a>
 		<slot />
 	</body>
 </html>
