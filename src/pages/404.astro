@@ -1,0 +1,25 @@
+---
+import Footer from '../components/layout/Footer.astro';
+import Nav from '../components/layout/Nav.astro';
+import Button from '../components/ui/Button.astro';
+import SectionIndex from '../components/ui/SectionIndex.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Página no encontrada · AUSTRAL" description="Esta página no existe. Vuelve a la colección de AUSTRAL.">
+	<Nav />
+
+	<main id="contenido" class="flex min-h-svh flex-col justify-between px-(--gutter) pt-40 pb-16">
+		<div class="flex flex-col items-start gap-8">
+			<p class="text-label font-stretch-110% uppercase">Error 404</p>
+			<h1 class="text-display font-stretch-expanded">Te perdiste<br />en el sur</h1>
+			<p class="max-w-[36ch] text-lead">
+				Esta página no existe o cambió de lugar. Vuelve a la colección y sigue desde ahí.
+			</p>
+			<Button href="/#tienda">Ver la colección</Button>
+		</div>
+		<SectionIndex number="404" name="No encontrada" class="mt-section" />
+	</main>
+
+	<Footer />
+</Layout>

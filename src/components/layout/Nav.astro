@@ -10,10 +10,10 @@ const { overHero = false } = Astro.props;
 
 /** Secciones de la página; el nav marca la que está a la vista (ver script). */
 const sections = [
-	{ href: '#tienda', label: 'Tienda' },
-	{ href: '#rutas', label: 'Rutas' },
-	{ href: '#proceso', label: 'Proceso' },
-	{ href: '#contacto', label: 'Contacto' },
+	{ href: '/#tienda', label: 'Tienda' },
+	{ href: '/#rutas', label: 'Rutas' },
+	{ href: '/#proceso', label: 'Proceso' },
+	{ href: '/#contacto', label: 'Contacto' },
 ];
 ---
 
@@ -34,7 +34,7 @@ const sections = [
 			{
 				sections.slice(0, 3).map((link) => (
 					<li class="max-md:hidden">
-						<UnderlineLink href={link.href} data-spy={link.href.slice(1)}>
+						<UnderlineLink href={link.href} data-spy={link.href.split('#')[1]}>
 							{link.label}
 						</UnderlineLink>
 					</li>
