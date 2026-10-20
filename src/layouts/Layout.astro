@@ -11,7 +11,7 @@ const { title = 'ASTRO', description = 'Landing editorial de prueba construida c
 ---
 
 <!doctype html>
-<html lang="es" data-theme="cobalt">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,13 +24,9 @@ const { title = 'ASTRO', description = 'Landing editorial de prueba construida c
 			Diseño: sistema ASTRO (ver DESIGN.md). Referencias: OUTFIT® by ++hellohello (outfit.hellohello.is)
 			y la plantilla Graft de Stacy More (graft.framer.website). No se reutilizan textos, fotos ni marcas.
 		-->
-		<!-- Aplica el tema guardado antes de pintar para evitar el parpadeo. -->
+		<!-- Marca que hay JS para que las animaciones de aparición no oculten contenido sin él. -->
 		<script is:inline>
 			document.documentElement.classList.add('js');
-			try {
-				const theme = localStorage.getItem('astro-theme');
-				if (theme === 'cobalt' || theme === 'mono' || theme === 'night') document.documentElement.dataset.theme = theme;
-			} catch {}
 		</script>
 	</head>
 	<body>

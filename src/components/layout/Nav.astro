@@ -1,5 +1,4 @@
 ---
-import ThemeToggle from '../ui/ThemeToggle.astro';
 import UnderlineLink from '../ui/UnderlineLink.astro';
 
 const links = [
@@ -8,11 +7,7 @@ const links = [
 ];
 ---
 
-<!-- La barra se mezcla con difference para invertirse sobre las fotos; el panel del menú va fuera para no mezclarse. -->
-<header
-	class="enter pointer-events-none fixed inset-x-0 top-0 z-40 mix-blend-difference"
-	style="color: var(--nav-ink)"
->
+<header class="enter pointer-events-none fixed inset-x-0 top-0 z-40 text-ink">
 	<nav class="flex items-center justify-between px-(--gutter) py-6 md:py-8" aria-label="Principal">
 		<a href="/" class="pointer-events-auto" aria-label="ASTRO, inicio">
 			<svg class="h-6 w-[38px]" viewBox="0 0 38 24" fill="currentColor" aria-hidden="true">
@@ -47,7 +42,6 @@ const links = [
 			))
 		}
 	</ul>
-	<ThemeToggle class="mt-12" />
 </div>
 
 <script>

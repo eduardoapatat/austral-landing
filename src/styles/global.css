@@ -4,13 +4,11 @@
 /* Tokens de DESIGN.md. Se resetean los namespaces de Tailwind para que solo existan los del sistema. */
 @theme {
   --color-*: initial;
-  --color-primary: #2440e0;
-  --color-on-primary: #f1ede4;
+  --color-ink: #141414;
+  --color-on-ink: #f1ede4;
   --color-canvas: #f1ede4;
+  --color-ground: #f1ede4;
   --color-surface-media: #e2ddd2;
-  --color-ink-mono: #141414;
-  --color-surface-night: #10173a;
-  --color-on-night: #f1ede4;
   --color-on-photo: #f1ede4;
 
   --font-sans: "Archivo Variable", "Helvetica Neue", Arial, sans-serif;
@@ -63,47 +61,23 @@
   --ease-expo-out: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* Tinta del tema activo: ground (fondo) e ink (todo el texto y los gráficos). */
-@theme inline {
-  --color-ground: var(--ground);
-  --color-ink: var(--ink);
-}
-
 @layer base {
   :root {
     --gutter: 16px;
-    --ground: var(--color-canvas);
-    --ink: var(--color-primary);
-    /* Color que, con mix-blend-mode: difference sobre el fondo, da la tinta del tema. */
-    --nav-ink: rgb(205 173 4);
 
     @variant md {
       --gutter: 24px;
     }
   }
 
-  :root[data-theme="mono"] {
-    --ink: var(--color-ink-mono);
-    --nav-ink: var(--color-canvas);
-  }
-
-  :root[data-theme="night"] {
-    --ground: var(--color-surface-night);
-    --ink: var(--color-on-night);
-    --nav-ink: var(--color-on-night);
-  }
-
   body {
     @apply bg-ground font-sans text-body-md text-ink antialiased;
     overflow-x: clip;
-    transition:
-      color 400ms ease-in-out,
-      background-color 400ms ease-in-out;
   }
 
   ::selection {
-    background-color: var(--ink);
-    color: var(--ground);
+    background-color: var(--color-ink);
+    color: var(--color-ground);
   }
 
   :focus-visible {
