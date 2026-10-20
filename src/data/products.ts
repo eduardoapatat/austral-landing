@@ -1,5 +1,8 @@
 export type Ratio = '2/3' | '3/4' | '1/1' | '4/5';
 
+export const SIZES = ['XS', 'S', 'M', 'L', 'XL'] as const;
+export type Size = (typeof SIZES)[number];
+
 export interface Product {
 	title: string;
 	price: string;
@@ -8,6 +11,8 @@ export interface Product {
 	/** IDs de picsum: imagen principal y alternativa (la que aparece en hover). */
 	photo: number;
 	altPhoto: number;
+	/** Tallas agotadas: se muestran tachadas en la franja de tallas. */
+	soldOut: Size[];
 }
 
 /** Colocación en la rejilla: columna y ancho en 4 columnas (lg) y en 2 columnas (móvil/tablet). */
@@ -31,25 +36,34 @@ export const photoUrl = (id: number, ratio: Ratio, scale = 1) => {
 	return { src: `https://picsum.photos/id/${id}/${w * scale}/${h * scale}`, width: w * scale, height: h * scale };
 };
 
-const product = (title: string, price: string, category: string, ratio: Ratio, photo: number, altPhoto: number): Product => ({
+const product = (
+	title: string,
+	price: string,
+	category: string,
+	ratio: Ratio,
+	photo: number,
+	altPhoto: number,
+	soldOut: Size[] = [],
+): Product => ({
 	title,
 	price,
 	category,
 	ratio,
 	photo,
 	altPhoto,
+	soldOut,
 });
 
 export const blocks: Placement[][] = [
 	[
 		{ product: product('Rejilla Base', '€36,00', 'Ropa', '2/3', 10, 11), col: 1 },
-		{ product: product('Kerning Abierto', '€25,00', 'Accesorios', '2/3', 12, 13), col: 2 },
+		{ product: product('Kerning Abierto', '€25,00', 'Accesorios', '2/3', 12, 13, ['XS', 'XL']), col: 2 },
 		{ product: product('Peso 900', '€30,00', 'Ropa', '2/3', 15, 16), col: 3 },
 		{ product: product('Línea de Base', '€30,00', 'Objetos', '2/3', 17, 18), col: 4 },
 	],
 	[
 		{ product: product('Contraforma', '€30,00', 'Accesorios', '3/4', 19, 20), col: 1 },
-		{ product: product('Interlineado', '€20,00', 'Ropa', '1/1', 22, 24), col: 2 },
+		{ product: product('Interlineado', '€20,00', 'Ropa', '1/1', 22, 24, ['M']), col: 2 },
 		{ product: product('Margen Blanco', '€25,00', 'Objetos', '4/5', 25, 26), col: 3, span: 2 },
 	],
 	[
@@ -59,7 +73,7 @@ export const blocks: Placement[][] = [
 	],
 	[
 		{ product: product('Versalita', '€30,00', 'Accesorios', '1/1', 64, 65), col: 1, span: 2 },
-		{ product: product('Cuerpo 11', '€33,00', 'Ropa', '3/4', 1, 2), col: 4, offset: true, mobileCol: 2 },
+		{ product: product('Cuerpo 11', '€33,00', 'Ropa', '3/4', 1, 2, ['XS', 'S']), col: 4, offset: true, mobileCol: 2 },
 	],
 ];
 

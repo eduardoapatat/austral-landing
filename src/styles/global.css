@@ -110,10 +110,6 @@
     outline: 2px solid currentColor;
     outline-offset: 4px;
   }
-
-  .has-cursor [data-cursor="view"] {
-    cursor: none;
-  }
 }
 
 /* Entrada: una sola vez al cargar. */

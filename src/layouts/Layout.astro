@@ -1,5 +1,4 @@
 ---
-import Cursor from '../components/ui/Cursor.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -21,6 +20,10 @@ const { title = 'ASTRO', description = 'Landing editorial de prueba construida c
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<!--
+			Diseño: sistema ASTRO (ver DESIGN.md). Referencias: OUTFIT® by ++hellohello (outfit.hellohello.is)
+			y la plantilla Graft de Stacy More (graft.framer.website). No se reutilizan textos, fotos ni marcas.
+		-->
 		<!-- Aplica el tema guardado antes de pintar para evitar el parpadeo. -->
 		<script is:inline>
 			document.documentElement.classList.add('js');
@@ -32,7 +35,6 @@ const { title = 'ASTRO', description = 'Landing editorial de prueba construida c
 	</head>
 	<body>
 		<slot />
-		<Cursor />
 	</body>
 </html>
 

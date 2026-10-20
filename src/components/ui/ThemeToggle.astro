@@ -6,29 +6,30 @@ interface Props {
 const { class: className } = Astro.props;
 
 const themes = [
-	{ id: 'night', label: 'Tema noche', swatch: 'bg-surface-night' },
-	{ id: 'mono', label: 'Tema tinta', swatch: 'bg-canvas' },
-	{ id: 'cobalt', label: 'Tema cobalto', swatch: 'bg-primary' },
+	{ id: 'cobalt', label: 'Cobalto' },
+	{ id: 'mono', label: 'Tinta' },
+	{ id: 'night', label: 'Noche' },
 ];
 ---
 
-<div class:list={['flex items-center gap-1', className]} role="group" aria-label="Tema de color">
+<div
+	class:list={['flex items-center gap-2 text-label font-stretch-110% uppercase', className]}
+	role="group"
+	aria-label="Tema de color"
+>
 	{
-		themes.map((theme) => (
-			<button
-				type="button"
-				class="group grid size-7 place-items-center"
-				aria-label={theme.label}
-				aria-pressed="false"
-				data-theme-option={theme.id}
-			>
-				<span
-					class:list={[
-						'size-[18px] rounded-full shadow-[inset_0_0_0_1px_var(--ink)] transition-transform duration-200 ease-standard group-hover:scale-110 group-aria-pressed:shadow-[inset_0_0_0_1px_var(--ink),inset_0_0_0_4px_var(--ground)]',
-						theme.swatch,
-					]}
-				/>
-			</button>
+		themes.map((theme, i) => (
+			<>
+				{i > 0 && <span aria-hidden="true">·</span>}
+				<button
+					type="button"
+					class="py-2 decoration-2 underline-offset-4 aria-pressed:underline"
+					aria-pressed="false"
+					data-theme-option={theme.id}
+				>
+					{theme.label}
+				</button>
+			</>
 		))
 	}
 </div>

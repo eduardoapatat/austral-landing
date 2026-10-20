@@ -1,5 +1,5 @@
 ---
-import { photoUrl, type Product } from '../../data/products';
+import { photoUrl, SIZES, type Product } from '../../data/products';
 import ProductTag from './ProductTag.astro';
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { product, wide = false, href = '#', class: className } = Astro.props;
-const { title, price, category, ratio, photo, altPhoto } = product;
+const { title, price, category, ratio, photo, altPhoto, soldOut } = product;
 
 const aspect = {
 	'2/3': 'aspect-[2/3]',
@@ -22,9 +22,10 @@ const aspect = {
 const scale = wide ? 1.25 : 1;
 const main = photoUrl(photo, ratio, scale);
 const alt = photoUrl(altPhoto, ratio, scale);
+const available = SIZES.filter((size) => !soldOut.includes(size));
 ---
 
-<a href={href} class:list={['group block', className]} data-cursor="view" data-reveal>
+<a href={href} class:list={['group block', className]} data-reveal>
 	<div class:list={['relative overflow-hidden bg-surface-media', aspect]}>
 		<img {...main} alt="" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover" />
 		<img
@@ -32,12 +33,23 @@ const alt = photoUrl(altPhoto, ratio, scale);
 			alt=""
 			loading="lazy"
 			decoding="async"
-			class="absolute inset-0 size-full scale-120 object-cover brightness-400 contrast-150 transition-[clip-path,scale,filter] duration-500 ease-standard [clip-path:inset(0_100%_0_0)] group-hover:scale-100 group-hover:brightness-100 group-hover:contrast-100 group-hover:[clip-path:inset(0)] group-focus-visible:scale-100 group-focus-visible:brightness-100 group-focus-visible:contrast-100 group-focus-visible:[clip-path:inset(0)] motion-reduce:transition-none"
+			class="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-400 ease-standard group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
 		/>
+		<!-- Franja de tallas: sube desde abajo en hover/foco. Las agotadas van tachadas. -->
+		<div
+			class="absolute inset-x-0 bottom-0 flex translate-y-full items-center justify-between gap-4 bg-ground px-4 py-3 text-label font-stretch-110% uppercase transition-transform duration-400 ease-expo-out group-hover:translate-y-0 group-focus-visible:translate-y-0 motion-reduce:transition-none"
+			aria-hidden="true"
+		>
+			<span>Tallas</span>
+			<span class="flex gap-3">
+				{SIZES.map((size) => <span class:list={[soldOut.includes(size) && 'line-through opacity-40']}>{size}</span>)}
+			</span>
+		</div>
 	</div>
 	<div class="mt-3 flex items-start justify-between gap-4 text-product-title">
 		<h3>{title}</h3>
 		<span>{price}</span>
 	</div>
 	<ProductTag class="mt-1">{category}</ProductTag>
+	<span class="sr-only">Tallas disponibles: {available.join(', ')}</span>
 </a>

@@ -1,4 +1,5 @@
 ---
+import ThemeToggle from '../ui/ThemeToggle.astro';
 import UnderlineLink from '../ui/UnderlineLink.astro';
 
 const columns = [
@@ -30,5 +31,11 @@ const columns = [
 				</ul>
 			))
 		}
+	</div>
+	<div class="mt-16 flex flex-col gap-4 text-spec-label md:flex-row md:items-center md:justify-between">
+		<ThemeToggle class="-my-2" />
+		<p class="font-normal">
+			Inspirado en OUTFIT® de ++hellohello y en la plantilla Graft de Stacy More.
+		</p>
 	</div>
 </footer>
