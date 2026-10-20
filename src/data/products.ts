@@ -56,24 +56,24 @@ const product = (
 
 export const blocks: Placement[][] = [
 	[
-		{ product: product('Rejilla Base', '€36,00', 'Ropa', '2/3', 10, 11), col: 1 },
-		{ product: product('Kerning Abierto', '€25,00', 'Accesorios', '2/3', 12, 13, ['XS', 'XL']), col: 2 },
-		{ product: product('Peso 900', '€30,00', 'Ropa', '2/3', 15, 16), col: 3 },
-		{ product: product('Línea de Base', '€30,00', 'Objetos', '2/3', 17, 18), col: 4 },
+		{ product: product('Parka Aysén', '$159.990', 'Abrigo', '2/3', 10, 11), col: 1 },
+		{ product: product('Polar Puyuhuapi', '$69.990', 'Abrigo', '2/3', 12, 13, ['XS', 'XL']), col: 2 },
+		{ product: product('Franela Chiloé', '$49.990', 'Camisas', '2/3', 15, 16), col: 3 },
+		{ product: product('Gorro Cochamó', '$19.990', 'Accesorios', '2/3', 17, 18), col: 4 },
 	],
 	[
-		{ product: product('Contraforma', '€30,00', 'Accesorios', '3/4', 19, 20), col: 1 },
-		{ product: product('Interlineado', '€20,00', 'Ropa', '1/1', 22, 24, ['M']), col: 2 },
-		{ product: product('Margen Blanco', '€25,00', 'Objetos', '4/5', 25, 26), col: 3, span: 2 },
+		{ product: product('Mochila Futaleufú', '$84.990', 'Accesorios', '3/4', 19, 20), col: 1 },
+		{ product: product('Camisa Castro', '$44.990', 'Camisas', '1/1', 22, 24, ['M']), col: 2 },
+		{ product: product('Chaqueta Tortel', '$129.990', 'Abrigo', '4/5', 25, 26), col: 3, span: 2 },
 	],
 	[
-		{ product: product('Columna Cuatro', '€30,00', 'Ropa', '1/1', 27, 28), col: 1 },
-		{ product: product('Ojo Medio', '€30,00', 'Ropa', '2/3', 29, 30), col: 3, offset: true },
-		{ product: product('Tracking Negativo', '€30,00', 'Accesorios', '3/4', 42, 48), col: 4, mobileCol: 2 },
+		{ product: product('Sweater Dalcahue', '$74.990', 'Punto', '1/1', 27, 28), col: 1 },
+		{ product: product('Chaleco Achao', '$59.990', 'Punto', '2/3', 29, 30), col: 3, offset: true },
+		{ product: product('Cortavientos Torres', '$94.990', 'Abrigo', '3/4', 42, 48), col: 4, mobileCol: 2 },
 	],
 	[
-		{ product: product('Versalita', '€30,00', 'Accesorios', '1/1', 64, 65), col: 1, span: 2 },
-		{ product: product('Cuerpo 11', '€33,00', 'Ropa', '3/4', 1, 2, ['XS', 'S']), col: 4, offset: true, mobileCol: 2 },
+		{ product: product('Bufanda Natales', '$29.990', 'Punto', '1/1', 64, 65), col: 1, span: 2 },
+		{ product: product('Pantalón Coyhaique', '$64.990', 'Pantalones', '3/4', 1, 2, ['XS', 'S']), col: 4, offset: true, mobileCol: 2 },
 	],
 ];
 
@@ -83,29 +83,29 @@ export interface Category {
 }
 
 export const categories: Category[] = [
-	{ name: 'Camisetas', href: '#tienda' },
-	{ name: 'Sudaderas', href: '#tienda' },
-	{ name: 'Gorras', href: '#tienda' },
-	{ name: 'Bolsos', href: '#tienda' },
-	{ name: 'Abrigos', href: '#tienda' },
-	{ name: 'Edición limitada', href: '#tienda' },
+	{ name: 'Parkas', href: '#tienda' },
+	{ name: 'Polares', href: '#tienda' },
+	{ name: 'Franelas', href: '#tienda' },
+	{ name: 'Gorros', href: '#tienda' },
+	{ name: 'Mochilas', href: '#tienda' },
+	{ name: 'Edición Chiloé', href: '#tienda' },
 ];
 
 export const featured = {
-	name: 'Sobrecamisa Columna',
-	price: '€89,00',
+	name: 'Parka Aysén',
+	price: '$189.990',
 	description:
-		'Una sobrecamisa de algodón grueso con el corte recto de una prenda de trabajo y los acabados de una pieza para años. Bolsillos de parche, costuras dobles y botones de corozo.',
+		'Una parka de algodón encerado con forro de lana, pensada para la lluvia y el viento de Aysén. Capucha ajustable, cuatro bolsillos con solapa y costuras selladas.',
 	specs: [
-		['Material', 'Algodón orgánico 100%'],
-		['Gramaje', '320 g/m²'],
-		['Corte', 'Recto, hombro caído'],
+		['Material', 'Algodón encerado y forro de lana'],
+		['Gramaje', '420 g/m²'],
+		['Corte', 'Recto, largo a la cadera'],
 		['Tallas', 'XS – XL'],
-		['Origen', 'Hecho en Lima'],
+		['Origen', 'Hecho en Puerto Montt'],
 	] as [string, string][],
 	colors: [
+		{ name: 'Musgo', hex: '#4a5a3a' },
 		{ name: 'Hueso', hex: '#e9e1d2' },
-		{ name: 'Cobalto', hex: '#2440e0' },
 		{ name: 'Carbón', hex: '#2b2b2b' },
 	],
 	band: 1018,
