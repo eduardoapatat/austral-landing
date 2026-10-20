@@ -78,3 +78,24 @@ export const categories: Category[] = [
 	{ name: 'Abrigos', href: '#tienda' },
 	{ name: 'Edición limitada', href: '#tienda', thumb: { photo: 57, shape: 'square', side: 'before', mobile: false } },
 ];
+
+export const featured = {
+	name: 'Sobrecamisa Columna',
+	price: '€89,00',
+	description:
+		'Una sobrecamisa de algodón grueso con el corte recto de una prenda de trabajo y los acabados de una pieza para años. Bolsillos de parche, costuras dobles y botones de corozo.',
+	specs: [
+		['Material', 'Algodón orgánico 100%'],
+		['Gramaje', '320 g/m²'],
+		['Corte', 'Recto, hombro caído'],
+		['Tallas', 'XS – XL'],
+		['Origen', 'Hecho en Lima'],
+	] as [string, string][],
+	colors: [
+		{ name: 'Hueso', hex: '#e9e1d2' },
+		{ name: 'Cobalto', hex: '#2440e0' },
+		{ name: 'Carbón', hex: '#2b2b2b' },
+	],
+	band: 1018,
+	photos: [58, 59],
+};
