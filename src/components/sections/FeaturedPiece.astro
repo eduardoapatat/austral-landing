@@ -17,7 +17,8 @@ const { name, price, description, specs, colors, band, photos } = featured;
 			formats={['avif', 'webp']}
 			widths={[800, 1400, 2000]}
 			sizes="100vw"
-			class="absolute inset-0 -z-10 size-full object-cover"
+			pictureAttributes={{ class: 'absolute inset-0 -z-10' }}
+			class="size-full object-cover"
 		/>
 		<div class="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-linear-to-t from-ink/45 to-transparent"></div>
 		<div class="px-(--gutter) pb-8">
