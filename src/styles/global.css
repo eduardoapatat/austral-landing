@@ -4,57 +4,55 @@
 /* Tokens de DESIGN.md. Se resetean los namespaces de Tailwind para que solo existan los del sistema. */
 @theme {
   --color-*: initial;
-  --color-primary: #ff0001;
-  --color-primary-ink: #c00000;
-  --color-on-primary: #ede4dd;
-  --color-canvas: #ede4dd;
-  --color-surface-media: #d2cac3;
-  --color-ink-light: #000000;
-  --color-surface-dark: #000000;
-  --color-on-dark: #ede4dd;
+  --color-primary: #2440e0;
+  --color-on-primary: #f1ede4;
+  --color-canvas: #f1ede4;
+  --color-surface-media: #e2ddd2;
+  --color-ink-mono: #141414;
+  --color-surface-night: #10173a;
+  --color-on-night: #f1ede4;
+  --color-on-photo: #f1ede4;
 
-  --font-sans: "Archivo Variable", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "Archivo Variable", "Helvetica Neue", Arial, sans-serif;
 
+  /* wordmark y display van además con font-stretch-expanded (125%). */
   --text-*: initial;
-  /* El wordmark se calibra para ocupar todo el ancho de su contenedor (ASTRO + ® ≈ 3.35em). */
-  --text-wordmark: calc(100cqw * 0.292);
-  --text-wordmark--line-height: 0.8;
-  --text-wordmark--letter-spacing: -0.045em;
-  --text-wordmark--font-weight: 900;
-  --text-display: clamp(40px, 6vw, 120px);
-  --text-display--line-height: 1;
-  --text-display--letter-spacing: -0.05em;
-  --text-display--font-weight: 900;
-  --text-headline: 60px;
-  --text-headline--line-height: 1;
-  --text-headline--letter-spacing: -1.5px;
-  --text-headline--font-weight: 400;
-  --text-lead: 24px;
-  --text-lead--line-height: 1.333;
-  --text-lead--letter-spacing: -0.6px;
+  /* El wordmark se calibra para ocupar todo el ancho de su contenedor. */
+  --text-wordmark: calc(100cqw * 0.3);
+  --text-wordmark--line-height: 0.85;
+  --text-wordmark--letter-spacing: -0.02em;
+  --text-wordmark--font-weight: 800;
+  --text-display: clamp(44px, 7vw, 120px);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 800;
+  --text-headline: 40px;
+  --text-headline--line-height: 1.1;
+  --text-headline--letter-spacing: -0.01em;
+  --text-headline--font-weight: 600;
+  --text-lead: 22px;
+  --text-lead--line-height: 1.36;
   --text-lead--font-weight: 400;
-  --text-nav-link: 24px;
-  --text-nav-link--line-height: 1.333;
-  --text-nav-link--font-weight: 400;
-  --text-product-title: 18px;
-  --text-product-title--line-height: 1.111;
-  --text-product-title--font-weight: 400;
+  --text-nav-link: 18px;
+  --text-nav-link--line-height: 1.33;
+  --text-nav-link--font-weight: 500;
+  --text-product-title: 16px;
+  --text-product-title--line-height: 1.25;
+  --text-product-title--font-weight: 500;
   --text-body-md: 16px;
   --text-body-md--line-height: 1.5;
   --text-body-md--font-weight: 400;
-  --text-info-strong: 14px;
-  --text-info-strong--line-height: 1.429;
-  --text-info-strong--font-weight: 700;
+  --text-spec-label: 14px;
+  --text-spec-label--line-height: 1.43;
+  --text-spec-label--font-weight: 600;
   --text-button-md: 14px;
-  --text-button-md--line-height: 1.143;
-  --text-button-md--letter-spacing: -0.35px;
-  --text-button-md--font-weight: 700;
+  --text-button-md--line-height: 1.14;
+  --text-button-md--letter-spacing: 0.02em;
+  --text-button-md--font-weight: 600;
   --text-label: 12px;
-  --text-label--line-height: 1.333;
-  --text-label--font-weight: 700;
-  --text-tag: 11px;
-  --text-tag--line-height: 1.5;
-  --text-tag--font-weight: 400;
+  --text-label--line-height: 1.33;
+  --text-label--letter-spacing: 0.04em;
+  --text-label--font-weight: 600;
 
   --radius-*: initial;
   --shadow-*: initial;
@@ -62,16 +60,13 @@
   --spacing-section: 128px;
 
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
   --ease-expo-out: cubic-bezier(0.19, 1, 0.22, 1);
-  --ease-in-out-extreme: cubic-bezier(0.87, 0, 0.13, 1);
 }
 
-/* Tinta del tema activo: ground (fondo), ink (texto >= 24px y gráficos), ink-text (texto < 24px). */
+/* Tinta del tema activo: ground (fondo) e ink (todo el texto y los gráficos). */
 @theme inline {
   --color-ground: var(--ground);
   --color-ink: var(--ink);
-  --color-ink-text: var(--ink-text);
 }
 
 @layer base {
@@ -79,31 +74,27 @@
     --gutter: 16px;
     --ground: var(--color-canvas);
     --ink: var(--color-primary);
-    --ink-text: var(--color-primary-ink);
     /* Color que, con mix-blend-mode: difference sobre el fondo, da la tinta del tema. */
-    --nav-ink: rgb(0 228 221);
+    --nav-ink: rgb(205 173 4);
 
     @variant md {
       --gutter: 24px;
     }
   }
 
-  :root[data-theme="light"] {
-    --ground: var(--color-canvas);
-    --ink: var(--color-ink-light);
-    --ink-text: var(--color-ink-light);
+  :root[data-theme="mono"] {
+    --ink: var(--color-ink-mono);
     --nav-ink: var(--color-canvas);
   }
 
-  :root[data-theme="dark"] {
-    --ground: var(--color-surface-dark);
-    --ink: var(--color-on-dark);
-    --ink-text: var(--color-on-dark);
-    --nav-ink: var(--color-on-dark);
+  :root[data-theme="night"] {
+    --ground: var(--color-surface-night);
+    --ink: var(--color-on-night);
+    --nav-ink: var(--color-on-night);
   }
 
   body {
-    @apply bg-ground font-sans text-body-md text-ink-text antialiased;
+    @apply bg-ground font-sans text-body-md text-ink antialiased;
     overflow-x: clip;
     transition:
       color 400ms ease-in-out,
@@ -140,7 +131,7 @@
 }
 
 @utility enter {
-  animation: enter 2s var(--ease-expo-out) 0.5s both;
+  animation: enter 1.6s var(--ease-expo-out) 0.3s both;
 
   @media (prefers-reduced-motion: reduce) {
     animation: fade-in 200ms ease-out both;

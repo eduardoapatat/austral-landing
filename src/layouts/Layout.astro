@@ -12,7 +12,7 @@ const { title = 'ASTRO', description = 'Landing editorial de prueba construida c
 ---
 
 <!doctype html>
-<html lang="es" data-theme="red">
+<html lang="es" data-theme="cobalt">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,7 +26,7 @@ const { title = 'ASTRO', description = 'Landing editorial de prueba construida c
 			document.documentElement.classList.add('js');
 			try {
 				const theme = localStorage.getItem('astro-theme');
-				if (theme === 'red' || theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+				if (theme === 'cobalt' || theme === 'mono' || theme === 'night') document.documentElement.dataset.theme = theme;
 			} catch {}
 		</script>
 	</head>

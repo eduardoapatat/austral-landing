@@ -6,9 +6,9 @@ interface Props {
 const { class: className } = Astro.props;
 
 const themes = [
-	{ id: 'dark', label: 'Tema oscuro', swatch: 'bg-surface-dark' },
-	{ id: 'light', label: 'Tema claro', swatch: 'bg-canvas' },
-	{ id: 'red', label: 'Tema rojo', swatch: 'bg-primary' },
+	{ id: 'night', label: 'Tema noche', swatch: 'bg-surface-night' },
+	{ id: 'mono', label: 'Tema tinta', swatch: 'bg-canvas' },
+	{ id: 'cobalt', label: 'Tema cobalto', swatch: 'bg-primary' },
 ];
 ---
 
@@ -24,7 +24,7 @@ const themes = [
 			>
 				<span
 					class:list={[
-						'size-[18px] rounded-full shadow-[inset_0_0_0_1px_var(--ink)] transition-transform duration-200 ease-decelerate group-hover:scale-110 group-aria-pressed:shadow-[inset_0_0_0_1px_var(--ink),inset_0_0_0_4px_var(--ground)]',
+						'size-[18px] rounded-full shadow-[inset_0_0_0_1px_var(--ink)] transition-transform duration-200 ease-standard group-hover:scale-110 group-aria-pressed:shadow-[inset_0_0_0_1px_var(--ink),inset_0_0_0_4px_var(--ground)]',
 						theme.swatch,
 					]}
 				/>
@@ -44,7 +44,7 @@ const themes = [
 
 	buttons.forEach((button) =>
 		button.addEventListener('click', () => {
-			const theme = button.dataset.themeOption ?? 'red';
+			const theme = button.dataset.themeOption ?? 'cobalt';
 			document.documentElement.dataset.theme = theme;
 			try {
 				localStorage.setItem(KEY, theme);
