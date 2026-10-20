@@ -261,15 +261,19 @@ AUSTRAL ships one palette only — ink on bone. There is no theme switcher and n
 - 4-column grid with 24px gaps; product cards span 1 or 2 columns and leave empty cells on purpose.
 - Two-column splits (featured piece, process) use a 1:1 split at desktop.
 
-### Page Structure
-1. **Primary nav** — fixed: transparent with bone text over the hero, solid bone with ink text and a hairline once the first content section reaches it; logo mark left; "Tienda", "Bolsa (0)", "Menú" (mobile) right.
-2. **Hero photo** — 100svh photograph with bottom scrim; short statement + "Ver colección →" top right (below the nav); wordmark across the bottom edge. Index "01 — Colección".
-3. **Category index** — centered display words for the categories (Parkas, Polares, Franelas, Gorros, Mochilas, Edición Chiloé), typography only. Index "02 — Categorías".
-4. **Product grid** — 2–3 blocks of product cards. Index "03 — Tienda".
-5. **Featured piece** — photo band with "Destacado" + piece name in display; below, description + spec table (left) and stacked images (right); primary button. Index "04 — Destacado".
-6. **Process** — headline "De la lana al abrigo", large image left, four numbered steps right separated by rules. Index "05 — Proceso".
-7. **Contact CTA** — display statement and a large underlined e-mail link. Index "06 — Contacto".
-8. **Footer** — 1px rule, brand + rights, address (Puerto Varas), legal, social, site links, credits line.
+### Page Structure (narrative)
+The page answers, in order: *what is it → why does it exist → what can I buy → which is the hero piece → where is it used → how is it made → how do I reach you*. Every section has an `id` and `scroll-mt-24` so anchor jumps clear the fixed header.
+
+1. **Primary nav** — fixed: transparent with bone text over the hero, solid bone with ink text and a hairline once the first content section reaches it. Logo mark left; "Tienda", "Rutas", "Proceso" (scroll-spy underline on the section in view) and "Bolsa (n)" right; mobile shows "Bolsa (n)" + "Menú" (Tienda, Rutas, Proceso, Contacto; closes on tap).
+2. **Hero photo** — Torres del Paine, 100svh, scrims; statement + "Ver colección →" (`#tienda`); wordmark across the bottom edge. Index "01 — AUSTRAL".
+3. **Manifesto** (`#manifiesto`) — "Hecha para el sur": why the brand exists (rain, wind, cold), three facts in expanded type (120 piezas por tirada · 4 talleres en Los Lagos · 5 inviernos de garantía) and a Chiloé church photo. Index "02 — Manifiesto".
+4. **Category index** — Chaquetas · Polares · Camisas · Punto · Accesorios (with piece counts) + "Ver todo". Each word filters the shop. Index "03 — Categorías".
+5. **Shop** (`#tienda`) — "Colección otoño–invierno" with a live status line ("Mostrando: Punto · 3 piezas — Ver todo"); editorial grid when showing everything, simple 4/2-column grid when filtered. Index "04 — Tienda".
+6. **Featured piece** — Parka Aysén: photo band, spec table, swatches and "Añadir a la bolsa". Index "05 — Destacado".
+7. **Routes** (`#rutas`) — "Probado en terreno": three places (Torres del Paine, Costa de Chiloé, Bosque de Cochamó) with photo, region, garment used and weather. Index "06 — Rutas".
+8. **Process** (`#proceso`) — "De la lana al abrigo": wool photo, four numbered steps; the Confección step carries a workshop photo. Index "07 — Proceso".
+9. **Contact CTA** (`#contacto`) — "¿Vas al sur?" and a large underlined e-mail link. Index "08 — Contacto".
+10. **Footer** — brand + rights, address (Puerto Varas), section links, e-mail, social placeholders, design references and photo credits.
 
 ## Elevation & Depth
 
@@ -293,6 +297,11 @@ There are no circles in the system. Markers (category tag, swatches, process num
 - Hero and featured band: landscape, cropped to fill.
 - Each product has an alternate image for the hover cross-fade.
 
+### Photography Sourcing
+- Free-license Unsplash photos stored in `src/assets/photos/` and served with `astro:assets` `<Picture>` (AVIF + WebP, responsive `widths`/`sizes`); only the hero is `eager` + `fetchpriority="high"`.
+- Every photo has a Spanish `alt` and a credit in `src/data/photos.ts`; the footer lists every photographer with a link to their Unsplash profile.
+- No visible third-party logos on garments; southern Chilean landscapes (Torres del Paine, Chiloé, Cochamó) are preferred for photo moments.
+
 ## Components
 
 ### `primary-nav` + `primary-nav-solid`
@@ -307,7 +316,10 @@ Full-bleed photo, 100svh, scrim at the bottom 45%. Statement in `{typography.lea
 2px rule on top, then a row: number ("03") left, name ("Tienda") right, both `{typography.label}` uppercase. Closes every section.
 
 ### `category-index`
-Centered lines of `{typography.display}` words, each a link, typography only — no thumbnails. Hover a line: the other lines fade to 35% opacity (300ms `ease-standard`).
+Centered lines of `{typography.display}` words, each a link, typography only — no thumbnails — with the piece count as a small `{typography.label}` superscript. Hover a line: the other lines fade to 35% opacity (300ms `ease-standard`). Clicking a category filters the shop (URL `?cat=<slug>#tienda`, shareable) and scrolls to it; "Ver todo" clears the filter.
+
+### `shop`
+Heading in `{typography.headline}`, status line in `{typography.label}` announced through `aria-live`. Two views: the editorial grid (with empty cells) for "todo", and a plain 4-column (2 on mobile) grid when a category is selected, so filtered pieces never float between gaps.
 
 ### `product-card`
 Square-cornered image box on `{colors.surface-media}`; row with title and price in `{typography.product-title}`; category with an 8px square marker in `{typography.label}`.
@@ -324,6 +336,12 @@ Number in a 48px square outlined in ink, title in `{typography.headline}`, one-p
 
 ### `link-underline`
 Ink text with an `::after` 2px underline at `scaleX(0)` that grows from the left on hover/focus (300ms `ease-standard`).
+
+### `manifesto` + `routes`
+Manifesto: two columns — label, display headline, `{typography.lead}` paragraph and a 3-up facts row ruled with 2px ink — next to a 4:5 photo. Routes: display headline + lead, then three 4:5 photos with place (`{typography.headline}`), region (`{typography.label}`) and a two-row spec list (Prenda, Clima).
+
+### `bag-counter`
+"Bolsa (n)" in the nav; `button-primary` with `data-add-to-bag` increments it, stores the count in `localStorage` and announces it via an `aria-live` region; the button reads "Añadida ✓" for ~2s. There is no checkout yet.
 
 ### `contact-cta`
 Display statement on two lines, then the e-mail address as a large `{component.link-underline}` in `{typography.headline}`.
@@ -383,7 +401,8 @@ Display statement on two lines, then the e-mail address as a large `{component.l
 ## Known Gaps
 
 - Semantic states (error, success, form validation) are not defined yet; express them within the single ink (icon + copy) first.
-- Product detail page, bag and menu drawer are not designed.
+- Product detail page and checkout are not designed; the bag is only a counter.
+- Social links in the footer are placeholders until real accounts exist; `site` in `astro.config.mjs` uses an example domain.
 
 ## References
 
