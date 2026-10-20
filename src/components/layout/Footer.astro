@@ -1,4 +1,5 @@
 ---
+import { photos } from '../../data/photos';
 import UnderlineLink from '../ui/UnderlineLink.astro';
 
 const columns = [
@@ -6,6 +7,9 @@ const columns = [
 	['Trabajo', 'Servicios', 'Nosotros'],
 	['Hablemos'],
 ];
+
+// Un crédito por fotógrafo, aunque tenga varias fotos en la página.
+const photographers = [...new Map(Object.values(photos).map((photo) => [photo.user, photo.author])).entries()];
 ---
 
 <footer class="px-(--gutter) pt-8 pb-16">
@@ -31,9 +35,21 @@ const columns = [
 			))
 		}
 	</div>
-	<div class="mt-16 text-spec-label">
-		<p class="font-normal">
-			Inspirado en OUTFIT® de ++hellohello y en la plantilla Graft de Stacy More.
+	<div class="mt-16 flex flex-col gap-3 text-spec-label font-normal">
+		<p>Inspirado en OUTFIT® de ++hellohello y en la plantilla Graft de Stacy More.</p>
+		<p class="max-w-5xl">
+			Fotografías de
+			{
+				photographers.map(([user, author], i) => (
+					<>
+						<a href={`https://unsplash.com/@${user}?utm_source=austral&utm_medium=referral`} class="underline underline-offset-2">
+							{author}
+						</a>
+						{i < photographers.length - 1 ? ', ' : ''}
+					</>
+				))
+			}{' '}
+			en <a href="https://unsplash.com/?utm_source=austral&utm_medium=referral" class="underline underline-offset-2">Unsplash</a>.
 		</p>
 	</div>
 </footer>

@@ -1,4 +1,6 @@
 ---
+import { Picture } from 'astro:assets';
+import { photos as library } from '../../data/photos';
 import { featured } from '../../data/products';
 import Button from '../ui/Button.astro';
 import SectionIndex from '../ui/SectionIndex.astro';
@@ -9,13 +11,12 @@ const { name, price, description, specs, colors, band, photos } = featured;
 
 <section class="pt-section" aria-labelledby="destacado-title">
 	<div class="relative isolate flex h-[60vh] min-h-[420px] items-end overflow-hidden text-on-photo">
-		<img
-			src={`https://picsum.photos/id/${band}/1600/900`}
-			width="1600"
-			height="900"
-			alt=""
-			loading="lazy"
-			decoding="async"
+		<Picture
+			src={library[band].src}
+			alt={library[band].alt}
+			formats={['avif', 'webp']}
+			widths={[800, 1400, 2000]}
+			sizes="100vw"
 			class="absolute inset-0 -z-10 size-full object-cover"
 		/>
 		<div class="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-linear-to-t from-ink/45 to-transparent"></div>
@@ -53,15 +54,14 @@ const { name, price, description, specs, colors, band, photos } = featured;
 		</div>
 		<div class="grid grid-cols-2 gap-(--gutter) md:grid-cols-1" data-reveal-group>
 			{
-				photos.map((id) => (
+				photos.map((key) => (
 					<div class="aspect-[4/5] overflow-hidden bg-surface-media" data-reveal>
-						<img
-							src={`https://picsum.photos/id/${id}/800/1000`}
-							width="800"
-							height="1000"
-							alt=""
-							loading="lazy"
-							decoding="async"
+						<Picture
+							src={library[key].src}
+							alt={library[key].alt}
+							formats={['avif', 'webp']}
+							widths={[400, 700, 1000]}
+							sizes="(min-width: 768px) 50vw, 50vw"
 							class="size-full object-cover"
 						/>
 					</div>

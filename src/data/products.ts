@@ -1,3 +1,5 @@
+import type { PhotoKey } from './photos';
+
 export type Ratio = '2/3' | '3/4' | '1/1' | '4/5';
 
 export const SIZES = ['XS', 'S', 'M', 'L', 'XL'] as const;
@@ -8,9 +10,9 @@ export interface Product {
 	price: string;
 	category: string;
 	ratio: Ratio;
-	/** IDs de picsum: imagen principal y alternativa (la que aparece en hover). */
-	photo: number;
-	altPhoto: number;
+	/** Foto principal y alternativa (la que aparece en hover), claves de data/photos. */
+	photo: PhotoKey;
+	altPhoto: PhotoKey;
 	/** Tallas agotadas: se muestran tachadas en la franja de tallas. */
 	soldOut: Size[];
 }
@@ -24,25 +26,13 @@ export interface Placement {
 	mobileCol?: 1 | 2;
 }
 
-const sizes: Record<Ratio, [number, number]> = {
-	'2/3': [600, 900],
-	'3/4': [600, 800],
-	'1/1': [700, 700],
-	'4/5': [800, 1000],
-};
-
-export const photoUrl = (id: number, ratio: Ratio, scale = 1) => {
-	const [w, h] = sizes[ratio];
-	return { src: `https://picsum.photos/id/${id}/${w * scale}/${h * scale}`, width: w * scale, height: h * scale };
-};
-
 const product = (
 	title: string,
 	price: string,
 	category: string,
 	ratio: Ratio,
-	photo: number,
-	altPhoto: number,
+	photo: PhotoKey,
+	altPhoto: PhotoKey,
 	soldOut: Size[] = [],
 ): Product => ({
 	title,
@@ -56,24 +46,24 @@ const product = (
 
 export const blocks: Placement[][] = [
 	[
-		{ product: product('Parka Aysén', '$159.990', 'Abrigo', '2/3', 10, 11), col: 1 },
-		{ product: product('Polar Puyuhuapi', '$69.990', 'Abrigo', '2/3', 12, 13, ['XS', 'XL']), col: 2 },
-		{ product: product('Franela Chiloé', '$49.990', 'Camisas', '2/3', 15, 16), col: 3 },
-		{ product: product('Gorro Cochamó', '$19.990', 'Accesorios', '2/3', 17, 18), col: 4 },
+		{ product: product('Parka Aysén', '$159.990', 'Abrigo', '2/3', 'parka-aysen', 'parka-aysen-alt'), col: 1 },
+		{ product: product('Polar Puyuhuapi', '$69.990', 'Abrigo', '2/3', 'polar-puyuhuapi', 'polar-puyuhuapi-alt', ['XS', 'XL']), col: 2 },
+		{ product: product('Franela Chiloé', '$49.990', 'Camisas', '2/3', 'franela-chiloe', 'franela-chiloe-alt'), col: 3 },
+		{ product: product('Gorro Cochamó', '$19.990', 'Accesorios', '2/3', 'gorro-cochamo', 'gorro-cochamo-alt'), col: 4 },
 	],
 	[
-		{ product: product('Mochila Futaleufú', '$84.990', 'Accesorios', '3/4', 19, 20), col: 1 },
-		{ product: product('Camisa Castro', '$44.990', 'Camisas', '1/1', 22, 24, ['M']), col: 2 },
-		{ product: product('Chaqueta Tortel', '$129.990', 'Abrigo', '4/5', 25, 26), col: 3, span: 2 },
+		{ product: product('Mochila Futaleufú', '$84.990', 'Accesorios', '3/4', 'mochila-futaleufu', 'mochila-futaleufu-alt'), col: 1 },
+		{ product: product('Camisa Castro', '$44.990', 'Camisas', '1/1', 'camisa-castro', 'camisa-castro-alt', ['M']), col: 2 },
+		{ product: product('Chaqueta Tortel', '$129.990', 'Abrigo', '4/5', 'chaqueta-tortel', 'chaqueta-tortel-alt'), col: 3, span: 2 },
 	],
 	[
-		{ product: product('Sweater Dalcahue', '$74.990', 'Punto', '1/1', 27, 28), col: 1 },
-		{ product: product('Chaleco Achao', '$59.990', 'Punto', '2/3', 29, 30), col: 3, offset: true },
-		{ product: product('Cortavientos Torres', '$94.990', 'Abrigo', '3/4', 42, 48), col: 4, mobileCol: 2 },
+		{ product: product('Sweater Dalcahue', '$74.990', 'Punto', '1/1', 'sweater-dalcahue', 'sweater-dalcahue-alt'), col: 1 },
+		{ product: product('Chaleco Achao', '$59.990', 'Punto', '2/3', 'chaleco-achao', 'chaleco-achao-alt'), col: 3, offset: true },
+		{ product: product('Cortavientos Torres', '$94.990', 'Abrigo', '3/4', 'cortavientos-torres', 'cortavientos-torres-alt'), col: 4, mobileCol: 2 },
 	],
 	[
-		{ product: product('Bufanda Natales', '$29.990', 'Punto', '1/1', 64, 65), col: 1, span: 2 },
-		{ product: product('Pantalón Coyhaique', '$64.990', 'Pantalones', '3/4', 1, 2, ['XS', 'S']), col: 4, offset: true, mobileCol: 2 },
+		{ product: product('Bufanda Natales', '$29.990', 'Punto', '1/1', 'bufanda-natales', 'bufanda-natales-alt'), col: 1, span: 2 },
+		{ product: product('Guantes Cochamó', '$24.990', 'Accesorios', '3/4', 'guantes-cochamo', 'guantes-cochamo-alt', ['XS', 'S']), col: 4, offset: true, mobileCol: 2 },
 	],
 ];
 
@@ -108,6 +98,6 @@ export const featured = {
 		{ name: 'Hueso', hex: '#e9e1d2' },
 		{ name: 'Carbón', hex: '#2b2b2b' },
 	],
-	band: 1018,
-	photos: [58, 59],
+	band: 'band-chiloe' as PhotoKey,
+	photos: ['destacado-1', 'destacado-2'] as PhotoKey[],
 };

@@ -1,8 +1,10 @@
 ---
+import { Picture } from 'astro:assets';
+import type { Photo } from '../../data/photos';
 import UnderlineLink from '../ui/UnderlineLink.astro';
 
 interface Props {
-	photo: string;
+	photo: Photo;
 	word?: string;
 }
 
@@ -10,11 +12,13 @@ const { photo, word = 'AUSTRAL' } = Astro.props;
 ---
 
 <section class="relative isolate flex min-h-svh flex-col justify-between overflow-hidden text-on-photo" data-hero>
-	<img
-		src={photo}
-		alt=""
-		width="1600"
-		height="1000"
+	<Picture
+		src={photo.src}
+		alt={photo.alt}
+		formats={['avif', 'webp']}
+		widths={[800, 1400, 2000, 2400]}
+		sizes="100vw"
+		loading="eager"
 		fetchpriority="high"
 		class="hero-photo absolute inset-0 -z-10 size-full object-cover"
 	/>

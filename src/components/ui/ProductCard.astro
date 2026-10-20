@@ -1,5 +1,7 @@
 ---
-import { photoUrl, SIZES, type Product } from '../../data/products';
+import { Picture } from 'astro:assets';
+import { photos } from '../../data/photos';
+import { SIZES, type Product } from '../../data/products';
 import ProductTag from './ProductTag.astro';
 
 interface Props {
@@ -19,20 +21,28 @@ const aspect = {
 	'4/5': 'aspect-[4/5]',
 }[ratio];
 
-const scale = wide ? 1.25 : 1;
-const main = photoUrl(photo, ratio, scale);
-const alt = photoUrl(altPhoto, ratio, scale);
+const main = photos[photo];
+const alt = photos[altPhoto];
+const sizes = wide ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 1024px) 25vw, 50vw';
 const available = SIZES.filter((size) => !soldOut.includes(size));
 ---
 
 <a href={href} class:list={['group block', className]} data-reveal>
 	<div class:list={['relative overflow-hidden bg-surface-media', aspect]}>
-		<img {...main} alt="" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover" />
-		<img
-			{...alt}
+		<Picture
+			src={main.src}
+			alt={main.alt}
+			formats={['avif', 'webp']}
+			widths={[400, 700, 1000]}
+			sizes={sizes}
+			class="absolute inset-0 size-full object-cover"
+		/>
+		<Picture
+			src={alt.src}
 			alt=""
-			loading="lazy"
-			decoding="async"
+			formats={['avif', 'webp']}
+			widths={[400, 700, 1000]}
+			sizes={sizes}
 			class="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-400 ease-standard group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
 		/>
 		<!-- Franja de tallas: sube desde abajo en hover/foco. Las agotadas van tachadas. -->

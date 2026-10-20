@@ -8,6 +8,7 @@ import FeaturedPiece from '../components/sections/FeaturedPiece.astro';
 import HeroPhoto from '../components/sections/HeroPhoto.astro';
 import Process from '../components/sections/Process.astro';
 import SectionIndex from '../components/ui/SectionIndex.astro';
+import { photos } from '../data/photos';
 import { blocks } from '../data/products';
 import Layout from '../layouts/Layout.astro';
 ---
@@ -16,7 +17,7 @@ import Layout from '../layouts/Layout.astro';
 	<Nav overHero />
 
 	<main>
-		<HeroPhoto photo="https://picsum.photos/id/1015/1600/1000" />
+		<HeroPhoto photo={photos['hero-torres']} />
 		<SectionIndex number="01" name="Colección" class="mx-(--gutter) mt-6" />
 
 		<CategoryIndex />
