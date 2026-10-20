@@ -6,12 +6,12 @@ import SectionIndex from '../ui/SectionIndex.astro';
 const steps = [
 	{ title: 'Lana', text: 'Elegimos lana de oveja de Magallanes y algodón encerado que aguanten el agua y el viento.' },
 	{ title: 'Patronaje', text: 'Probamos cada patrón en tres tallas y en terreno, con capas debajo, hasta que abriga sin pesar.' },
-	{ title: 'Confección', text: 'Talleres pequeños en Puerto Montt, tiradas cortas y costuras dobles donde más se usa la prenda.' },
+	{ title: 'Confección', text: 'Talleres pequeños en Puerto Montt, tiradas cortas y costuras dobles donde más se usa la prenda.', photo: photos['proceso-taller'] },
 	{ title: 'Envío', text: 'Embalaje sin plástico y una etiqueta con instrucciones para que dure muchos inviernos.' },
 ];
 ---
 
-<section class="px-(--gutter) pt-section" aria-labelledby="proceso-title">
+<section id="proceso" class="scroll-mt-24 px-(--gutter) pt-section" aria-labelledby="proceso-title">
 	<h2 id="proceso-title" class="text-display font-stretch-expanded">De la lana<br />al abrigo</h2>
 
 	<div class="mt-16 grid gap-12 md:grid-cols-2 md:gap-(--gutter)">
@@ -36,6 +36,18 @@ const steps = [
 						<div>
 							<h3 class="text-headline">{step.title}</h3>
 							<p class="mt-3 max-w-[40ch]">{step.text}</p>
+							{step.photo && (
+								<div class="mt-6 aspect-[3/2] max-w-md overflow-hidden bg-surface-media">
+									<Picture
+										src={step.photo.src}
+										alt={step.photo.alt}
+										formats={['avif', 'webp']}
+										widths={[400, 700]}
+										sizes="(min-width: 768px) 28rem, 100vw"
+										class="size-full object-cover"
+									/>
+								</div>
+							)}
 						</div>
 					</li>
 				))
@@ -43,5 +55,5 @@ const steps = [
 		</ol>
 	</div>
 
-	<SectionIndex number="05" name="Proceso" class="mt-section" />
+	<SectionIndex number="07" name="Proceso" class="mt-section" />
 </section>

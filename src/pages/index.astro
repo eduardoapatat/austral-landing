@@ -5,7 +5,9 @@ import CategoryIndex from '../components/sections/CategoryIndex.astro';
 import ContactCta from '../components/sections/ContactCta.astro';
 import FeaturedPiece from '../components/sections/FeaturedPiece.astro';
 import HeroPhoto from '../components/sections/HeroPhoto.astro';
+import Manifesto from '../components/sections/Manifesto.astro';
 import Process from '../components/sections/Process.astro';
+import Routes from '../components/sections/Routes.astro';
 import Shop from '../components/sections/Shop.astro';
 import SectionIndex from '../components/ui/SectionIndex.astro';
 import { photos } from '../data/photos';
@@ -17,13 +19,16 @@ import Layout from '../layouts/Layout.astro';
 
 	<main>
 		<HeroPhoto photo={photos['hero-torres']} />
-		<SectionIndex number="01" name="Colección" class="mx-(--gutter) mt-6" />
+		<SectionIndex number="01" name="AUSTRAL" class="mx-(--gutter) mt-6" />
+
+		<Manifesto />
 
 		<CategoryIndex />
 
 		<Shop />
 
 		<FeaturedPiece />
+		<Routes />
 
 		<Process />
 		<ContactCta email="hola@austral-ejemplo.cl" />

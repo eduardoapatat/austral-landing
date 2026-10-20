@@ -1,0 +1,47 @@
+---
+import { Picture } from 'astro:assets';
+import { photos } from '../../data/photos';
+import SectionIndex from '../ui/SectionIndex.astro';
+
+const facts = [
+	{ value: '120', label: 'piezas por tirada' },
+	{ value: '4', label: 'talleres en Los Lagos' },
+	{ value: '5', label: 'inviernos de garantía' },
+];
+const church = photos['iglesia-chiloe'];
+---
+
+<section id="manifiesto" class="scroll-mt-24 px-(--gutter) pt-section" aria-labelledby="manifiesto-title">
+	<div class="grid gap-12 md:grid-cols-2 md:gap-(--gutter)">
+		<div class="flex flex-col gap-8">
+			<p class="text-label font-stretch-110% uppercase">Por qué existe AUSTRAL</p>
+			<h2 id="manifiesto-title" class="text-display font-stretch-expanded">Hecha<br />para el sur</h2>
+			<p class="max-w-[38ch] text-lead">
+				En Chiloé llueve casi todos los días y en Aysén el viento no avisa. Hacemos poca ropa, pensada para ese
+				clima: telas que aguantan el agua, lana que abriga mojada y costuras que se reparan en vez de tirarse.
+			</p>
+			<dl class="mt-auto grid grid-cols-3 gap-(--gutter) border-t-2 border-ink pt-6" data-reveal-group>
+				{
+					facts.map((fact) => (
+						<div data-reveal>
+							<dt class="sr-only">{fact.label}</dt>
+							<dd class="text-headline font-stretch-expanded md:text-[56px] md:leading-none">{fact.value}</dd>
+							<dd class="mt-2 text-label font-stretch-110% uppercase">{fact.label}</dd>
+						</div>
+					))
+				}
+			</dl>
+		</div>
+		<div class="aspect-[4/5] overflow-hidden bg-surface-media">
+			<Picture
+				src={church.src}
+				alt={church.alt}
+				formats={['avif', 'webp']}
+				widths={[500, 800, 1200]}
+				sizes="(min-width: 768px) 50vw, 100vw"
+				class="size-full object-cover"
+			/>
+		</div>
+	</div>
+	<SectionIndex number="02" name="Manifiesto" class="mt-section" />
+</section>
