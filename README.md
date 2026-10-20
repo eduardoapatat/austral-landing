@@ -23,7 +23,8 @@ Es un prototipo: la página es estática y no hay backend.
 
 - El filtro por categoría funciona y la URL se puede compartir (`?cat=punto#tienda`).
 - La bolsa es solo un contador guardado en el navegador; todavía no hay página de producto ni checkout.
-- El dominio de `astro.config.mjs` (`https://austral-ejemplo.cl`) y las redes sociales del footer son de ejemplo.
+- Está desplegada en Vercel: **https://austral-landing-six.vercel.app** (se vuelve a desplegar con cada push a `main`).
+- Las redes sociales y el correo del footer son de ejemplo.
 
 ## Stack
 

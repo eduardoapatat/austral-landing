@@ -402,7 +402,7 @@ Display statement on two lines, then the e-mail address as a large `{component.l
 
 - Semantic states (error, success, form validation) are not defined yet; express them within the single ink (icon + copy) first.
 - Product detail page and checkout are not designed; the bag is only a counter.
-- Social links in the footer are placeholders until real accounts exist; `site` in `astro.config.mjs` uses an example domain.
+- Social links and the e-mail address are placeholders until real accounts exist. The site is deployed at `https://austral-landing-six.vercel.app` (`site` in `astro.config.mjs`).
 
 ## References
 
