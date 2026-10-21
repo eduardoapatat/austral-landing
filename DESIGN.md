@@ -302,7 +302,7 @@ There are no circles in the system. Markers (category tag, swatches, process num
 ### Photography Geometry
 - Product cards: 2:3, 3:4, 1:1, 4:5, always `object-fit: cover`.
 - Hero and featured band: landscape, cropped to fill.
-- Each product has an alternate image for the hover cross-fade.
+- Each product has an alternate image for the hover cross-fade. It is only downloaded on devices with hover (`(hover: hover)`); touch screens never show it, so they never load it.
 
 ### Photography Sourcing
 - Free-license Unsplash photos stored in `src/assets/photos/` and served with `astro:assets` `<Picture>` (AVIF + WebP, responsive `widths`/`sizes`); only the hero is `eager` + `fetchpriority="high"`.

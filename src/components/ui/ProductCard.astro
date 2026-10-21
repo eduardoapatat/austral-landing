@@ -47,14 +47,17 @@ const available = SIZES.filter((size) => !soldOut.includes(size));
 			sizes={sizes}
 			class="absolute inset-0 size-full object-cover"
 		/>
-		<Picture
-			src={alt.src}
-			alt=""
-			formats={['avif', 'webp']}
-			widths={[400, 700, 1000]}
-			sizes={sizes}
-			class="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-300 ease-standard group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
-		/>
+		<!-- La foto alternativa solo se ve con hover: va en un <template> (no se descarga) y el script la inserta en dispositivos con ratón. -->
+		<template data-alt-photo>
+			<Picture
+				src={alt.src}
+				alt=""
+				formats={['avif', 'webp']}
+				widths={[400, 700, 1000]}
+				sizes={sizes}
+				class="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-300 ease-standard group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
+			/>
+		</template>
 		<!-- Franja de tallas: sube desde abajo en hover/foco. Las agotadas van tachadas. -->
 		<div
 			class="absolute inset-x-0 bottom-0 flex translate-y-full items-center justify-between gap-4 bg-ground px-4 py-3 text-label font-stretch-110% uppercase transition-transform duration-300 ease-expo-out group-hover:translate-y-0 group-focus-visible:translate-y-0 motion-reduce:transition-none"
@@ -73,3 +76,12 @@ const available = SIZES.filter((size) => !soldOut.includes(size));
 	<ProductTag class="mt-1">{category}</ProductTag>
 	<span class="sr-only">Tallas disponibles: {available.join(', ')}</span>
 </a>
+
+<script>
+	// Misma condición que el hover de Tailwind: en pantallas táctiles la foto alternativa nunca se vería.
+	if (window.matchMedia('(hover: hover)').matches) {
+		document.querySelectorAll<HTMLTemplateElement>('template[data-alt-photo]').forEach((template) => {
+			template.replaceWith(template.content);
+		});
+	}
+</script>
