@@ -94,8 +94,8 @@ Todas las fotos son de [Unsplash](https://unsplash.com) y se usan bajo su [licen
 | `ruta-bosque` | Caminante con chaqueta naranja en un sendero de bosque | [Bryan Walker](https://unsplash.com/@bryanmillarwalker) |
 | `proceso-lana` | Ovillo de lana y tejido a mano sobre una mesa de madera | [Oksana Maselko](https://unsplash.com/@oksana_maselko) |
 | `proceso-taller` | Manos guiando una tela en una máquina de coser | [alex jhonson](https://unsplash.com/@alexjhonson23e) |
-| `parka-aysen` | Persona de espaldas con parka naranja en un camino nevado | [Brecht Denil](https://unsplash.com/@brechtdenil) |
-| `parka-aysen-alt` | Parka naranja con capucha sobre fondo gris | [Bulbul Ahmed](https://unsplash.com/@bulbul252) |
+| `parka-aysen` | Persona de espaldas con parka verde musgo caminando por un bosque nevado | [Oleg Ivanov](https://unsplash.com/@olegivanovpht) |
+| `parka-aysen-alt` | Persona de espaldas con parka verde y capucha de piel en una calle con árboles | [Adam Birkett](https://unsplash.com/@abrkett) |
 | `polar-puyuhuapi` | Mujer con polar en un campo abierto | [Konrad Nowacki](https://unsplash.com/@knowacki) |
 | `polar-puyuhuapi-alt` | Chaqueta de polar café colgada en una pared de madera | [Nikola Tasic](https://unsplash.com/@tasae34) |
 | `franela-chiloe` | Hombre con camisa de franela a cuadros sobre una roca | [Brooke Cagle](https://unsplash.com/@brookecagle) |
