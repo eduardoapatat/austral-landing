@@ -50,7 +50,7 @@ const product = (
 
 export const blocks: Placement[][] = [
 	[
-		{ product: product('Parka Aysén', '$159.990', 'Chaquetas', '2/3', 'parka-aysen', 'parka-aysen-alt'), col: 1 },
+		{ product: product('Parka Aysén', '$189.990', 'Chaquetas', '2/3', 'parka-aysen', 'parka-aysen-alt'), col: 1 },
 		{ product: product('Polar Puyuhuapi', '$69.990', 'Polares', '2/3', 'polar-puyuhuapi', 'polar-puyuhuapi-alt', ['XS', 'XL']), col: 2 },
 		{ product: product('Franela Chiloé', '$49.990', 'Camisas', '2/3', 'franela-chiloe', 'franela-chiloe-alt'), col: 3 },
 		{ product: product('Gorro Cochamó', '$19.990', 'Accesorios', '2/3', 'gorro-cochamo', 'gorro-cochamo-alt'), col: 4 },
