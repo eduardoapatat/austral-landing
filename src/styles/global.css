@@ -104,7 +104,7 @@
 }
 
 @utility enter {
-  animation: enter 1.6s var(--ease-expo-out) 0.3s both;
+  animation: enter 1.2s var(--ease-expo-out) 0.1s both;
 
   @media (prefers-reduced-motion: reduce) {
     animation: fade-in 200ms ease-out both;

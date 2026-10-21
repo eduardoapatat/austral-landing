@@ -10,7 +10,7 @@ const { active = false, class: className, ...rest } = Astro.props;
 
 <a
 	class:list={[
-		'relative inline-block after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:bg-current after:transition-transform after:duration-300 after:ease-standard hover:after:scale-x-100 focus-visible:after:scale-x-100 aria-[current=location]:after:scale-x-100',
+		'relative inline-block after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-right after:bg-current after:transition-transform after:duration-300 after:ease-standard hover:after:origin-left hover:after:scale-x-100 focus-visible:after:origin-left focus-visible:after:scale-x-100 aria-[current=location]:after:scale-x-100',
 		active ? 'after:scale-x-100' : 'after:scale-x-0',
 		className,
 	]}

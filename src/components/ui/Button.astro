@@ -11,7 +11,7 @@ type Props = HTMLAttributes<'a'> & {
 const { variant = 'primary', href, class: className, ...rest } = Astro.props;
 // Hover invierte a tinta sobre hueso (sin segundo color); el anillo de foco va en tinta porque currentColor es hueso.
 const primary =
-	'inline-flex h-12 items-center justify-center border-2 border-ink bg-ink px-6 text-button-md font-stretch-110% text-on-ink uppercase transition-[background-color,color,scale] duration-300 ease-standard hover:bg-ground hover:text-ink focus-visible:outline-ink motion-safe:active:scale-[0.97]';
+	'inline-flex h-12 items-center justify-center border-2 border-ink bg-ink px-6 text-button-md font-stretch-110% text-on-ink uppercase transition-[background-color,color,scale] duration-150 ease-expo-out hover:bg-ground hover:text-ink focus-visible:outline-ink motion-safe:active:scale-[0.97]';
 ---
 
 {

@@ -8,10 +8,12 @@ interface Props {
 	product: Product;
 	wide?: boolean;
 	href?: string;
+	/** Aparición al hacer scroll; la vista filtrada la desactiva porque filtrar debe responder al instante. */
+	reveal?: boolean;
 	class?: string;
 }
 
-const { product, wide = false, href, class: className } = Astro.props;
+const { product, wide = false, href, reveal = true, class: className } = Astro.props;
 const { title, price, category, ratio, photo, altPhoto, soldOut } = product;
 // Sin página de producto todavía: la card filtra la tienda por su categoría (ver Shop.astro).
 const slug = categorySlug(category);
@@ -34,7 +36,7 @@ const available = SIZES.filter((size) => !soldOut.includes(size));
 	class:list={['group block', className]}
 	data-category={slug}
 	data-filter={href ? undefined : slug}
-	data-reveal
+	data-reveal={reveal || undefined}
 >
 	<div class:list={['relative overflow-hidden bg-surface-media', aspect]}>
 		<Picture
@@ -51,11 +53,11 @@ const available = SIZES.filter((size) => !soldOut.includes(size));
 			formats={['avif', 'webp']}
 			widths={[400, 700, 1000]}
 			sizes={sizes}
-			class="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-400 ease-standard group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
+			class="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-300 ease-standard group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
 		/>
 		<!-- Franja de tallas: sube desde abajo en hover/foco. Las agotadas van tachadas. -->
 		<div
-			class="absolute inset-x-0 bottom-0 flex translate-y-full items-center justify-between gap-4 bg-ground px-4 py-3 text-label font-stretch-110% uppercase transition-transform duration-400 ease-expo-out group-hover:translate-y-0 group-focus-visible:translate-y-0 motion-reduce:transition-none"
+			class="absolute inset-x-0 bottom-0 flex translate-y-full items-center justify-between gap-4 bg-ground px-4 py-3 text-label font-stretch-110% uppercase transition-transform duration-300 ease-expo-out group-hover:translate-y-0 group-focus-visible:translate-y-0 motion-reduce:transition-none"
 			aria-hidden="true"
 		>
 			<span>Tallas</span>

@@ -330,7 +330,7 @@ Heading in `{typography.headline}`, status line in `{typography.label}` announce
 
 ### `product-card`
 Square-cornered image box on `{colors.surface-media}`; row with title and price in `{typography.product-title}`; category with an 8px square marker in `{typography.label}`.
-Hover / focus: the alternate image fades in (400ms `ease-standard`) and the `{component.size-strip}` (`XS S M L XL`, available sizes in ink, unavailable struck through at 40%) slides up from the bottom edge of the image (400ms `ease-expo-out`).
+Hover / focus: the alternate image fades in (300ms `ease-standard`) and the `{component.size-strip}` (`XS S M L XL`, available sizes in ink, unavailable struck through at 40%) slides up from the bottom edge of the image (300ms `ease-expo-out`, same duration so both read as one gesture).
 
 ### `featured-band` + `spec-row`
 Landscape photo band (~60vh) with "Destacado" label and the piece name in `{typography.display}` / `{colors.on-photo}` over the scrim. Below, two columns: `{typography.lead}` description, spec table of `{component.spec-row}` items (label left in `{typography.spec-label}`, value right in `{typography.body-md}`, 1px rule between rows), color row with 20px square `{component.swatch}` items; `{component.button-primary}` "Añadir a la bolsa". Right column: two stacked images.
@@ -340,12 +340,12 @@ Number in a 48px square outlined in ink, title in `{typography.headline}`, one-p
 
 ### `button-primary`
 `{colors.ink}` background, `{colors.on-ink}` text, `{typography.button-md}` uppercase, 48px height, 12px 24px padding, square.
-- **Hover:** inverts to `{component.button-primary-hover}` — `{colors.canvas}` fill, `{colors.ink}` text, keeping its 2px ink border (300ms `ease-standard`). No second color.
+- **Hover:** inverts to `{component.button-primary-hover}` — `{colors.canvas}` fill, `{colors.ink}` text, keeping its 2px ink border (150ms `ease-expo-out`). No second color.
 - **Focus:** 2px ink outline at 4px offset (the global ring uses `currentColor`, which is bone on this button).
-- **Active:** `scale(0.97)`; none under reduced motion.
+- **Active:** `scale(0.97)` in 150ms `ease-expo-out`; none under reduced motion.
 
 ### `link-underline`
-Ink text with an `::after` 2px underline at `scaleX(0)` that grows from the left on hover/focus (300ms `ease-standard`).
+Ink text with an `::after` 2px underline at `scaleX(0)` that grows from the left on hover/focus and retracts to the right on leave (300ms `ease-standard`).
 
 ### `manifesto` + `routes`
 Manifesto: two columns — label, display headline, `{typography.lead}` paragraph and a 3-up facts row ruled with 2px ink — next to a 4:5 photo. Routes: display headline + lead, then three 4:5 photos with place (`{typography.headline}`), region (`{typography.label}`) and a two-row spec list (Prenda, Clima).
@@ -363,8 +363,8 @@ Display statement on two lines, then the e-mail address as a large `{component.l
 | `ease-standard` | `cubic-bezier(.4,0,.2,1)` | Cross-fades, underline, index hover |
 | `ease-expo-out` | `cubic-bezier(.19,1,.22,1)` | Entrance, size strip |
 
-- **Entrance:** hero statement, wordmark and nav fade + rise 16px, 1.6s `ease-expo-out`, 0.3s delay, once.
-- **Reveal on scroll:** cards, category lines and process steps rise 24px and fade in, 1.2s `ease-expo-out`, staggered 80ms within a group, once.
+- **Entrance:** hero statement and wordmark fade + rise 16px, 1.2s `ease-expo-out`, 0.1s delay, once. The nav is not animated: it must be usable from the first frame.
+- **Reveal on scroll:** cards, category lines and process steps rise 24px and fade in, 1.2s `ease-expo-out`, staggered 80ms within a group, once. The filtered shop view does not reveal: filtering is a user action and responds instantly.
 - **Hero:** the photograph scales from 1.06 to 1 over 2.4s on load.
 - **Smooth scroll:** Lenis; native scroll under reduced motion.
 - **Reduced motion:** no translates or scales (opacity only, 200ms), size strip and cross-fade change instantly.
