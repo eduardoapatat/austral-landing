@@ -1,4 +1,5 @@
 ---
+import archivoLatin from '@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2?url';
 import { getImage } from 'astro:assets';
 import { photos } from '../data/photos';
 import '../styles/global.css';
@@ -26,6 +27,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- Solo el subconjunto latino (español): es el que usa todo el texto de la página. -->
+		<link rel="preload" href={archivoLatin} as="font" type="font/woff2" crossorigin />
+
 		<meta name="theme-color" content="#f1ede4" />
 		<link rel="canonical" href={canonical} />
 		<meta name="generator" content={Astro.generator} />
