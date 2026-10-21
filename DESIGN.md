@@ -266,7 +266,7 @@ AUSTRAL ships one palette only — ink on bone. There is no theme switcher and n
 ### Grid & Container
 - Full-bleed container (viewport minus gutters), no centered max-width.
 - 4-column grid with 24px gaps; product cards span 1 or 2 columns and leave empty cells on purpose.
-- Two-column splits (featured piece, process) use a 1:1 split at desktop.
+- Two-column splits (featured piece, process, manifesto) use a 1:1 split from 768px (tablet up); below that they stack in source order (process opens with its photo; manifesto and featured open with their text).
 
 ### Page Structure (narrative)
 The page answers, in order: *what is it → why does it exist → what can I buy → which is the hero piece → where is it used → how is it made → how do I reach you*. Every section has an `id` and `scroll-mt-(--header-h)` (the fixed header's exact height: 73px mobile, 89px from md) so anchor jumps land right below the header without showing a sliver of the previous section index.
@@ -278,7 +278,7 @@ The page answers, in order: *what is it → why does it exist → what can I buy
 5. **Shop** (`#tienda`) — "Colección otoño–invierno" with a live status line ("Mostrando: Punto · 3 piezas — Ver todo"); editorial grid when showing everything, simple 4/2-column grid when filtered. Index "04 — Tienda".
 6. **Featured piece** — Parka Aysén: photo band, spec table, swatches and "Añadir a la bolsa". Index "05 — Destacado".
 7. **Routes** (`#rutas`) — "Probado en terreno": three places (Torres del Paine, Costa de Chiloé, Bosque de Cochamó) with photo, region, garment used and weather. Index "06 — Rutas".
-8. **Process** (`#proceso`) — "De la lana al abrigo": wool photo, four numbered steps; the Confección step carries a workshop photo. Index "07 — Proceso".
+8. **Process** (`#proceso`) — "De la lana al abrigo": wool photo, sticky beside the four numbered steps from 768px so it accompanies the reading; the Confección step carries a workshop photo. Index "07 — Proceso".
 9. **Contact CTA** (`#contacto`) — "¿Vas al sur?" and a large underlined e-mail link. Index "08 — Contacto".
 10. **Footer** — brand + rights, address (Puerto Varas), section links, e-mail and social placeholders. Design references and photo credits live in `README.md` and `src/data/photos.ts`, not on the page.
 
@@ -394,7 +394,7 @@ Display statement on two lines, then the e-mail address as a large `{component.l
 |---|---|---|
 | desktop | 1440px | 4-column grid, 24px gutters |
 | desktop-small | 1024px | Same grid; featured and process keep two columns |
-| tablet | 768px | 2-column grid; featured and process stack (image first) |
+| tablet | 768px | 2-column grid; featured and process keep two columns (the process photo stays sticky) |
 | mobile | 390px | 2-column grid, 16px gutters; nav shows "Bolsa" + "Menú" |
 
 - Wordmark and display are fluid; the wordmark always fits gutter to gutter.
