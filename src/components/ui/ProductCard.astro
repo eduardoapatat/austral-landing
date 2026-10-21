@@ -68,7 +68,7 @@ const available = SIZES.filter((size) => !soldOut.includes(size));
 	</div>
 	<div class="mt-3 flex items-start justify-between gap-4 text-product-title">
 		<h3>{title}</h3>
-		<span>{price}</span>
+		<span class="tabular-nums">{price}</span>
 	</div>
 	<ProductTag class="mt-1">{category}</ProductTag>
 	<span class="sr-only">Tallas disponibles: {available.join(', ')}</span>

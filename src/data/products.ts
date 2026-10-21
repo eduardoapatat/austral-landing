@@ -85,9 +85,9 @@ export const featured = {
 		'Una parka de algodón encerado con forro de lana, pensada para la lluvia y el viento de Aysén. Capucha ajustable, cuatro bolsillos con solapa y costuras selladas.',
 	specs: [
 		['Material', 'Algodón encerado y forro de lana'],
-		['Gramaje', '420 g/m²'],
+		['Gramaje', '420 g/m²'],
 		['Corte', 'Recto, largo a la cadera'],
-		['Tallas', 'XS – XL'],
+		['Tallas', 'XS – XL'],
 		['Origen', 'Hecho en Puerto Montt'],
 	] as [string, string][],
 	colors: [

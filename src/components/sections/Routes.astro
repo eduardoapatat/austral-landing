@@ -3,10 +3,11 @@ import { Picture } from 'astro:assets';
 import { photos, type PhotoKey } from '../../data/photos';
 import SectionIndex from '../ui/SectionIndex.astro';
 
+//   (espacio de no separación): una cifra y su unidad no se parten entre dos líneas.
 const routes: { place: string; region: string; photo: PhotoKey; garment: string; weather: string }[] = [
-	{ place: 'Torres del Paine', region: 'Magallanes', photo: 'ruta-torres', garment: 'Cortavientos Torres', weather: 'Viento 80 km/h · 4 °C' },
-	{ place: 'Costa de Chiloé', region: 'Los Lagos', photo: 'ruta-costa', garment: 'Chaqueta Tortel', weather: 'Lluvia 9 de cada 10 días · 8 °C' },
-	{ place: 'Bosque de Cochamó', region: 'Los Lagos', photo: 'ruta-bosque', garment: 'Parka Aysén', weather: 'Humedad 95 % · 6 °C' },
+	{ place: 'Torres del Paine', region: 'Magallanes', photo: 'ruta-torres', garment: 'Cortavientos Torres', weather: 'Viento 80 km/h · 4 °C' },
+	{ place: 'Costa de Chiloé', region: 'Los Lagos', photo: 'ruta-costa', garment: 'Chaqueta Tortel', weather: 'Lluvia 9 de cada 10 días · 8 °C' },
+	{ place: 'Bosque de Cochamó', region: 'Los Lagos', photo: 'ruta-bosque', garment: 'Parka Aysén', weather: 'Humedad 95 % · 6 °C' },
 ];
 ---
 

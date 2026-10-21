@@ -78,6 +78,18 @@
     overflow-x: clip;
   }
 
+  html {
+    /* La barra de scroll también va en la única tinta. */
+    scrollbar-color: var(--color-ink) var(--color-ground);
+  }
+
+  /* Sin viudas en titulares: las líneas se reparten parejas. */
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
   ::selection {
     background-color: var(--color-ink);
     color: var(--color-ground);
