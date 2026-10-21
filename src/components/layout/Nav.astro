@@ -148,9 +148,11 @@ const sections = [
 		renderBag();
 		const status = document.querySelector('[data-bag-status]');
 		if (status) status.textContent = `${button.dataset.addToBag} añadida a la bolsa. Tienes ${bag} ${bag === 1 ? 'pieza' : 'piezas'}.`;
-		const label = button.textContent;
+		// El texto original se guarda una sola vez: con dos clics seguidos no se queda en "Añadida ✓".
+		const label = (button.dataset.label ??= button.textContent ?? '');
 		button.textContent = 'Añadida ✓';
-		setTimeout(() => (button.textContent = label), 1800);
+		clearTimeout(Number(button.dataset.timer));
+		button.dataset.timer = String(setTimeout(() => (button.textContent = label), 1800));
 	});
 	document.addEventListener('keydown', (event) => {
 		if (event.key === 'Escape') setOpen(false);
