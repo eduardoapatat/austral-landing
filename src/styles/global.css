@@ -64,9 +64,12 @@
 @layer base {
   :root {
     --gutter: 16px;
+    /* Alto del header fijo (padding + logo de 24px + borde de 1px): las anclas de sección lo usan como scroll-margin. */
+    --header-h: 73px;
 
     @variant md {
       --gutter: 24px;
+      --header-h: 89px;
     }
   }
 

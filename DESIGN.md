@@ -269,7 +269,7 @@ AUSTRAL ships one palette only — ink on bone. There is no theme switcher and n
 - Two-column splits (featured piece, process) use a 1:1 split at desktop.
 
 ### Page Structure (narrative)
-The page answers, in order: *what is it → why does it exist → what can I buy → which is the hero piece → where is it used → how is it made → how do I reach you*. Every section has an `id` and `scroll-mt-24` so anchor jumps clear the fixed header.
+The page answers, in order: *what is it → why does it exist → what can I buy → which is the hero piece → where is it used → how is it made → how do I reach you*. Every section has an `id` and `scroll-mt-(--header-h)` (the fixed header's exact height: 73px mobile, 89px from md) so anchor jumps land right below the header without showing a sliver of the previous section index.
 
 1. **Primary nav** — fixed: transparent with bone text over the hero, solid bone with ink text and a hairline once the first content section reaches it. Logo mark left; "Tienda", "Rutas", "Proceso" (scroll-spy underline on the section in view) and "Bolsa (n)" right; mobile shows "Bolsa (n)" + "Menú" (Tienda, Rutas, Proceso, Contacto; closes on tap).
 2. **Hero photo** — Torres del Paine, 100svh, scrims; statement + "Ver colección →" (`#tienda`); wordmark across the bottom edge. Index "01 — AUSTRAL".

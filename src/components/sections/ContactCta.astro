@@ -9,7 +9,7 @@ interface Props {
 const { email } = Astro.props;
 ---
 
-<section id="contacto" class="scroll-mt-24 px-(--gutter) pt-section" aria-labelledby="contacto-title">
+<section id="contacto" class="scroll-mt-(--header-h) px-(--gutter) pt-section" aria-labelledby="contacto-title">
 	<h2 id="contacto-title" class="text-display font-stretch-expanded">¿Vas<br />al sur?</h2>
 	<p class="mt-8 max-w-[36ch] text-lead">Te ayudamos a elegir talla y capas para tu viaje, o a encargar una pieza a medida: escríbenos.</p>
 	<UnderlineLink href={`mailto:${email}`} class="mt-12 text-headline wrap-break-word max-md:text-[7vw]">{email}</UnderlineLink>

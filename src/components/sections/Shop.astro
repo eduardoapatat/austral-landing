@@ -9,7 +9,7 @@ import EditorialGrid from './EditorialGrid.astro';
 	Dos vistas: la rejilla editorial (con huecos) cuando se ve todo, y una rejilla simple
 	cuando hay una categoría elegida, para que las piezas filtradas no queden sueltas entre huecos.
 -->
-<section id="tienda" class="scroll-mt-24 px-(--gutter) pt-section" aria-labelledby="tienda-title" data-shop>
+<section id="tienda" class="scroll-mt-(--header-h) px-(--gutter) pt-section" aria-labelledby="tienda-title" data-shop>
 	<div class="mb-12 flex flex-wrap items-baseline justify-between gap-4 border-b border-ink/30 pb-3">
 		<h2 id="tienda-title" class="text-headline">Colección otoño–invierno</h2>
 		<p class="flex items-baseline gap-4 text-label font-stretch-110% uppercase">
@@ -68,7 +68,7 @@ import EditorialGrid from './EditorialGrid.astro';
 			apply(slug);
 			history.replaceState(null, '', slug ? `?cat=${slug}#tienda` : `${location.pathname}#tienda`);
 			// El filtro cambia el alto de la página: se mide de nuevo en el siguiente frame antes de desplazar.
-			// El hueco para el header fijo lo da scroll-mt-24, que Lenis también respeta.
+			// El hueco para el header fijo lo da scroll-mt-(--header-h), que Lenis también respeta.
 			requestAnimationFrame(() => {
 				if (!shop) return;
 				if (window.lenis) {
