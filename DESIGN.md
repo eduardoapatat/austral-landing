@@ -169,6 +169,13 @@ components:
     rounded: "{rounded.none}"
     padding: 12px 24px
     height: 48px
+  button-primary-hover:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.button-md}"
+    rounded: "{rounded.none}"
+    padding: 12px 24px
+    height: 48px
   link-underline:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
@@ -333,6 +340,9 @@ Number in a 48px square outlined in ink, title in `{typography.headline}`, one-p
 
 ### `button-primary`
 `{colors.ink}` background, `{colors.on-ink}` text, `{typography.button-md}` uppercase, 48px height, 12px 24px padding, square.
+- **Hover:** inverts to `{component.button-primary-hover}` — `{colors.canvas}` fill, `{colors.ink}` text, keeping its 2px ink border (300ms `ease-standard`). No second color.
+- **Focus:** 2px ink outline at 4px offset (the global ring uses `currentColor`, which is bone on this button).
+- **Active:** `scale(0.97)`; none under reduced motion.
 
 ### `link-underline`
 Ink text with an `::after` 2px underline at `scaleX(0)` that grows from the left on hover/focus (300ms `ease-standard`).
