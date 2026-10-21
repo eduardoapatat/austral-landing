@@ -55,7 +55,8 @@ import EditorialGrid from './EditorialGrid.astro';
 		status.textContent = slug
 			? `Mostrando: ${labelFor(slug)} · ${shown} ${shown === 1 ? 'pieza' : 'piezas'}`
 			: `Mostrando todo · ${cards.length} piezas`;
-		document.querySelectorAll<HTMLElement>('a[data-filter]').forEach((link) => {
+		// Las cards también filtran, pero solo los enlaces de categoría marcan la selección actual.
+		document.querySelectorAll<HTMLElement>('a[data-filter]:not([data-category])').forEach((link) => {
 			link.toggleAttribute('aria-current', link.dataset.filter === slug && slug !== '');
 		});
 	};
