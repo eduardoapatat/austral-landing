@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # playwright mcp
 .playwright-mcp/
+
+# impeccable: binario nativo, se reinstala con npx impeccable install
+.claude/skills/impeccable/scripts/bin/
+
+# playwright cli
+.playwright-cli/
