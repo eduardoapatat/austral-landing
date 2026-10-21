@@ -1,8 +1,8 @@
 ---
 import UnderlineLink from '../ui/UnderlineLink.astro';
 
-// Las redes aún no tienen cuenta: quedan con href="#" hasta tener las URLs reales.
-const columns = [
+// Las redes y la política aún no existen: sin href se muestran como texto, no como enlaces que suben al inicio.
+const columns: { label: string; href?: string }[][] = [
 	[
 		{ label: 'Tienda', href: '/#tienda' },
 		{ label: 'Rutas', href: '/#rutas' },
@@ -14,9 +14,9 @@ const columns = [
 		{ label: 'hola@austral-ejemplo.cl', href: 'mailto:hola@austral-ejemplo.cl' },
 	],
 	[
-		{ label: 'Instagram', href: '#' },
-		{ label: 'TikTok', href: '#' },
-		{ label: 'Privacidad', href: '#' },
+		{ label: 'Instagram' },
+		{ label: 'TikTok' },
+		{ label: 'Privacidad' },
 	],
 ];
 ---
@@ -36,7 +36,7 @@ const columns = [
 				<ul class:list={['flex flex-col gap-3', i === 1 ? 'col-span-2 max-lg:order-last' : 'lg:col-span-1']}>
 					{links.map((link) => (
 						<li>
-							<UnderlineLink href={link.href}>{link.label}</UnderlineLink>
+							{link.href ? <UnderlineLink href={link.href}>{link.label}</UnderlineLink> : link.label}
 						</li>
 					))}
 				</ul>
