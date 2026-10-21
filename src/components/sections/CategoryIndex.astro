@@ -18,7 +18,11 @@ const count = (category: string) => products.filter((product) => product.categor
 						data-filter={categorySlug(category)}
 					>
 						{category}
-						<sup class="mt-[0.35em] text-label font-stretch-110%">{count(category)}</sup>
+						<sup class="mt-[0.35em] text-label font-stretch-110%">
+							<span class="sr-only">, </span>
+							{count(category)}
+							<span class="sr-only"> piezas</span>
+						</sup>
 					</a>
 				</li>
 			))
