@@ -46,13 +46,25 @@ const sections = [
 				</span>
 			</li>
 			<li class="md:hidden">
-				<button type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>Menú</button>
+				<button
+					type="button"
+					class="underline-offset-4 hover:underline"
+					aria-expanded="false"
+					aria-controls="site-menu"
+					data-menu-toggle
+				>
+					Menú
+				</button>
 			</li>
 		</ul>
 	</nav>
 </header>
 
-<div id="site-menu" class="fixed inset-0 z-30 hidden flex-col bg-ground px-(--gutter) pt-28 md:hidden" data-menu>
+<div
+	id="site-menu"
+	class="fixed inset-0 z-30 hidden flex-col overflow-y-auto overscroll-contain bg-ground px-(--gutter) pt-28 md:hidden"
+	data-menu
+>
 	<ul class="flex flex-col gap-2 text-display font-stretch-expanded text-ink max-md:text-[10vw]">
 		{
 			sections.map((link) => (
@@ -97,10 +109,16 @@ const sections = [
 		menu?.classList.toggle('flex', open);
 		toggle?.setAttribute('aria-expanded', String(open));
 		if (toggle) toggle.textContent = open ? 'Cerrar' : 'Menú';
+		// Con el menú abierto la página de fondo no se desplaza ni recibe foco.
+		document.documentElement.style.overflow = open ? 'hidden' : '';
+		if (open) window.lenis?.stop();
+		else window.lenis?.start();
+		document.querySelectorAll<HTMLElement>('main, footer').forEach((el) => (el.inert = open));
+		if (open) menu?.querySelector<HTMLElement>('[data-menu-link]')?.focus();
 		syncHeader();
 	};
 
-	toggle?.addEventListener('click', () => setOpen(menu?.classList.contains('hidden') ?? false));
+	toggle?.addEventListener('click', () => setOpen(!menuOpen));
 	document.querySelectorAll('[data-menu-link]').forEach((link) => link.addEventListener('click', () => setOpen(false)));
 
 	// Marca en el nav la sección que ocupa el centro de la pantalla.
@@ -155,6 +173,8 @@ const sections = [
 		button.dataset.timer = String(setTimeout(() => (button.textContent = label), 1800));
 	});
 	document.addEventListener('keydown', (event) => {
-		if (event.key === 'Escape') setOpen(false);
+		if (event.key !== 'Escape' || !menuOpen) return;
+		setOpen(false);
+		toggle?.focus();
 	});
 </script>
