@@ -40,8 +40,10 @@ Es un prototipo: la página es estática y no hay backend.
 Todo el diseño está documentado en [`DESIGN.md`](./DESIGN.md): una sola tinta (`#141414`) sobre fondo hueso (`#f1ede4`), radio 0, rejilla de 4 columnas, índices de sección numerados y motion. Para revisarlo:
 
 ```sh
-npx @google/design.md lint DESIGN.md
+npx -p @google/design.md designmd lint DESIGN.md
 ```
+
+Se usa el comando `designmd` (alias del mismo paquete): en Windows, `npx @google/design.md` abre el ejecutable `design.md` como si fuera un documento Markdown en vez de ejecutarlo.
 
 ## Estructura
 

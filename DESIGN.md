@@ -433,7 +433,7 @@ Display statement on two lines, then the e-mail address as a large `{component.l
 
 1. One component at a time; every property must resolve to a token.
 2. Reference tokens directly (`{colors.ink}`, `{typography.label}`, `{rounded.none}`).
-3. Run `npx @google/design.md lint DESIGN.md` after edits.
+3. Run `npx -p @google/design.md designmd lint DESIGN.md` after edits (use the `designmd` alias: on Windows the `design.md` bin opens as a Markdown document instead of running).
 4. New variants become separate component entries.
 5. Before adding a token, check whether ink / bone / rule already covers it.
 
