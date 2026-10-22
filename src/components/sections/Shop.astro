@@ -39,6 +39,7 @@ import EditorialGrid from './EditorialGrid.astro';
 	<SectionIndex number="04" name="Tienda" class="mt-section" />
 </section>
 
+{/* La CSP de vercel.json admite este script por su hash: si cambia, recalcularlo (ver AGENTS.md). */}
 <script>
 	const shop = document.querySelector<HTMLElement>('[data-shop]');
 	const editorial = shop?.querySelector<HTMLElement>('[data-view="editorial"]');

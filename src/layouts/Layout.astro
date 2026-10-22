@@ -56,6 +56,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 			y la plantilla Graft de Stacy More (graft.framer.website). Créditos de fotos: README.md.
 		-->
 		<!-- Marca que hay JS para que las animaciones de aparición no oculten contenido sin él. -->
+		{/* La CSP de vercel.json admite este script por su hash: si cambia, recalcularlo (ver AGENTS.md). */}
 		<script is:inline>
 			document.documentElement.classList.add('js');
 		</script>

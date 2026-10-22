@@ -77,6 +77,7 @@ const sections = [
 <!-- Anuncio para lectores de pantalla cuando se añade algo a la bolsa. -->
 <p class="sr-only" aria-live="polite" data-bag-status></p>
 
+{/* La CSP de vercel.json admite este script por su hash: si cambia, recalcularlo (ver AGENTS.md). */}
 <script>
 	const header = document.querySelector<HTMLElement>('[data-header]');
 	const hero = document.querySelector<HTMLElement>('[data-hero]');

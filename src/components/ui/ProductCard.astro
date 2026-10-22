@@ -79,6 +79,7 @@ const available = SIZES.filter((size) => !soldOut.includes(size));
 	<span class="sr-only">Tallas disponibles: {available.join(', ')}</span>
 </a>
 
+{/* La CSP de vercel.json admite este script por su hash: si cambia, recalcularlo (ver AGENTS.md). */}
 <script>
 	// Misma condición que el hover de Tailwind: en pantallas táctiles la foto alternativa nunca se vería.
 	if (window.matchMedia('(hover: hover)').matches) {
