@@ -122,3 +122,7 @@ Todas las fotos son de [Unsplash](https://unsplash.com) y se usan bajo su [licen
 | `guantes-cochamo-alt`     | Manos con guantes blancos sosteniendo hojas secas                              | [Aren Nagulyan](https://unsplash.com/@arennagulyan_photo)         |
 | `destacado-1`             | Persona con parka oscura de pie en una ladera                                  | [Ryan Kwok](https://unsplash.com/@milkbox)                        |
 | `destacado-2`             | Mujer con parka negra con capucha de piel                                      | [Riccardo Agostinelli](https://unsplash.com/@riccardoagostinelli) |
+
+## Licencia
+
+El código está bajo la licencia [MIT](LICENSE). Las fotos no: cada una mantiene la licencia de su autor, indicada en la tabla de créditos.
