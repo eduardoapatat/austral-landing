@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "@fontsource-variable/archivo/wdth.css";
+@import 'tailwindcss';
+@import '@fontsource-variable/archivo/wdth.css';
 
 /* Tokens de DESIGN.md. Se resetean los namespaces de Tailwind para que solo existan los del sistema. */
 @theme {
@@ -11,7 +11,7 @@
   --color-surface-media: #e2ddd2;
   --color-on-photo: #f1ede4;
 
-  --font-sans: "Archivo Variable", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
 
   /* wordmark y display van además con font-stretch-expanded (125%). */
   --text-*: initial;

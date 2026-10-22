@@ -64,12 +64,12 @@ src/
 
 Requiere Node 22.22 o superior y pnpm.
 
-| Comando        | Acción                                             |
-| :------------- | :------------------------------------------------- |
-| `pnpm install` | Instala las dependencias                           |
-| `pnpm dev`     | Servidor de desarrollo en `localhost:4321`         |
+| Comando        | Acción                                               |
+| :------------- | :--------------------------------------------------- |
+| `pnpm install` | Instala las dependencias                             |
+| `pnpm dev`     | Servidor de desarrollo en `localhost:4321`           |
 | `pnpm build`   | Genera el sitio en `./dist/` (optimiza las imágenes) |
-| `pnpm preview` | Sirve la build localmente                          |
+| `pnpm preview` | Sirve la build localmente                            |
 
 La primera build tarda alrededor de un minuto porque genera todas las variantes de las imágenes; las siguientes usan la caché.
 
@@ -84,39 +84,39 @@ AUSTRAL es un diseño propio, pero parte de dos referencias. No se reutilizan te
 
 Todas las fotos son de [Unsplash](https://unsplash.com) y se usan bajo su [licencia](https://unsplash.com/license). La clave de cada una corresponde al archivo en `src/assets/photos/` y a su entrada en `src/data/photos.ts`.
 
-| Foto | Descripción | Autor |
-| :--- | :---------- | :---- |
-| `hero-torres` | Cuernos del Paine sobre un lago turquesa en Torres del Paine | [Adam Young](https://unsplash.com/@hossua34) |
-| `band-chiloe` | Isla cubierta de bosque en un canal de Chiloé con niebla | [Chalo Gallardo](https://unsplash.com/@chalogallardo) |
-| `iglesia-chiloe` | Iglesia de madera chilota con su torre, sobre un prado | [Sebastian Olivos](https://unsplash.com/@seeeebaaa44) |
-| `ruta-torres` | Dos caminantes con mochila en un sendero hacia las torres | [Toomas Tartes](https://unsplash.com/@toomastartes) |
-| `ruta-costa` | Hombre con chaqueta frente al mar revuelto en una costa rocosa | [Nathan Dumlao](https://unsplash.com/@nate_dumlao) |
-| `ruta-bosque` | Caminante con chaqueta naranja en un sendero de bosque | [Bryan Walker](https://unsplash.com/@bryanmillarwalker) |
-| `proceso-lana` | Ovillo de lana y tejido a mano sobre una mesa de madera | [Oksana Maselko](https://unsplash.com/@oksana_maselko) |
-| `proceso-taller` | Manos guiando una tela en una máquina de coser | [alex jhonson](https://unsplash.com/@alexjhonson23e) |
-| `parka-aysen` | Persona de espaldas con parka verde musgo caminando por un bosque nevado | [Oleg Ivanov](https://unsplash.com/@olegivanovpht) |
-| `parka-aysen-alt` | Persona de espaldas con parka verde y capucha de piel en una calle con árboles | [Adam Birkett](https://unsplash.com/@abrkett) |
-| `polar-puyuhuapi` | Mujer con polar en un campo abierto | [Konrad Nowacki](https://unsplash.com/@knowacki) |
-| `polar-puyuhuapi-alt` | Chaqueta de polar café colgada en una pared de madera | [Nikola Tasic](https://unsplash.com/@tasae34) |
-| `franela-chiloe` | Hombre con camisa de franela a cuadros sobre una roca | [Brooke Cagle](https://unsplash.com/@brookecagle) |
-| `franela-chiloe-alt` | Camisas de franela a cuadros colgadas en un perchero | [Jonathan Adams](https://unsplash.com/@jonathanadamsphoto) |
-| `gorro-cochamo` | Mano sosteniendo un gorro de lana color tabaco | [Iamninoslav](https://unsplash.com/@iamninoslav) |
-| `gorro-cochamo-alt` | Hombre bajándose un gorro verde sobre los ojos al aire libre | [Danial Dezfouli](https://unsplash.com/@withdanial) |
-| `mochila-futaleufu` | Caminante de espaldas con mochila roja frente a montañas nevadas | [Zachary Kyra-Derksen](https://unsplash.com/@zachaery) |
-| `mochila-futaleufu-alt` | Persona con mochila caminando entre vegetación | [Holly Mandarich](https://unsplash.com/@hollymandarich) |
-| `camisa-castro` | Hombre con barba y camisa a cuadros | [Coleman Glover](https://unsplash.com/@colemangloverphotography) |
-| `camisa-castro-alt` | Camisa a cuadros azul, blanca y café en un colgador | [the blowup](https://unsplash.com/@theblowup) |
-| `chaqueta-tortel` | Chaqueta encerada color oliva en primer plano | [Kyle Loftus](https://unsplash.com/@kyleloftusstudios) |
-| `chaqueta-tortel-alt` | Hombre con chaqueta encerada en un campo con árboles | [Rydale Clothing](https://unsplash.com/@rydaleclothing) |
-| `sweater-dalcahue` | Hombre con sweater de lana oscuro | [David Suarez](https://unsplash.com/@davidprspctive) |
-| `sweater-dalcahue-alt` | Sweaters de lana doblados y apilados | [Tijana Drndarski](https://unsplash.com/@izgubljenausvemiru) |
-| `chaleco-achao` | Mujer con chaleco de punto gris sobre una camisa negra | [Rizky Motion](https://unsplash.com/@rizky_motion) |
-| `chaleco-achao-alt` | Tejido de punto azul marino en las agujas | [Laura Ohlman](https://unsplash.com/@ohlmanphotography) |
-| `cortavientos-torres` | Hombre con cortavientos verde y mochila frente a montañas nevadas | [Franco Figueroa](https://unsplash.com/@ocnarf278) |
-| `cortavientos-torres-alt` | Hombre con chaqueta negra y gorro de lana sobre una roca | [Tom Allport](https://unsplash.com/@t_mallp_rt) |
-| `bufanda-natales` | Mujer con chal tejido a crochet al aire libre | [Lance Reis](https://unsplash.com/@lancereis) |
-| `bufanda-natales-alt` | Bufanda de lana gris enrollada sobre madera | [Maria Kovalets](https://unsplash.com/@marylooo) |
-| `guantes-cochamo` | Mano con guante de lana tejido en la nieve | [Tamara Gak](https://unsplash.com/@tamara_photography) |
-| `guantes-cochamo-alt` | Manos con guantes blancos sosteniendo hojas secas | [Aren Nagulyan](https://unsplash.com/@arennagulyan_photo) |
-| `destacado-1` | Persona con parka oscura de pie en una ladera | [Ryan Kwok](https://unsplash.com/@milkbox) |
-| `destacado-2` | Mujer con parka negra con capucha de piel | [Riccardo Agostinelli](https://unsplash.com/@riccardoagostinelli) |
+| Foto                      | Descripción                                                                    | Autor                                                             |
+| :------------------------ | :----------------------------------------------------------------------------- | :---------------------------------------------------------------- |
+| `hero-torres`             | Cuernos del Paine sobre un lago turquesa en Torres del Paine                   | [Adam Young](https://unsplash.com/@hossua34)                      |
+| `band-chiloe`             | Isla cubierta de bosque en un canal de Chiloé con niebla                       | [Chalo Gallardo](https://unsplash.com/@chalogallardo)             |
+| `iglesia-chiloe`          | Iglesia de madera chilota con su torre, sobre un prado                         | [Sebastian Olivos](https://unsplash.com/@seeeebaaa44)             |
+| `ruta-torres`             | Dos caminantes con mochila en un sendero hacia las torres                      | [Toomas Tartes](https://unsplash.com/@toomastartes)               |
+| `ruta-costa`              | Hombre con chaqueta frente al mar revuelto en una costa rocosa                 | [Nathan Dumlao](https://unsplash.com/@nate_dumlao)                |
+| `ruta-bosque`             | Caminante con chaqueta naranja en un sendero de bosque                         | [Bryan Walker](https://unsplash.com/@bryanmillarwalker)           |
+| `proceso-lana`            | Ovillo de lana y tejido a mano sobre una mesa de madera                        | [Oksana Maselko](https://unsplash.com/@oksana_maselko)            |
+| `proceso-taller`          | Manos guiando una tela en una máquina de coser                                 | [alex jhonson](https://unsplash.com/@alexjhonson23e)              |
+| `parka-aysen`             | Persona de espaldas con parka verde musgo caminando por un bosque nevado       | [Oleg Ivanov](https://unsplash.com/@olegivanovpht)                |
+| `parka-aysen-alt`         | Persona de espaldas con parka verde y capucha de piel en una calle con árboles | [Adam Birkett](https://unsplash.com/@abrkett)                     |
+| `polar-puyuhuapi`         | Mujer con polar en un campo abierto                                            | [Konrad Nowacki](https://unsplash.com/@knowacki)                  |
+| `polar-puyuhuapi-alt`     | Chaqueta de polar café colgada en una pared de madera                          | [Nikola Tasic](https://unsplash.com/@tasae34)                     |
+| `franela-chiloe`          | Hombre con camisa de franela a cuadros sobre una roca                          | [Brooke Cagle](https://unsplash.com/@brookecagle)                 |
+| `franela-chiloe-alt`      | Camisas de franela a cuadros colgadas en un perchero                           | [Jonathan Adams](https://unsplash.com/@jonathanadamsphoto)        |
+| `gorro-cochamo`           | Mano sosteniendo un gorro de lana color tabaco                                 | [Iamninoslav](https://unsplash.com/@iamninoslav)                  |
+| `gorro-cochamo-alt`       | Hombre bajándose un gorro verde sobre los ojos al aire libre                   | [Danial Dezfouli](https://unsplash.com/@withdanial)               |
+| `mochila-futaleufu`       | Caminante de espaldas con mochila roja frente a montañas nevadas               | [Zachary Kyra-Derksen](https://unsplash.com/@zachaery)            |
+| `mochila-futaleufu-alt`   | Persona con mochila caminando entre vegetación                                 | [Holly Mandarich](https://unsplash.com/@hollymandarich)           |
+| `camisa-castro`           | Hombre con barba y camisa a cuadros                                            | [Coleman Glover](https://unsplash.com/@colemangloverphotography)  |
+| `camisa-castro-alt`       | Camisa a cuadros azul, blanca y café en un colgador                            | [the blowup](https://unsplash.com/@theblowup)                     |
+| `chaqueta-tortel`         | Chaqueta encerada color oliva en primer plano                                  | [Kyle Loftus](https://unsplash.com/@kyleloftusstudios)            |
+| `chaqueta-tortel-alt`     | Hombre con chaqueta encerada en un campo con árboles                           | [Rydale Clothing](https://unsplash.com/@rydaleclothing)           |
+| `sweater-dalcahue`        | Hombre con sweater de lana oscuro                                              | [David Suarez](https://unsplash.com/@davidprspctive)              |
+| `sweater-dalcahue-alt`    | Sweaters de lana doblados y apilados                                           | [Tijana Drndarski](https://unsplash.com/@izgubljenausvemiru)      |
+| `chaleco-achao`           | Mujer con chaleco de punto gris sobre una camisa negra                         | [Rizky Motion](https://unsplash.com/@rizky_motion)                |
+| `chaleco-achao-alt`       | Tejido de punto azul marino en las agujas                                      | [Laura Ohlman](https://unsplash.com/@ohlmanphotography)           |
+| `cortavientos-torres`     | Hombre con cortavientos verde y mochila frente a montañas nevadas              | [Franco Figueroa](https://unsplash.com/@ocnarf278)                |
+| `cortavientos-torres-alt` | Hombre con chaqueta negra y gorro de lana sobre una roca                       | [Tom Allport](https://unsplash.com/@t_mallp_rt)                   |
+| `bufanda-natales`         | Mujer con chal tejido a crochet al aire libre                                  | [Lance Reis](https://unsplash.com/@lancereis)                     |
+| `bufanda-natales-alt`     | Bufanda de lana gris enrollada sobre madera                                    | [Maria Kovalets](https://unsplash.com/@marylooo)                  |
+| `guantes-cochamo`         | Mano con guante de lana tejido en la nieve                                     | [Tamara Gak](https://unsplash.com/@tamara_photography)            |
+| `guantes-cochamo-alt`     | Manos con guantes blancos sosteniendo hojas secas                              | [Aren Nagulyan](https://unsplash.com/@arennagulyan_photo)         |
+| `destacado-1`             | Persona con parka oscura de pie en una ladera                                  | [Ryan Kwok](https://unsplash.com/@milkbox)                        |
+| `destacado-2`             | Mujer con parka negra con capucha de piel                                      | [Riccardo Agostinelli](https://unsplash.com/@riccardoagostinelli) |

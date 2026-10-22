@@ -14,18 +14,16 @@ const primary =
 	'inline-flex h-12 items-center justify-center border-2 border-ink bg-ink px-6 text-button-md font-stretch-110% text-on-ink uppercase transition-[background-color,color,scale] duration-150 ease-expo-out hover:bg-ground hover:text-ink focus-visible:outline-ink motion-safe:active:scale-[0.97]';
 ---
 
-{
-	variant === 'text' && href ? (
-		<UnderlineLink href={href} class:list={['text-button-md uppercase', className]} {...rest}>
-			<slot />
-		</UnderlineLink>
-	) : href ? (
-		<a href={href} class:list={[primary, className]} {...rest}>
-			<slot />
-		</a>
-	) : (
-		<button type="button" class:list={[primary, className]} {...(rest as HTMLAttributes<'button'>)}>
-			<slot />
-		</button>
-	)
-}
+{variant === 'text' && href ? (
+	<UnderlineLink href={href} class:list={['text-button-md uppercase', className]} {...rest}>
+		<slot />
+	</UnderlineLink>
+) : href ? (
+	<a href={href} class:list={[primary, className]} {...rest}>
+		<slot />
+	</a>
+) : (
+	<button type="button" class:list={[primary, className]} {...(rest as HTMLAttributes<'button'>)}>
+		<slot />
+	</button>
+)}

@@ -31,18 +31,16 @@ const sections = [
 			</svg>
 		</a>
 		<ul class="flex items-center gap-6 text-product-title md:gap-10 md:text-nav-link lg:gap-16">
-			{
-				sections.slice(0, 3).map((link) => (
-					<li class="max-md:hidden">
-						<UnderlineLink href={link.href} data-spy={link.href.split('#')[1]}>
-							{link.label}
-						</UnderlineLink>
-					</li>
-				))
-			}
+			{sections.slice(0, 3).map((link) => (
+				<li class="max-md:hidden">
+					<UnderlineLink href={link.href} data-spy={link.href.split('#')[1]}>
+						{link.label}
+					</UnderlineLink>
+				</li>
+			))}
 			<li>
 				<span aria-label="Bolsa">
-					Bolsa{' '}(<span data-bag-count>0</span>)
+					Bolsa (<span data-bag-count>0</span>)
 				</span>
 			</li>
 			<li class="md:hidden">
@@ -66,15 +64,13 @@ const sections = [
 	data-menu
 >
 	<ul class="flex flex-col gap-2 text-display font-stretch-expanded text-ink max-md:text-[10vw]">
-		{
-			sections.map((link) => (
-				<li>
-					<a href={link.href} data-menu-link>
-						{link.label}
-					</a>
-				</li>
-			))
-		}
+		{sections.map((link) => (
+			<li>
+				<a href={link.href} data-menu-link>
+					{link.label}
+				</a>
+			</li>
+		))}
 	</ul>
 </div>
 
@@ -155,7 +151,8 @@ const sections = [
 	renderBag();
 
 	document.addEventListener('click', (event) => {
-		const button = event.target instanceof Element ? event.target.closest<HTMLButtonElement>('[data-add-to-bag]') : null;
+		const button =
+			event.target instanceof Element ? event.target.closest<HTMLButtonElement>('[data-add-to-bag]') : null;
 		if (!button) return;
 		bag += 1;
 		try {
@@ -165,7 +162,8 @@ const sections = [
 		}
 		renderBag();
 		const status = document.querySelector('[data-bag-status]');
-		if (status) status.textContent = `${button.dataset.addToBag} añadida a la bolsa. Tienes ${bag} ${bag === 1 ? 'pieza' : 'piezas'}.`;
+		if (status)
+			status.textContent = `${button.dataset.addToBag} añadida a la bolsa. Tienes ${bag} ${bag === 1 ? 'pieza' : 'piezas'}.`;
 		// El texto original se guarda una sola vez: con dos clics seguidos no se queda en "Añadida ✓".
 		const label = (button.dataset.label ??= button.textContent ?? '');
 		button.textContent = 'Añadida ✓';

@@ -13,11 +13,7 @@ const columns: { label: string; href?: string }[][] = [
 		{ label: 'Contacto', href: '/#contacto' },
 		{ label: 'hola@austral-ejemplo.cl', href: 'mailto:hola@austral-ejemplo.cl' },
 	],
-	[
-		{ label: 'Instagram' },
-		{ label: 'TikTok' },
-		{ label: 'Privacidad' },
-	],
+	[{ label: 'Instagram' }, { label: 'TikTok' }, { label: 'Privacidad' }],
 ];
 ---
 
@@ -29,19 +25,19 @@ const columns: { label: string; href?: string }[][] = [
 			<p class="mt-1">Todos los derechos reservados © 2026</p>
 		</div>
 		<address class="col-span-2 not-italic">
-			Av. Ejemplo 123<br />Puerto Varas<br />Chile
+			Av. Ejemplo 123
+			<br />
+			Puerto Varas
+			<br />
+			Chile
 		</address>
-		{
-			columns.map((links, i) => (
-				<ul class:list={['flex flex-col gap-3', i === 1 ? 'col-span-2 max-lg:order-last' : 'lg:col-span-1']}>
-					{links.map((link) => (
-						<li>
-							{link.href ? <UnderlineLink href={link.href}>{link.label}</UnderlineLink> : link.label}
-						</li>
-					))}
-				</ul>
-			))
-		}
+		{columns.map((links, i) => (
+			<ul class:list={['flex flex-col gap-3', i === 1 ? 'col-span-2 max-lg:order-last' : 'lg:col-span-1']}>
+				{links.map((link) => (
+					<li>{link.href ? <UnderlineLink href={link.href}>{link.label}</UnderlineLink> : link.label}</li>
+				))}
+			</ul>
+		))}
 	</div>
 	<!-- Créditos de referencias y fotografías: ver README.md y src/data/photos.ts. -->
 </footer>

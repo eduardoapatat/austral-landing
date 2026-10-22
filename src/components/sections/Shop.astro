@@ -11,19 +11,29 @@ import EditorialGrid from './EditorialGrid.astro';
 -->
 <section id="tienda" class="scroll-mt-(--header-h) px-(--gutter) pt-section" aria-labelledby="tienda-title" data-shop>
 	<div class="mb-12 flex flex-wrap items-baseline justify-between gap-4 border-b border-ink/30 pb-3">
-		<h2 id="tienda-title" class="text-headline">Colección otoño–invierno</h2>
+		<h2 id="tienda-title" class="text-headline">
+			Colección otoño–invierno
+		</h2>
 		<p class="flex items-baseline gap-4 text-label font-stretch-110% uppercase">
-			<span aria-live="polite" data-shop-status>Mostrando todo · {products.length} piezas</span>
-			<a href="#tienda" class="underline underline-offset-4" data-filter="" data-shop-reset hidden>Ver todo</a>
+			<span aria-live="polite" data-shop-status>
+				Mostrando todo · {products.length} piezas
+			</span>
+			<a href="#tienda" class="underline underline-offset-4" data-filter="" data-shop-reset hidden>
+				Ver todo
+			</a>
 		</p>
 	</div>
 
 	<div class="flex flex-col gap-section" data-view="editorial">
-		{blocks.map((items) => <EditorialGrid items={items} />)}
+		{blocks.map((items) => (
+			<EditorialGrid items={items} />
+		))}
 	</div>
 
 	<div class="grid grid-cols-2 items-start gap-x-(--gutter) gap-y-12 lg:grid-cols-4" data-view="flat" hidden>
-		{products.map((product) => <ProductCard product={product} reveal={false} />)}
+		{products.map((product) => (
+			<ProductCard product={product} reveal={false} />
+		))}
 	</div>
 
 	<SectionIndex number="04" name="Tienda" class="mt-section" />

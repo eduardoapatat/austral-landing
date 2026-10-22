@@ -5,49 +5,69 @@ import SectionIndex from '../ui/SectionIndex.astro';
 
 // \u00a0 (espacio de no separación): una cifra y su unidad no se parten entre dos líneas.
 const routes: { place: string; region: string; photo: PhotoKey; garment: string; weather: string }[] = [
-	{ place: 'Torres del Paine', region: 'Magallanes', photo: 'ruta-torres', garment: 'Cortavientos Torres', weather: 'Viento 80 km/h · 4 °C' },
-	{ place: 'Costa de Chiloé', region: 'Los Lagos', photo: 'ruta-costa', garment: 'Chaqueta Tortel', weather: 'Lluvia 9 de cada 10 días · 8 °C' },
-	{ place: 'Bosque de Cochamó', region: 'Los Lagos', photo: 'ruta-bosque', garment: 'Parka Aysén', weather: 'Humedad 95 % · 6 °C' },
+	{
+		place: 'Torres del Paine',
+		region: 'Magallanes',
+		photo: 'ruta-torres',
+		garment: 'Cortavientos Torres',
+		weather: 'Viento 80 km/h · 4 °C',
+	},
+	{
+		place: 'Costa de Chiloé',
+		region: 'Los Lagos',
+		photo: 'ruta-costa',
+		garment: 'Chaqueta Tortel',
+		weather: 'Lluvia 9 de cada 10 días · 8 °C',
+	},
+	{
+		place: 'Bosque de Cochamó',
+		region: 'Los Lagos',
+		photo: 'ruta-bosque',
+		garment: 'Parka Aysén',
+		weather: 'Humedad 95 % · 6 °C',
+	},
 ];
 ---
 
 <section id="rutas" class="scroll-mt-(--header-h) px-(--gutter) pt-section" aria-labelledby="rutas-title">
 	<div class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-		<h2 id="rutas-title" class="text-display font-stretch-expanded">Probado<br />en terreno</h2>
+		<h2 id="rutas-title" class="text-display font-stretch-expanded">
+			Probado
+			<br />
+			en terreno
+		</h2>
 		<p class="max-w-[36ch] text-lead">
 			Antes de producir una pieza la llevamos donde se va a usar. Si no aguanta una temporada allí, no sale a la venta.
 		</p>
 	</div>
 
 	<ul class="mt-16 grid gap-12 md:grid-cols-3 md:gap-(--gutter)" data-reveal-group>
-		{
-			routes.map((route) => (
-				<li data-reveal>
-					<div class="aspect-[4/5] overflow-hidden bg-surface-media">
-						<Picture
-							src={photos[route.photo].src}
-							alt={photos[route.photo].alt}
-							formats={['avif', 'webp']}
-							widths={[400, 700, 1000]}
-							sizes="(min-width: 768px) 33vw, 100vw"
-							class="size-full object-cover"
-						/>
+		{routes.map((route) => (
+			<li data-reveal>
+				<div class="aspect-[4/5] overflow-hidden bg-surface-media">
+					<Picture
+						src={photos[route.photo].src}
+						alt={photos[route.photo].alt}
+						formats={['avif', 'webp']}
+						widths={[400, 700, 1000]}
+						sizes="(min-width: 768px) 33vw, 100vw"
+						class="size-full object-cover"
+					/>
+				</div>
+				<h3 class="mt-4 text-headline">{route.place}</h3>
+				<p class="text-label font-stretch-110% uppercase">{route.region}</p>
+				<dl class="mt-4 border-t border-ink/30">
+					<div class="flex justify-between gap-4 border-b border-ink/30 py-3">
+						<dt class="text-spec-label">Prenda</dt>
+						<dd class="text-right">{route.garment}</dd>
 					</div>
-					<h3 class="mt-4 text-headline">{route.place}</h3>
-					<p class="text-label font-stretch-110% uppercase">{route.region}</p>
-					<dl class="mt-4 border-t border-ink/30">
-						<div class="flex justify-between gap-4 border-b border-ink/30 py-3">
-							<dt class="text-spec-label">Prenda</dt>
-							<dd class="text-right">{route.garment}</dd>
-						</div>
-						<div class="flex justify-between gap-4 border-b border-ink/30 py-3">
-							<dt class="text-spec-label">Clima</dt>
-							<dd class="text-right">{route.weather}</dd>
-						</div>
-					</dl>
-				</li>
-			))
-		}
+					<div class="flex justify-between gap-4 border-b border-ink/30 py-3">
+						<dt class="text-spec-label">Clima</dt>
+						<dd class="text-right">{route.weather}</dd>
+					</div>
+				</dl>
+			</li>
+		))}
 	</ul>
 	<SectionIndex number="06" name="Rutas" class="mt-section" />
 </section>

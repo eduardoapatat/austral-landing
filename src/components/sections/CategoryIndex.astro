@@ -6,27 +6,30 @@ const count = (category: string) => products.filter((product) => product.categor
 ---
 
 <section class="px-(--gutter) pt-section" aria-labelledby="categorias-title">
-	<h2 id="categorias-title" class="mb-12 text-center text-label font-stretch-110% uppercase">Categorías</h2>
+	<h2 id="categorias-title" class="mb-12 text-center text-label font-stretch-110% uppercase">
+		Categorías
+	</h2>
 	<!-- Cada categoría filtra la tienda (ver Shop.astro). Al pasar por una fila, las demás se atenúan. -->
-	<ul class="group/list flex flex-col items-center text-display font-stretch-expanded max-md:text-[10vw]" data-reveal-group>
-		{
-			CATEGORIES.map((category) => (
-				<li data-reveal>
-					<a
-						href={`?cat=${categorySlug(category)}#tienda`}
-						class="flex items-start gap-[0.15em] text-center transition-opacity duration-300 ease-standard group-hover/list:opacity-35 hover:opacity-100 focus-visible:opacity-100"
-						data-filter={categorySlug(category)}
-					>
-						{category}
-						<sup class="mt-[0.35em] text-label font-stretch-110%">
-							<span class="sr-only">, </span>
-							{count(category)}
-							<span class="sr-only"> piezas</span>
-						</sup>
-					</a>
-				</li>
-			))
-		}
+	<ul
+		class="group/list flex flex-col items-center text-display font-stretch-expanded max-md:text-[10vw]"
+		data-reveal-group
+	>
+		{CATEGORIES.map((category) => (
+			<li data-reveal>
+				<a
+					href={`?cat=${categorySlug(category)}#tienda`}
+					class="flex items-start gap-[0.15em] text-center transition-opacity duration-300 ease-standard group-hover/list:opacity-35 hover:opacity-100 focus-visible:opacity-100"
+					data-filter={categorySlug(category)}
+				>
+					{category}
+					<sup class="mt-[0.35em] text-label font-stretch-110%">
+						<span class="sr-only">, </span>
+						{count(category)}
+						<span class="sr-only"> piezas</span>
+					</sup>
+				</a>
+			</li>
+		))}
 		<li data-reveal class="mt-8">
 			<a href="#tienda" class="text-button-md font-stretch-110% uppercase underline underline-offset-4" data-filter="">
 				Ver todo ({products.length})

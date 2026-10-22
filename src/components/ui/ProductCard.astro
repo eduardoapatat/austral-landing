@@ -65,7 +65,9 @@ const available = SIZES.filter((size) => !soldOut.includes(size));
 		>
 			<span>Tallas</span>
 			<span class="flex gap-3">
-				{SIZES.map((size) => <span class:list={[soldOut.includes(size) && 'line-through opacity-40']}>{size}</span>)}
+				{SIZES.map((size) => (
+					<span class:list={[soldOut.includes(size) && 'line-through opacity-40']}>{size}</span>
+				))}
 			</span>
 		</div>
 	</div>
