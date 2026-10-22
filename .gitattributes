@@ -1,2 +1,6 @@
 # el lanzador de impeccable es un script sh: debe mantener LF
 .claude/skills/impeccable/scripts/impeccable text eol=lf
+
+# herramientas del agente (skill impeccable y sus scripts): no son código del sitio
+# y no cuentan en las estadísticas de lenguajes de GitHub
+.claude/** linguist-vendored
