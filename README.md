@@ -130,3 +130,7 @@ Todas las fotos son de [Unsplash](https://unsplash.com) y se usan bajo su [licen
 ## Licencia
 
 El código está bajo la licencia [MIT](LICENSE). Las fotos no: cada una mantiene la licencia de su autor, indicada en la tabla de créditos.
+
+## Autor
+
+Hecho por Eduardo Apata Tito.
