@@ -1,0 +1,11 @@
+dist
+.astro
+node_modules
+pnpm-lock.yaml
+
+# skill de terceros (impeccable) y sesiones del navegador del agente
+.claude/
+.playwright-cli/
+
+# configuración local y caché de impeccable (excluidas en .git/info/exclude)
+.impeccable/
