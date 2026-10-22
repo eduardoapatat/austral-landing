@@ -32,7 +32,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<!-- Solo el subconjunto latino (español): es el que usa todo el texto de la página. -->
 		<link rel="preload" href={archivoLatin} as="font" type="font/woff2" crossorigin />
 
