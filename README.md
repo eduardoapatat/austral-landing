@@ -1,5 +1,7 @@
 # AUSTRAL
 
+[![Portada del sitio: el nombre AUSTRAL sobre los Cuernos del Paine y un lago turquesa](docs/portada.webp)](https://austral-landing-six.vercel.app)
+
 **Sitio publicado:** [austral-landing-six.vercel.app](https://austral-landing-six.vercel.app)
 
 Prototipo de landing para una tienda e-commerce de **ropa de abrigo del sur de Chile**: parkas, chaquetas, polares, camisas de franela y prendas de punto pensadas para la lluvia, el viento y el frío de Chiloé, Aysén y Magallanes.
@@ -60,6 +62,8 @@ src/
 ├── layouts/Layout.astro
 ├── pages/index.astro
 └── styles/global.css   Tokens de Tailwind (colores, tipografía, espaciado, easing)
+docs/                   Captura de la portada para este README
+public/og.jpg           La misma captura, para compartir en redes (og:image)
 ```
 
 ## Comandos
