@@ -1,7 +1,5 @@
 ---
 import archivoLatin from '@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2?url';
-import { getImage } from 'astro:assets';
-import { photos } from '../data/photos';
 import '../styles/global.css';
 
 interface Props {
@@ -14,15 +12,8 @@ const {
 	description = 'Ropa de abrigo hecha para el sur de Chile: parkas, polares, franelas y punto en tiradas cortas.',
 } = Astro.props;
 
-// Imagen para compartir (1200×630) generada a partir de la foto del hero.
-const ogImage = await getImage({
-	src: photos['hero-torres'].src,
-	width: 1200,
-	height: 630,
-	fit: 'cover',
-	format: 'jpg',
-});
-const ogUrl = new URL(ogImage.src, Astro.site ?? Astro.url).href;
+// Imagen para compartir: captura de la portada (public/og.jpg, 1200×605), la misma que usa el README.
+const ogUrl = new URL('/og.jpg', Astro.site ?? Astro.url).href;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 ---
 
@@ -50,8 +41,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 		<meta property="og:url" content={canonical} />
 		<meta property="og:image" content={ogUrl} />
 		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content={photos['hero-torres'].alt} />
+		<meta property="og:image:height" content="605" />
+		<meta
+			property="og:image:alt"
+			content="Portada de AUSTRAL: el nombre de la marca sobre los Cuernos del Paine y un lago turquesa, en Torres del Paine"
+		/>
 		<meta name="twitter:card" content="summary_large_image" />
 		<!--
 			Diseño: sistema AUSTRAL (ver DESIGN.md). Referencias: OUTFIT® by ++hellohello (outfit.hellohello.is)
