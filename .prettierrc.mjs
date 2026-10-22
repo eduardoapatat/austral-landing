@@ -14,5 +14,19 @@ export default {
 				parser: 'astro',
 			},
 		},
+		// El CSS, el JSON, el YAML y el Markdown del repo ya usan dos espacios.
+		{
+			files: ['*.css', '*.json', '*.yaml', '*.yml', '*.md'],
+			options: {
+				useTabs: false,
+			},
+		},
+		// El YAML (también el frontmatter de DESIGN.md) mantiene sus comillas dobles.
+		{
+			files: ['*.yaml', '*.yml', '*.md'],
+			options: {
+				singleQuote: false,
+			},
+		},
 	],
 };
